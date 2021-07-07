@@ -1,5 +1,8 @@
-# W-RMS 개발을 위한 git환경 구축
+# WAP(Wonpyeong Archive Platform) 개발을 위한 git환경 구축
 
+0. 개요
+- WAP 개발에 참여하는 인원을 위한 문서로, 윈도우 명령 프롬프트(= cmd)를 이용해서 git을 사용
+- git bash 혹은 자주 사용하는 개발 환경(Visual Studio Code, PHP Storm 등)에서 자체적으로 git을 연동하여 사용하여도 괜찮음
 
 1. git 다운로드 및 설치
 - https://git-scm.com/ 에 접속하여 git 다운로드 후 설치
@@ -52,7 +55,7 @@
 - " " 안의 커밋 메시지는 "20210706 ~~~ 기능 추가"와 같이 8자리 날짜 + 변경 내용 작성 권장
 
 - 이렇게 되면 로컬에서만 버전관리가 되고 있으므로 원격저장소인 github에도 저장이 필요
-`git remote add origin https://github.com/ykj33/W-RMS.git`
+`git remote add origin https://github.com/ykj33/WAP.git`
 을 입력하여 원격 저장소 연결
 - 한번 연결해두면 앞으로도 계속 사용할 수 있다.
 
