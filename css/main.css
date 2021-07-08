@@ -14,7 +14,7 @@
 
 .logo-line .logo {
     height: 100%;
-    width: 150px;
+    width: 100%;
     background-color: orange;
 }
 
@@ -64,9 +64,10 @@
     justify-content: center;
 }
 
-.footer-description .description{
+.footer-description .description {
     margin-top: 10px;
 }
-.footer-description .description2{
+
+.footer-description .description2 {
     margin-top: 10px;
 }

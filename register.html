@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <!-- css 리셋 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
     <link rel="stylesheet" href="css/main.css">
     <script defer src="js/main.js"></script>
 </head>
@@ -14,13 +17,13 @@
     <header>
         <div class="logo-line">
             <div class="logo">
-                <img src="#" alt="로고">
+                <img src="./image/gumi_logo(2).png" alt="로고" class="logo">
                 로고 넣을 곳
             </div>
         </div>
-        <div class="banner">
+        <!-- <div class="banner">
             배너 들어갈 곳
-        </div>
+        </div> -->
         <div class="menu-group">
             <div class="menu">
                 <a href="register.html">기록물 등록</a>
@@ -36,9 +39,64 @@
             </div>
         </div>
     </header>
+
+    <!-- CONTENT -->
     <div class="content">
         <div class="inner">
-
+            <form action="regist.php" method="POST" class="regist">
+                <div class="metadata-group">
+                    <div class="metadata">
+                        <label for="uploadfile">기록물 첨부</label><br>
+                        <input type="file" name="uploadfile" id="uploadfile" required />
+                    </div>
+                    <div class="metadata">
+                        <label for="title">제목</label><br>
+                        <input type="text" name="title" id="title" required />
+                    </div>
+                    <div class="metadata">
+                        <label for="creator">생산자(원작자)</label><br>
+                        <input type="text" name="creator" id="creator" required />
+                    </div>
+                    <div class="metadata">
+                        <div class="metadata">
+                            <label for="collector">수집자</label><br>
+                            <input type="text" name="collector" id="collector" />
+                        </div>
+                    </div>
+                    <div class="metadata">
+                        <label for="date_from">시작날짜</label><br>
+                        <input type="date" name="date_from" id="date_from" required />
+                    </div>
+                    <div class="metadata">
+                        <label for="date_to">종료날짜</label><br>
+                        <input type="date" name="date_to" id="date_to" />
+                    </div>
+                    <div class="metadata">
+                        <label for="extent">기록규모</label><br>
+                        <input type="text" name="extent" id="extent" required />
+                    </div>
+                    <div class="metadata">
+                        <label for="medium">기록매체</label><br>
+                        <input type="text" name="medium" id="medium" required />
+                    </div>
+                    <div class="metadata">
+                        <label for="scope">기록범위</label><br>
+                        <input type="text" name="scope" id="scope" />
+                    </div>
+                    <div class="metadata">
+                        <label for="type">기록유형</label><br>
+                        <input type="text" name="type" id="type" required />
+                    </div>
+                    <div class="metadata">
+                        <label for="record_description">기술</label><br>
+                        <textarea name="record_description" id="record_description"></textarea>
+                    </div>
+                </div>
+                <div class="button-group">
+                    <input type="submit" name="regist" id="regist" value="등록">
+                    <input type="button" name="cancel" id="cancel" value="취소">
+                </div>
+            </form>
         </div>
     </div>
     <footer>
@@ -71,10 +129,10 @@
                 | 대표자: 센터장
                 <br>
                 | E-mail: OOOO@OOOO.kr
-                
+
             </div>
         </div>
-       
+
     </footer>
 </body>
 
