@@ -49,6 +49,13 @@
     align-items: center;
 }
 
+.box{
+    width: 333px;
+    height: 120px;
+    background-color: green;
+    float: left;
+}
+
 .text_box {
     text-align: center;
     display: block;
