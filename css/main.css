@@ -5,6 +5,12 @@
     border: 1px black solid;
 }
 
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
 /* HEADER */
 .logo-line {
     border: 1px solid black;
@@ -41,6 +47,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.text_box {
+    text-align: center;
+    display: block;
+    margin-top: 20px;
+    float: left;
+}
+
+.text_box h4 {
+    font-size: 17px;
+    color: #111;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
 }
 
 /* FOOTER */
