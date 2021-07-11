@@ -9,6 +9,7 @@ $db_pass = "audwleogkrry";
 $dsn = "$db_type:host=$db_host;dbname=$db_name;charset=utf8";
 
 try {
+    // DB 연결
     $pdo = new PDO($dsn, $db_user, $db_pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
@@ -17,12 +18,33 @@ try {
     die('오류:' . $exception->getMessage());
 }
 
+// DB에 데이터 입력
+
 try {
-    $sql = "SELECT MAX(record_id) FROM wap.record";
+// record_id의 현재 최대값을 가져와 +1을 한 뒤 앞으로 입력할 기록에 할당
+// identifier는 record_id에 WP_를 붙여 사용
+    $sql = "SELECT record_id FROM wap.record";
     $stmh = $pdo->prepare($sql);
-    $biggest_record_id = $stmh->execute();
+    $stmh->execute();
+    $biggest_record_id = $stmh->rowCount();
     $record_id = $biggest_record_id + 1;
     $identifier = "WP_" . $record_id;
+
+    // 파일 업로드
+    // 업로드 될 파일이 이동할 디렉토리의 경우 서버 환경에 맞게 재설정 필요
+    // windows 환경
+    $upload_file_dir = 'C:\Bitnami\wampstack-8.0.6-0\apache2\htdocs\wap\upload\\';
+
+    // 파일이 이동할 경로
+    $upload_file_path = $upload_file_dir . $_FILES["uploadfile"]["name"];
+
+    // 파일 이동
+    if (move_uploaded_file($_FILES["uploadfile"]["tmp_name"], $upload_file_path)) {
+        $file_dir = "upload/";
+        $file_path = $file_dir . $_FILES["uploadfile"]["name"];
+        $size = filesize($upload_file_path);
+    }
+print "등록이 완료되었습니다." . $upload_file_path;
 
     // 트랜잭션 시작
     $pdo->beginTransaction();
@@ -41,7 +63,7 @@ try {
     $stmh->bindValue(':scope', $_POST['scope'], PDO::PARAM_STR);
     $stmh->bindValue(':type', $_POST['type'], PDO::PARAM_STR);
     $stmh->bindValue(':description', $_POST['record_description'], PDO::PARAM_STR);
-    $stmh->bindValue(':url', $_POST['url'], PDO::PARAM_STR);
+    $stmh->bindValue(':url', $upload_file_path, PDO::PARAM_STR);
     $stmh->execute();
     $pdo->commit();
 } catch (Exception $exception) {
