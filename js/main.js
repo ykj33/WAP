@@ -24,8 +24,7 @@ document.querySelector('#confirm').addEventListener('click', function () {
         window.location.href = "http://localhost/wap/index.html";
     }
 })
-document.querySelector('#alert').addEventListener('click', function () {
-    console.log('취소')
+document.querySelector('#cancel').addEventListener('click', function () {
     if (confirm("입력한 내용이 삭제됩니다. 등록을 취소하시겠습니까?")) {
         // 확인 버튼 클릭 시 동작
         window.location.href = "http://localhost/wap/index.html";
