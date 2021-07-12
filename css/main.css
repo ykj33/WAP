@@ -1,9 +1,10 @@
-html{
+html {
     font-size: 18px;
 }
 
 .inner {
     width: 80%;
+    height: 900px;
     background-color: #fff;
 }
 
@@ -65,7 +66,7 @@ html{
     bottom: 40px;
     left: 0;
     right: 0;
-    z-index: 0;
+    z-index: 1;
 }
 
 .banner .swiper-prev,
@@ -122,7 +123,7 @@ html{
     margin: 0px 100px 0px 20px;
 }
 
-.menu-group .menu a{
+.menu-group .menu a {
     color: black;
 }
 
@@ -184,11 +185,7 @@ html{
 }
 
 /* FOOTER */
-.footer {
-    position: relative;
-}
 .footer-logo-group {
-    position: relative;
     display: flex;
     height: 70px;
     justify-content: center;
@@ -222,6 +219,7 @@ html{
     justify-content: center;
     align-items: center;
 }
+
 .collapse .nav-link {
     font-size: 25px;
     margin: 0 30px;
