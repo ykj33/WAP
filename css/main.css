@@ -1,5 +1,5 @@
 html {
-    font-size: 18px;
+    font-size: 23px;
 }
 
 .inner {
@@ -43,6 +43,18 @@ html {
     height: 100px;
     width: auto;
     background-color: #EDEDED;
+}
+
+.container-fluid .d-flex {
+    width: 600px;
+    padding: 20px;
+    margin: auto;
+}
+
+.container-fluid .btn-outline-success {
+    width: 100px;
+    color: black;
+    border-color: black;
 }
 
 .logo-line .logo {
@@ -131,6 +143,7 @@ html {
 }
 
 .menu-group .menu {
+    font-size: 20px;
     margin: 0px 100px 0px 20px;
 }
 
@@ -193,14 +206,14 @@ html {
 }
 
 .box1 h2 {
-    font-size: 17px;
+    font-size: 23px;
     color: #111;
     border-bottom: 1px solid #ddd;
     padding-bottom: 15px;
 }
 
 .box2 h3 {
-    font-size: 17px;
+    font-size: 20px;
     color: #111;
     border-bottom: 1px solid #ddd;
     padding-bottom: 15px;
