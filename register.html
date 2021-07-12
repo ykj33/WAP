@@ -4,17 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>WAP</title>
 
     <!-- css 리셋 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+    <!--    구글 폰트-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
     <!--    material-icons-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+
     <!-- SWIPER -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="css/main.css">
+
+    <link rel="stylesheet" href="./css/main.css">
 
     <!--    jQuery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -22,10 +29,14 @@
     <script defer src="js/main.js"></script>
 
     <!-- bootstrap include -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+            crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -40,18 +51,23 @@
     <!-- <div class="banner">
         배너 들어갈 곳
     </div> -->
+
     <div class="menu-group">
         <div class="menu">
-            <a href="register.html">기록물 등록</a>
+            <button type="button" class="btn btn-secondary btn-lg">기록물 등록
+                <a href="./register.html"></a></button>
         </div>
         <div class="menu">
-            <a href="list.html">기록물 조회</a>
+            <button type="button" class="btn btn-secondary btn-lg">기록물 조회
+                <a href="./list.html.html"></a></button>
         </div>
         <div class="menu">
-            <a href="board_list.html">게시판</a>
+            <button type="button" class="btn btn-secondary btn-lg">게시판
+                <a href="./board_list.html"></a></button>
         </div>
         <div class="menu">
-            <a href="login.html">로그인</a>
+            <button type="button" class="btn btn-secondary btn-lg">로그인
+                <a href="./login.html"></a></button>
         </div>
     </div>
 </header>
@@ -59,73 +75,150 @@
 <!-- CONTENT -->
 <div class="content">
     <div class="inner">
-        <form action="./php/register.php" method="POST" class="register" enctype="multipart/form-data">
-            <div class="metadata-group">
-                <div class="metadata">
-                    <label for="title">제목</label><br>
-                    <input type="text" name="title" id="title" required/>
-                </div>
-                <div class="metadata">
-                    <label for="creator">생산자(원작자)</label><br>
-                    <input type="text" name="creator" id="creator" required/>
-                </div>
-                <div class="metadata">
-                    <label for="collector">수집자</label><br>
-                    <input type="text" name="collector" id="collector"/>
-                </div>
-                <div class="metadata">
-                    <label for="date_from">시작날짜</label><br>
-                    <input type="date" name="date_from" id="date_from" required/>
-                </div>
-                <div class="metadata">
-                    <label for="date_to">종료날짜</label><br>
-                    <input type="date" name="date_to" id="date_to"/>
-                </div>
-                <div class="metadata">
-                    <label for="extent">기록규모</label><br>
-                    <input type="text" name="extent" id="extent" required/>
-                </div>
-                <div class="metadata">
-                    <label for="medium">기록매체</label><br>
-                    <input type="text" name="medium" id="medium" required/>
-                </div>
-                <div class="metadata">
-                    <label for="scope">기록범위</label><br>
-                    <input type="text" name="scope" id="scope"/>
-                </div>
-                <div class="metadata">
-                    <label for="type">기록유형</label><br>
-                    <input type="text" name="type" id="type" required/>
-                </div>
-                <div class="metadata">
-                    <label for="record_description">기술</label><br>
-                    <textarea name="record_description" id="record_description"></textarea>
-                </div>
-                <div class="metadata">
-                    <label for="uploadfile">기록물 첨부</label><br>
-                    <input type="file" name="uploadfile" id="uploadfile"/>
-                </div>
-            </div>
-<!--            <div class="wrap">-->
-                <section>
-                    <input type="submit" id="confirm" value="등록">
-                    <input type="button" id="cancel" value="취소">
-                </section>
-            <input type="hidden" id="afterAction" name="afterAction">
+        <div class="regist-inner">
+            <form action="./php/register.php" method="POST" class="register" enctype="multipart/form-data">
+                <div class="metadata-group">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="title">제목</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="기록물 제목을 입력해주세요." aria-label="제목"
+                               aria-describedby="title">
+                    </div>
 
-<!--                &lt;!&ndash; confirm 모달을 쓸 페이지에 추가 start&ndash;&gt;-->
-<!--                <section class="modal modal-section type-confirm">-->
-<!--                    <div class="enroll_box">-->
-<!--                        <p class="menu_msg"></p>-->
-<!--                    </div>-->
-<!--                    <div class="enroll_btn">-->
-<!--                        <button class="btn pink_btn btn_ok">확인</button>-->
-<!--                        <button class="btn gray_btn modal_close">취소</button>-->
-<!--                    </div>-->
-<!--                </section>-->
-<!--                &lt;!&ndash; confirm 모달을 쓸 페이지에 추가 end&ndash;&gt;-->
-<!--            </div>-->
-        </form>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="creator">생산자</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="기록물을 생산한 사람(원작자)를 입력해주세요."
+                               aria-label="생산자" aria-describedby="creator">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon3">수집자</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="기록물을 생산하지 않았어도 수집한 사람을 입력해주세요."
+                               aria-label="수집자" aria-describedby="basic-addon2">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="date_from">시작날짜</span>
+                        </div>
+                        <input type="date" class="form-control" placeholder="기록을 시작한 날짜를 입력해주세요." aria-label="시작날짜"
+                               aria-describedby="date_from">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="date_to">시작날짜</span>
+                        </div>
+                        <input type="date" class="form-control" placeholder="기록을 종료한 날짜를 입력해주세요." aria-label="종료날짜"
+                               aria-describedby="date_to">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="extent">기록규모</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="기록물의 규모를 입력해주세요. (ex. A4 용지 3장 등)"
+                               aria-label="기록규모"
+                               aria-describedby="extent">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="medium">기록매체</span>
+                        </div>
+                        <input type="text" class="form-control"
+                               placeholder="기록물이 생산, 저장 또는 보존되고 있는 물리적인 매체를 입력해주세요. (ex. USB, 필름, 종이 등)"
+                               aria-label="기록매체"
+                               aria-describedby="medium">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="scope">기록범위</span>
+                        </div>
+                        <input type="text" class="form-control"
+                               placeholder="기록물의 공간적, 시간적 범위 등을 입력해주세요. (ex. 17시에 A역을 찍은 사진 등)" aria-label="기록범위"
+                               aria-describedby="scope">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="type">기록유형</span>
+                        </div>
+                        <input type="text" class="form-control"
+                               placeholder="기록물의 생성과 관련된 형태를 입력해주세요.(ex. 일반문서, 간행물, 사진 등)" aria-label="기록유형"
+                               aria-describedby="type">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="record_description">기술</span>
+                        </div>
+                        <textarea class="form-control" placeholder="기록물과 관련된 설명을 입력해주세요." aria-label="기술"
+                                  aria-describedby="record_description"></textarea>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="upload">파일첨부</span>
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="uploadfile" aria-describedby="upload">
+                            <label class="custom-file-label" for="uploadfile">등록할 기록물 파일을 선택해주세요.</label>
+                        </div>
+                    </div>
+                    <!--                <div class="metadata">-->
+                    <!--                    <label for="collector">수집자</label><br>-->
+                    <!--                    <input type="text" name="collector" id="collector"/>-->
+                    <!--                </div>-->
+                    <!--                <div class="metadata">-->
+                    <!--                    <label for="creator">생산자(원작자)</label><br>-->
+                    <!--                    <input type="text" name="creator" id="creator" required/>-->
+                    <!--                </div>-->
+                    <!--                <div class="metadata">-->
+                    <!--                    <label for="title">제목</label><br>-->
+                    <!--                    <input type="text" name="title" id="title" required/>-->
+                    <!--                </div>-->
+                    <!--                <div class="metadata">-->
+                    <!--                    <label for="date_from">시작날짜</label><br>-->
+                    <!--                    <input type="date" name="date_from" id="date_from" required/>-->
+                    <!--                </div>-->
+                    <!--                <div class="metadata">-->
+                    <!--                    <label for="date_to">종료날짜</label><br>-->
+                    <!--                    <input type="date" name="date_to" id="date_to"/>-->
+                    <!--                </div>-->
+                    <!--                <div class="metadata">-->
+                    <!--                    <label for="extent">기록규모</label><br>-->
+                    <!--                    <input type="text" name="extent" id="extent" required/>-->
+                    <!--                </div>-->
+                    <!--                <div class="metadata">-->
+                    <!--                    <label for="medium">기록매체</label><br>-->
+                    <!--                    <input type="text" name="medium" id="medium" required/>-->
+                    <!--                </div>-->
+                    <!--                <div class="metadata">-->
+                    <!--                    <label for="scope">기록범위</label><br>-->
+                    <!--                    <input type="text" name="scope" id="scope"/>-->
+                    <!--                </div>-->
+                    <!--                <div class="metadata">-->
+                    <!--                    <label for="type">기록유형</label><br>-->
+                    <!--                    <input type="text" name="type" id="type" required/>-->
+                    <!--                </div>-->
+                    <!--                <div class="metadata">-->
+                    <!--                    <label for="record_description">기술</label><br>-->
+                    <!--                    <textarea name="record_description" id="record_description"></textarea>-->
+                    <!--                </div>-->
+                    <!--                <div class="metadata">-->
+                    <!--                    <label for="uploadfile">기록물 첨부</label><br>-->
+                    <!--                    <input type="file" name="uploadfile" id="uploadfile"/>-->
+                    <!--                </div>-->
+                    <div class="button-group">
+                        <button type="submit" id="confirm" class="btn btn-outline-secondary btn-lg">등록</button>
+                        <button type="button" id="cancel" class="btn btn-outline-secondary btn-lg">취소</button>
+                    </div>
+                </div>
+
+                <!--                js에서 PHP로 값을 넘기기 위해 만들어 놓은 input태그-->
+                <input type="hidden" id="afterAction" name="afterAction">
+            </form>
+        </div>
     </div>
 </div>
 </div>

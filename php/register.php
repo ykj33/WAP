@@ -45,6 +45,9 @@ try {
         $size = filesize($upload_file_path);
     }
 //print "등록이 완료되었습니다." . $upload_file_path;
+    if($upload_file_path == $upload_file_dir) {
+        $upload_file_path = null;
+    }
 
     // 트랜잭션 시작
     $pdo->beginTransaction();
