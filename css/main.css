@@ -4,8 +4,10 @@ html {
 
 .inner {
     width: 80%;
-    height: 900px;
+    margin-bottom: 100px;
     background-color: #fff;
+    position: relative;
+    overflow: hidden;
 }
 
 .inner .regist-inner {
@@ -30,7 +32,7 @@ html {
     margin-left: 10px;
 }
 
-.clearfix::after {
+.inner .box1 .clearfix::after {
     content: "";
     display: block;
     clear: both;
@@ -134,20 +136,27 @@ html {
     align-items: center;
 }
 
-.box1,
-.box2 {
+.inner .box1,
+.inner .box2 {
     position: relative;
 }
 
 .box1 {
     position: absolute;
-    left: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+/*left: 25%;*/
+
 }
 
 .box2 {
     position: absolute;
-    left: 22%;
-    margin-top: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*left: 22%;*/
+    margin-top: 25px;
 }
 
 .box1 li {
@@ -157,6 +166,10 @@ html {
     line-height: 50px;
     float: left;
     margin-top: 50px;
+
+}
+
+.box1 li:last-child {
     margin-left: 20px;
 }
 
@@ -169,7 +182,9 @@ html {
     margin-top: 150px;
     margin-left: 20px;
 }
-
+.box2 li:first-child{
+    margin-left: 0;
+}
 .box1 h2 {
     font-size: 17px;
     color: #111;
@@ -182,6 +197,10 @@ html {
     color: #111;
     border-bottom: 1px solid #ddd;
     padding-bottom: 15px;
+}
+
+.input-group-prepend {
+    width: 100%;
 }
 
 /* FOOTER */
