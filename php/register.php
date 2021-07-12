@@ -44,7 +44,7 @@ try {
         $file_path = $file_dir . $_FILES["uploadfile"]["name"];
         $size = filesize($upload_file_path);
     }
-print "등록이 완료되었습니다." . $upload_file_path;
+//print "등록이 완료되었습니다." . $upload_file_path;
 
     // 트랜잭션 시작
     $pdo->beginTransaction();
@@ -66,6 +66,13 @@ print "등록이 완료되었습니다." . $upload_file_path;
     $stmh->bindValue(':url', $upload_file_path, PDO::PARAM_STR);
     $stmh->execute();
     $pdo->commit();
+
+    $afterAction = $_POST['afterAction'];
+    if($afterAction == "more_regist"){
+        Header("Location:http://localhost/wap/register.html");
+    } else {
+        Header("Location:http://localhost/wap/index.html");
+    }
 } catch (Exception $exception) {
     $pdo->rollBack();
     print "오류: " . $exception->getMessage();

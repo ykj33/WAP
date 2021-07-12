@@ -1,5 +1,5 @@
 // 화면 출력 완료
-console.log("로딩완료")
+console.log("로딩완료");
 
 new Swiper('.banner .swiper-container', {
 
@@ -16,12 +16,14 @@ new Swiper('.banner .swiper-container', {
 });
 
 document.querySelector('#confirm').addEventListener('click', function () {
-    if (confirm("등록이 완료되었습니다. 추가로 더 등록하시겠습니까?")) {
+    if (confirm("등록이 완료됩니다. 추가로 더 등록하시겠습니까?")) {
         // 확인 버튼 클릭 시 동작
-        window.location.href = "http://localhost/wap/register.html";
+        document.getElementById('afterAction').value = "more_regist";
+        console.log("추가 등록");
+        // window.location.href = "http://localhost/wap/register.html";
     } else {
         // 취소 버튼 클릭 시 동작
-        window.location.href = "http://localhost/wap/index.html";
+        // window.location.href = "http://localhost/wap/index.html";
     }
 })
 document.querySelector('#cancel').addEventListener('click', function () {
