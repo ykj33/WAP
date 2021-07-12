@@ -91,6 +91,7 @@
     height: 70px;
     justify-content: center;
     align-items: center;
+    border-bottom: 1px solid black;
 }
 
 .menu-group .menu {
@@ -106,6 +107,23 @@
     align-items: center;
 }
 
+.box1,
+.box2 {
+    position: relative;
+}
+
+.box1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.box2 {
+    position: absolute;
+    left: 22%;
+    margin-top: 300px;
+}
+
 .box1 li {
     width: 450px;
     height: 350px;
@@ -114,17 +132,6 @@
     float: left;
     margin-top: 50px;
     margin-left: 20px;
-}
-
-.box1,
-.box2 {
-    position: relative
-}
-
-.box1 {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
 }
 
 .box2 li {
@@ -137,14 +144,14 @@
     margin-left: 20px;
 }
 
-.box2 {
-    position: absolute;
-    left: 22%;
-    margin-top: 300px;
+.box1 h2 {
+    font-size: 17px;
+    color: #111;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
 }
 
-.text_box h2,
-h3 {
+box2 h2 {
     font-size: 17px;
     color: #111;
     border-bottom: 1px solid #ddd;
