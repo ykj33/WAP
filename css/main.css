@@ -14,15 +14,16 @@
 .logo-line {
     height: 100px;
     width: auto;
+    background-color: #EDEDED;
 }
 
 .logo-line .logo {
     height: 100px;
     width: 120px;
+    margin-left: 13%;
 }
 
 .banner {
-
     position: relative;
 }
 
