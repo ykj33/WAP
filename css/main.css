@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 html {
     font-size: 23px;
 }
+=======
+>>>>>>> 24edb446d10298cf8a01d3738f6c7c25300f4537
 
 .inner {
     width: 80%;
@@ -173,6 +176,7 @@ html {
 }
 
 .box2 {
+    height: 500px;
     position: absolute;
     display: flex;
     justify-content: center;
@@ -187,7 +191,7 @@ html {
     text-align: center;
     line-height: 50px;
     float: left;
-    margin-top: 50px;
+    margin-top: 150px;
     margin-left: 20px;
 }
 
@@ -197,23 +201,8 @@ html {
     text-align: center;
     line-height: 50px;
     float: left;
-    margin-top: 150px;
-    margin-left: 20px;
-}
-
-.box2 li:first-child {
-    margin-left: 0;
-}
-
-.box1 h2 {
-    font-size: 23px;
-    color: #111;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 15px;
-}
-
-.box2 h3 {
-    font-size: 20px;
+    margin-top: 50px;
+font-size: 20px;
     color: #111;
     border-bottom: 1px solid #ddd;
     padding-bottom: 15px;
