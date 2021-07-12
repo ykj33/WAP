@@ -35,7 +35,9 @@ document.querySelector('#cancel').addEventListener('click', function () {
         return;
     }
 });
-
+$("input[type='file']").on('change', function() {
+    $(this).next('.custom-file-label').html(event.target.files[0].name);
+});
 // $(function () {
 //     $(document).on("click", "#confirm", function () {
 //         action_popup.confirm("등록이 완료되었습니다. 추가로 등록하시겠습니까?", function (res) {
