@@ -1,7 +1,22 @@
+/* COMMON */
+/*body {*/
+/*    font-size: 16px;*/
+/*    font-weight: 400;*/
+/*    line-height: 1.4;*/
+/*    font-family: 'Nanum Gothic', sans-serif;*/
+/*}*/
+
+/* 링크에 밑줄 없애기 */
+a {
+    text-decoration: none;
+}
+
+
 .inner {
     width: 80%;
-    height: 800px;
+    margin: 0 auto;
     background-color: #fff;
+    position: relative;
 }
 
 .clearfix::after {
@@ -179,6 +194,27 @@ h3 {
     margin-top: 10px;
 }
 
+/*regist inner*/
+.inner .regist-inner {
+    background-color: #d9d9d9;
+    width: 80%;
+
+    margin: 20px auto;
+}
+
+.inner .metadata-group {
+    width: 90%;
+    margin: auto;
+    padding: 15px;
+}
+
+.inner .metadata-group .button-group {
+    display: flex;
+    justify-content: flex-end;
+}
+.inner .metadata-group .button-group .btn-outline-secondary {
+    margin-left: 10px;
+}
 /*!*등록 버튼 모달*!*/
 /*.modal .btn {*/
 /*    cursor: pointer;*/
