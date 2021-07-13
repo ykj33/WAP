@@ -38,6 +38,22 @@ document.querySelector('#cancel').addEventListener('click', function () {
 $("input[type='file']").on('change', function() {
     $(this).next('.custom-file-label').html(event.target.files[0].name);
 });
+
+// 마우스 올렸을 시 확대
+function zoomIn(event) {
+    event.target.style.transform = "scale(1.2)";
+    event.target.style.zIndex = 1;
+    event.target.style.transition = "all 0.5s";
+}
+
+// 마우스 뺐을 시 축소
+function zoomOut(event) {
+    event.target.style.transform = "scale(1)";
+    event.target.style.zIndex = 0;
+    event.target.style.transition = "all 0.5s";
+}
+
+
 // $(function () {
 //     $(document).on("click", "#confirm", function () {
 //         action_popup.confirm("등록이 완료되었습니다. 추가로 등록하시겠습니까?", function (res) {
