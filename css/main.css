@@ -249,7 +249,10 @@
 .footer-description .description {
     margin-top: 10px;
 }
-
+.footer-description .between{
+    width: 100px;
+    height: 100%;
+}
 .footer-description .description2 {
     margin-top: 10px;
 }
