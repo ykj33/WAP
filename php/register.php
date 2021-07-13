@@ -47,8 +47,8 @@ try {
 
 
     }
-    print "등록이 완료되었습니다." . $upload_file_path;
-    if ($upload_file_path == $upload_file_dir) {
+//    print "등록이 완료되었습니다." . $upload_file_path;
+    if ($_FILES['uploadfile']['name'] == null) {
         $upload_file_path = null;
     }
 
