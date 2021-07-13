@@ -55,7 +55,7 @@ try {
     // 트랜잭션 시작
     $pdo->beginTransaction();
     $sql = "INSERT INTO rikarsong.record (identifier, record_id, title, creator, collector, date_from, date_to, extent, medium, scope, type, description, level_of_description, url)
-            VALUES (:identifier, :record_id, :title, :creator, :collector, :date_from, :date_to, :extent, :medium, :scope, :type, :description, 'item' :url)";
+            VALUES (:identifier, :record_id, :title, :creator, :collector, :date_from, :date_to, :extent, :medium, :scope, :type, :description, 'item', :url)";
     $stmh = $pdo->prepare($sql);
     $stmh->bindValue(':identifier', $identifier, PDO::PARAM_STR);
     $stmh->bindValue(':record_id', $record_id, PDO::PARAM_STR);

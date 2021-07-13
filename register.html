@@ -121,11 +121,11 @@
     <div class="content">
         <div class="inner">
             <div class="regist-inner">
-                <form action="./php/register.php" method="POST" class="register" enctype="multipart/form-data">
+                <form action="./php/register.php" method="POST" class="register" id="register_form" name="register_form" enctype="multipart/form-data">
                     <div class="metadata-group">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="title_label">제목</span>
+                                <span class="input-group-text" id="title_label">제목(*)</span>
                             </div>
                             <input type="text" class="form-control" placeholder="기록물 제목을 입력해주세요." aria-label="제목"
                                 aria-describedby="title" name="title" id="title">
@@ -133,7 +133,7 @@
 
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="creator_label">생산자</span>
+                                <span class="input-group-text" id="creator_label">생산자(*)</span>
                             </div>
                             <input type="text" class="form-control" placeholder="기록물을 생산한 사람(원작자)를 입력해주세요."
                                 aria-label="생산자" aria-describedby="creator" name="creator" id="creator">
@@ -149,28 +149,28 @@
 
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="date_from_label">시작날짜</span>
+                                <span class="input-group-text" id="date_from_label">시작날짜(*)</span>
                             </div>
                             <input type="date" class="form-control" placeholder="기록을 시작한 날짜를 입력해주세요." aria-label="시작날짜"
                                 aria-describedby="date_from" name="date_from" id="date_from">
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="date_to_label">종료날짜</span>
+                                <span class="input-group-text" id="date_to_label">종료날짜(*)</span>
                             </div>
                             <input type="date" class="form-control" placeholder="기록을 종료한 날짜를 입력해주세요." aria-label="종료날짜"
                                 aria-describedby="date_to" name="date_to" id="date_to">
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="extent_label">기록규모</span>
+                                <span class="input-group-text" id="extent_label">기록규모(*)</span>
                             </div>
                             <input type="text" class="form-control" placeholder="기록물의 규모를 입력해주세요. (ex. A4 용지 3장 등)"
                                 aria-label="기록규모" aria-describedby="extent" name="extent" id="extent">
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="medium_label">기록매체</span>
+                                <span class="input-group-text" id="medium_label">기록매체(*)</span>
                             </div>
                             <input type="text" class="form-control"
                                 placeholder="기록물이 생산, 저장 또는 보존되고 있는 물리적인 매체를 입력해주세요. (ex. USB, 필름, 종이 등)"
@@ -186,7 +186,7 @@
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="type_label">기록유형</span>
+                                <span class="input-group-text" id="type_label">기록유형(*)</span>
                             </div>
                             <input type="text" class="form-control"
                                 placeholder="기록물의 생성과 관련된 형태를 입력해주세요.(ex. 일반문서, 간행물, 사진 등)" aria-label="기록유형"
