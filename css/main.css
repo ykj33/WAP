@@ -230,8 +230,12 @@
 }
 
 .footer-logo-group .footer-logo {
-    background-color: #fff;
+        background-color: #fff;
     margin: 0px 20px 0px 20px;
+}
+
+.footer-logo-group .footer-logo span{
+    color: black;
 }
 
 .footer-description {
