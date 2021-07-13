@@ -1,4 +1,5 @@
 # WAP(Wonpyeong Archive Platform) 개발을 위한 git환경 구축
+20210714
 
 0. 개요
 - WAP 개발에 참여하는 인원을 위한 문서로, 윈도우 명령 프롬프트(= cmd)를 이용해서 git을 사용
@@ -31,14 +32,18 @@
 - 가입을 완료하였을 경우 다시 cmd 창으로 돌아와서
 
 `git config --global user.name 'github에 입력한 이름'`
-`git config --golbal user.email 'github에 입력한 이메일'`
+`git config --global user.email 'github에 입력한 이메일'`
 을 입력하여 설정 완료
 
 - `git config --global --list`
 를 입력하여 제대로 설정이 되었는지 확인
 
 
-4. git 사용
+4. 로컬 내 git 사용 환경 구축
+- `git init`을 한 위치에서 `git clone https://github.com/ykj33/WAP.git` 입력
+- github에 있는 프로젝트 파일들이 복사되어 환경 구축
+
+5. git 사용
 - git의 경우 변경이력 감지 - 추적 - 커밋 - 푸쉬의 4단계
 - add - commit - push의 4단계를 기억하자
 
