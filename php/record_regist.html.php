@@ -75,7 +75,7 @@ try {
 
     $afterAction = $_POST['afterAction'];
     if ($afterAction == "more_regist") {
-        Header("Location:https://rikarsong.cafe24.com/wap/register.html");
+        Header("Location:https://rikarsong.cafe24.com/wap/record_regist.html");
     } else {
         Header("Location:https://rikarsong.cafe24.com/wap/index.html");
     }
