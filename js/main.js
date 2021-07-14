@@ -23,7 +23,7 @@ document.querySelector('#confirm').addEventListener('click', function () {
         return false;
     } else {
         return true;
-        window.location.href = "../record_regist.html";
+        window.location.href = "https://rikarsong.cafe24.com/wap/record_regist.html";
     }
 })
 document.querySelector('#cancel').addEventListener('click', function () {
