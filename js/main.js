@@ -35,9 +35,9 @@ document.querySelector('#cancel').addEventListener('click', function () {
         return;
     }
 });
-$("input[type='file']").on('change', function () {
-    $(this).next('.custom-file-label').html(event.target.files[0].name);
-});
+// $("input[type='file']").on('change', function () {
+//     $(this).next('.custom-file-label').html(event.target.files[0].name);
+// });
 
 
 // 마우스 올렸을 시 확대
@@ -95,20 +95,17 @@ function checkFile(f) {
     let file = f.files;
     console.log(file)
     // 정규표현식으로 확장자 체크
-    const imgType = /\.(gif|jpg|jpeg|png)$/i;
-    const videoType = /\.(mp4|avi)$/i;
     if (!/\.(gif|jpg|jpeg|png|mp4|avi)$/i.test(file[0].name)) {
         alert('gif, jpg, jpeg, png, mp4, avi 파일만 선택해주세요.\n\n현재파일 : ' + file[0].name);
         f.outerHTML = f.outerHTML;
-
-        // 파일 용량 체크
-        checkFileSize(f)
+        console.log("파일 형식 체크")
         return;
     } else {
         // 파일 용량 체크
         checkFileSize(f)
 
     }
+
 }
 
 // 파일 용량 체크
@@ -117,10 +114,14 @@ function checkFileSize(f) {
     if (file[0].size >= 10000000) {
         console.log("이미지 파일 용량 체크")
         alert('파일은 10MB 이하의 크기만 첨부 가능합니다.');
+
         f.outerHTML = f.outerHTML;
+        console.log("10메가보다 크다.")
         return false;
     } else {
         // 파일 이름 출력하기
+
         document.getElementById("custom-file-label").innerHTML = file[0].name;
+        console.log("10메가보다 작다.")
     }
 }
