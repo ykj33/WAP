@@ -1,22 +1,42 @@
 
-.inner {
-    width: 80%;
-    margin-bottom: 100px;
-    background-color: #fff;
-    position: relative;
-    overflow: hidden;
-}
+/*.inner {*/
+/*    width: 100%;*/
+/*    margin-bottom: 100px;*/
+/*    background-color: #fff;*/
+/*    position: relative;*/
+/*    overflow: hidden;*/
+/*}*/
 
 .inner .regist-inner {
-    width: 100%;
+    width: 1000px;
     margin: 30px auto;
     background-color: #d9d9d9;
 }
 
-.inner .regist-inner .register {
-    width: 85%;
+.input-group-text {
+    width: 100px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.inner .regist-inner .register{
+    width: 100%;
     margin: auto;
     padding: 25px;
+}
+.metadata-group {
+    width: 800px;
+    margin: auto;
+}
+.metadata-group .input-group .form-control{
+    width: 800px;
+    height: 40px;
+}
+
+.metadata-group .input-group .form-control#record_description{
+    width: 800px;
+    height: 400px;
 }
 
 .inner .regist-inner .register .button-group {
@@ -26,7 +46,12 @@
 }
 
 .inner .regist-inner .register .button-group .btn {
-    margin-left: 10px;
+    width: 80px;
+    height: 40px;
+    margin-left: 5px;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
 }
 
 .inner .box1 .clearfix::after {
