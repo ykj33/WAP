@@ -72,13 +72,13 @@ try {
     $stmh->bindValue(':url', $upload_file_path, PDO::PARAM_STR);
     $stmh->execute();
     $pdo->commit();
-
-    $afterAction = $_POST['afterAction'];
-    if ($afterAction == "more_regist") {
-        Header("Location:https://rikarsong.cafe24.com/wap/record_regist.html");
-    } else {
-        Header("Location:https://rikarsong.cafe24.com/wap/index.html");
-    }
+    Header("Location:https://rikarsong.cafe24.com/wap/record_regist.html");
+//    $afterAction = $_POST['afterAction'];
+//    if ($afterAction == "more_regist") {
+//        Header("Location:https://rikarsong.cafe24.com/wap/record_regist.html");
+//    } else {
+//        Header("Location:https://rikarsong.cafe24.com/wap/index.html");
+//    }
 } catch (Exception $exception) {
     $pdo->rollBack();
     print "오류: " . $exception->getMessage();

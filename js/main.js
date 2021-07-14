@@ -21,9 +21,6 @@ document.querySelector('#confirm').addEventListener('click', function () {
         // 필요항목이 입력되지 않을 경우 submit이 되지 않게 함
         event.preventDefault();
         return false;
-    } else {
-        return true;
-        window.location.href = "https://rikarsong.cafe24.com/wap/record_regist.html";
     }
 })
 document.querySelector('#cancel').addEventListener('click', function () {
