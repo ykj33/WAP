@@ -1,6 +1,7 @@
 // 화면 출력 완료
 console.log("로딩완료");
 
+// 배너 슬라이드
 new Swiper('.banner .swiper-container', {
 
     autoplay: true,
@@ -15,6 +16,7 @@ new Swiper('.banner .swiper-container', {
     }
 });
 
+// 등록버튼 클릭 시 유효성 검사
 document.querySelector('#confirm').addEventListener('click', function () {
     // 필수항목입력 여부 체크
     if (checkForm() == false) {
@@ -67,6 +69,11 @@ function checkForm() {
         return false;
     } else if (document.getElementById("date_to").value == "") {
         alert("종료날짜를 입력해주세요.")
+        $("#date_to").focus();
+        return false;
+        // 날짜 비교
+    } else if (document.getElementById("date_from").value > document.getElementById("date_to").value) {
+        alert("종료날짜가 시작날짜보다 앞서면 안됩니다.")
         $("#date_to").focus();
         return false;
     } else if (document.getElementById("extent").value == "") {

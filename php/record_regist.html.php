@@ -73,12 +73,6 @@ try {
     $stmh->execute();
     $pdo->commit();
     Header("Location:https://rikarsong.cafe24.com/wap/record_regist.html");
-//    $afterAction = $_POST['afterAction'];
-//    if ($afterAction == "more_regist") {
-//        Header("Location:https://rikarsong.cafe24.com/wap/record_regist.html");
-//    } else {
-//        Header("Location:https://rikarsong.cafe24.com/wap/index.html");
-//    }
 } catch (Exception $exception) {
     $pdo->rollBack();
     print "오류: " . $exception->getMessage();
