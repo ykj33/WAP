@@ -1,4 +1,3 @@
-
 /*.inner {*/
 /*    width: 100%;*/
 /*    margin-bottom: 100px;*/
@@ -20,21 +19,24 @@
     align-items: center;
     text-align: center;
 }
-.inner .regist-inner .register{
+
+.inner .regist-inner .register {
     width: 100%;
     margin: auto;
     padding: 25px;
 }
+
 .metadata-group {
     width: 800px;
     margin: auto;
 }
-.metadata-group .input-group .form-control{
+
+.metadata-group .input-group .form-control {
     width: 800px;
     height: 40px;
 }
 
-.metadata-group .input-group .form-control#record_description{
+.metadata-group .input-group .form-control#record_description {
     width: 800px;
     height: 400px;
 }
@@ -255,11 +257,11 @@
 }
 
 .footer-logo-group .footer-logo {
-        background-color: #fff;
+    background-color: #fff;
     margin: 0px 20px 0px 20px;
 }
 
-.footer-logo-group .footer-logo span{
+.footer-logo-group .footer-logo span {
     color: black;
 }
 
@@ -274,10 +276,12 @@
 .footer-description .description {
     margin-top: 10px;
 }
-.footer-description .between{
+
+.footer-description .between {
     width: 100px;
     height: 100%;
 }
+
 .footer-description .description2 {
     margin-top: 10px;
 }
@@ -292,4 +296,16 @@
 .collapse .nav-link {
     font-size: 25px;
     margin: 0 30px;
+}
+
+/*기록물 목록 조회*/
+.inner .list-inner {
+    width: 1000px;
+    margin: 30px auto;
+    background-color: #d9d9d9;
+}
+
+.inner .list-inner .search-group .form-inline {
+    display: flex;
+    justify-content: flex-end;
 }
