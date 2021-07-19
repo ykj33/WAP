@@ -81,7 +81,7 @@
 
 .logo-line .logo {
     height: 100px;
-    width: 120px;
+    width: 150px;
     float: left;
 }
 
@@ -93,7 +93,7 @@
     color: black;
 }
 
-.banner {
+/* .banner {
     position: relative;
 }
 
@@ -154,7 +154,7 @@
 .banner .swiper-next:hover {
     background-color: #333;
     color: #fff;
-}
+} */
 
 .menu-group {
     display: flex;
