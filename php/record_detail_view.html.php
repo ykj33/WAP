@@ -61,27 +61,20 @@
 <header>
     <div class="logo-line">
         <div class="logo">
-            <a href="http://rikarsong.cafe24.com/wap/index.html">
-                <img src="../image/gumi_logo.png" alt="로고" class="logo">
+            <a href="http://rikarsong.cafe24.com/wap/index.html.php">
+                <img src="../image/rikar_logo.png" alt="로고" class="logo">
             </a>
-            <div class="login">
-                <a href="#">
-                    <p>로그인</p>
-                </a>
-            </div>
         </div>
-        <div class="container-fluid">
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">검색</button>
-            </form>
+        <div class="application-name">
+            원평동<br>
+            도시재생기록화
+        </div>
+        <div class="login">
+            <a href="#">
+                <p>로그인</p>
+            </a>
         </div>
     </div>
-    <!-- <div class="banner">
-    배너 들어갈 곳
-</div> -->
-
-    <!-- menu 부분 -->
     <div class="menu-group">
         <div class="menu">
             <a href="../record_regist.html">기록물 등록</a>
@@ -90,9 +83,45 @@
             <a href="record_list_view.html.php">기록물 조회</a>
         </div>
         <div class="menu">
-            <a href="#">게시판</a>
+            <a href="#">모니터링단<br> 커뮤니티</a>
         </div>
     </div>
+    <!-- <div class="container-fluid">
+        <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">검색</button>
+        </form>
+    </div> -->
+    </div>
+
+    <!-- banner 부분-->
+    <!-- <div class="banner">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="./image/wp_banner1.png" alt="배너 1">
+                </div>
+                <div class="swiper-slide">
+                    <img src="./image/wp_banner2.png" alt="배너 2">
+                </div>
+                <div class="swiper-slide">
+                    <img src="./image/wp_banner3.png" alt="배너 3">
+                </div>
+                <div class="swiper-slide">
+                    <img src="./image/wp_banner4.png" alt="배너 4">
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-prev">
+                <div class="material-icons">arrow_back_ios_new</div>
+            </div>
+            <div class="swiper-next">
+                <div class="material-icons">arrow_forward_ios</div>
+            </div>
+        </div>
+        <img src="./image/wp_banner1.png">
+    </div> -->
+    <!-- menu 부분 -->
 </header>
 
 <!-- CONTENT -->
@@ -233,8 +262,8 @@
                             </div>
                             <textarea class="form-control" aria-label="기술"
                                       aria-describedby="record_description" name="record_description"
-                                      id=record_description value="<?= htmlspecialchars($row['description']) ?>"
-                                      disabled></textarea>
+                                      id="record_description"
+                                      disabled><?= htmlspecialchars($row['description']) ?></textarea>
                         </div>
                         <!--                        <div class="input-group mb-3">-->
                         <!--                            <div class="input-group-prepend">-->
@@ -268,65 +297,149 @@
                     </div>
                 </form>
             </div>
-            <table class="table">
-                <thead class="thead-dark">
-                <tr>
-                    <th scope="col">식별자</th>
-                    <th scope="col">제목</th>
-                    <th scope="col">등록자</th>
-                    <th scope="col">등록일</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php
-                try {
-                    $sql = "SELECT * FROM rikarsong.record WHERE delete_yn = 'N' ORDER BY regist_date DESC";
-                    $stmh = $pdo->prepare($sql);
-                    $stmh->execute();
-                    $count = $stmh->rowCount();
-                } catch (Exception $exception) {
-                    print "오류: " . $exception->getMessage();
-                }
-                while ($row = $stmh->fetch(PDO::FETCH_ASSOC)) {
-                    ?>
-                    <tr>
-                        <td align="center"><?= htmlspecialchars($row['identifier']) ?></td>
-                        <td align="center"><a
-                                    href="record_detail_view.html.php?record_id=<?= $row['record_id'] ?>"><?= htmlspecialchars($row['title']) ?>
-                        </td>
-                        <td align="center"><?= htmlspecialchars($row['register']) ?></td>
-                        <td align="center"><?= htmlspecialchars($row['regist_date']) ?></td>
-                    </tr>
-                    <?php
-                }
-                ?>
-                </tbody>
-            </table>
+            <div class="container">
+                <div class="inner">
+                    <div class="list-inner">
+
+                        <?php
+                        // DB 연결 정보
+                        $db_user = "rikarsong";
+                        $db_pass = "rikar0217@@";
+                        $db_host = "localhost";
+                        $db_name = "rikarsong";
+                        $db_type = "mysql";
+                        $dsn = "$db_type:host=$db_host;dbname=$db_name;charset=utf8";
+
+                        //            $db_user = "root";
+                        //            $db_pass = "audwleogkrry";
+                        //            $db_host = "localhost";
+                        //            $db_name = "wap";
+                        //            $db_type = "mysql";
+                        //            $dsn = "$db_type:host=$db_host;dbname=$db_name;charset=utf8";
+
+
+                        try {
+                            // DB 연결
+                            $pdo = new PDO($dsn, $db_user, $db_pass);
+                            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                            $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+//                    print "접속하였습니다.";
+                        } catch (Exception $exception) {
+                            die('오류:' . $exception->getMessage());
+                        }
+                        // 목록 데이터 조회
+                        try {
+                            $sql = "SELECT * FROM rikarsong.record WHERE delete_yn = 'N' ORDER BY regist_date DESC";
+                            $stmh = $pdo->prepare($sql);
+                            $stmh->execute();
+                            $count = $stmh->rowCount();
+                            $scale = 10;
+                            $total_record = $count;
+                            if ($total_record % $scale == 0) {
+                                $total_page = floor($total_record / $scale);
+                            } else {
+                                $total_page = floor($total_record / $scale) + 1;
+                            }
+                            if (!$page) {
+                                $page = 1;
+                            }
+                            $start = ($page - 1) * $scale;
+                            $number = $total_record - $start;
+                        } catch (Exception $exception) {
+                            print "오류: " . $exception->getMessage();
+                        }
+                        ?>
+                        <table class="table">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">식별자</th>
+                                <th scope="col">제목</th>
+                                <th scope="col">등록자</th>
+                                <th scope="col">등록일</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                            for ($i = $start; $i < $start + $scale && $i < $total_record; $i++) {
+                                while ($row = $stmh->fetch(PDO::FETCH_ASSOC)) {
+
+                                    ?>
+                                    <tr>
+                                        <td align="center"><?= htmlspecialchars($row['identifier']) ?></td>
+                                        <td align="center"><a
+                                                    href="record_detail_view.html.php?record_id=<?= $row['record_id'] ?>"><?= htmlspecialchars($row['title']) ?>
+                                        </td>
+                                        <td align="center"><?= htmlspecialchars($row['register']) ?></td>
+                                        <td align="center"><?= htmlspecialchars($row['regist_date']) ?></td>
+                                    </tr>
+
+                                    <?php
+                                }
+                            }
+                            ?>
+                            </tbody>
+                        </table>
+                        <!--            <div class="page-button">-->
+                        <!--                <div class="material-icons">arrow_back_ios_new-->
+                        <!--                    --><? //
+                        //                    for ($i = 1; $i <= $total_page; $i++) {
+                        //                        if ($page == $i) {
+                        //                            echo "<b>$i</b>";
+                        //                        } else {
+                        //                            echo "<a href='record_list_view.html.php?page=$i'> $i </a>";
+                        //                        }
+                        //                    }
+                        //                    ?>
+                        <!--                    arrow_forward_ios_new-->
+                        <!--                </div>-->
+                        <!--            </div>-->
+                        <div class="search-group">
+                            <form class="form-inline my-2 my-lg-0" action="record_list_view_search.html.php"
+                                  method="GET">
+                                <div class="input-group mb-3">
+                                    <select class="custom-select" id="inputGroupSelect01" name="select_option[]">
+                                        <option selected>검색 카테고리</option>
+                                        <option value="title">제목</option>
+                                        <option value="register">작성자</option>
+                                    </select>
+                                    <input class="form-control mr-sm-2" type="search" placeholder="검색어 입력"
+                                           aria-label="Search"
+                                           name="search_word" id="search_word">
+                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
+                                </div>
+
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 </div>
 <footer>
-    <div class="footer-logo-group">
+    <!-- <div class="footer-logo-group">
         <div class="footer-logo">
-            <a href="https://www.gb.go.kr/Main/index.html"><img src="../image/gb_mark.png"
-                                                                alt="경북도청 로고"><span>경북도청</span></a>
+            <a href="https://www.gb.go.kr/Main/index.html"><img src="image/gb_mark.png"
+                    alt="경북도청 로고"><span>경북도청</span></a>
         </div>
         <div class="footer-logo">
-            <a href="https://www.gumi.go.kr/main.do"><img src="../image/gumi_logo2.png"
-                                                          alt="구미시청 로고"><span>구미시청</span></a>
+            <a href="https://www.gumi.go.kr/main.do"><img src="image/gumi_logo2.png"
+                    alt="구미시청 로고"><span>구미시청</span></a>
 
         </div>
         <div class="footer-logo">
-            <a href="https://blog.naver.com/gumi-urc"><img src="../image/wp_logo.png"
-                                                           alt="구미시 도시재생지원센터 로고"><span>구미도시재생지원센터</span></a>
+            <a href="https://blog.naver.com/gumi-urc"><img src="image/wp_logo.png"
+                    alt="구미시 도시재생지원센터 로고"><span>구미도시재생지원센터</span></a>
 
         </div>
         <div class="footer-logo">
-            <a href="https://www.instagram.com/gumi_urc/"><img src="../image/instagram.png"
-                                                               alt="구미시 원평동 현장지원센터 SNS 로고"><span>instagram</span></a>
+            <a href="https://www.instagram.com/gumi_urc/"><img src="image/instagram.png"
+                    alt="구미시 원평동 현장지원센터 SNS 로고"><span>instagram</span></a>
         </div>
-    </div>
+    </div> -->
     <div class="footer-description">
         <div class="mylogo">
 
@@ -338,6 +451,9 @@
             <br>
             |주소: (00000) OO시 OO동 OOOOOOOOOOOO
         </div>
+        <div class="between">
+
+        </div>
         <div class="description2">
             | 대표자: OOO
             <br>
@@ -345,7 +461,6 @@
 
         </div>
     </div>
-
 </footer>
 </body>
 

@@ -1,5 +1,6 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,19 +8,22 @@
     <title>WAP</title>
 
     <!-- css 리셋 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"/>
     <!--    material-icons-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
     <!-- SWIPER -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="css/main.css">
 
     <!--    jQuery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script defer src="../js/main.js"></script>
+    <script defer src="js/main.js"></script>
 
     <!-- bootstrap include -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
@@ -30,11 +34,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
     </script>
-
-    <!-- google font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Noto Sans KR', sans-serif;
@@ -61,7 +60,7 @@
     <div class="logo-line">
         <div class="logo">
             <a href="http://rikarsong.cafe24.com/wap/index.html.php">
-                <img src="../image/rikar_logo.png" alt="로고" class="logo">
+                <img src="./image/rikar_logo.png" alt="로고" class="logo">
             </a>
         </div>
         <div class="application-name">
@@ -76,10 +75,10 @@
     </div>
     <div class="menu-group">
         <div class="menu">
-            <a href="../record_regist.html">기록물 등록</a>
+            <a href="record_regist.html">기록물 등록</a>
         </div>
         <div class="menu">
-            <a href="record_list_view.html.php">기록물 조회</a>
+            <a href="php/record_list_view.html.php">기록물 조회</a>
         </div>
         <div class="menu">
             <a href="#">모니터링단<br> 커뮤니티</a>
@@ -122,6 +121,73 @@
     </div> -->
     <!-- menu 부분 -->
 </header>
+<!-- content-->
+<!-- <div class="content">
+    <div class="inner">
+        <div class="box1">
+            <ul class="clearfix">
+                <li onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)">
+                    <a href="#">
+                        <img src="image/best_hit.png" alt="조회수 1등">
+                        <span class="text_box">
+                            <h2>최고 조회수</h2>
+                        </span>
+                    </a>
+
+                </li>
+                <li onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)">
+                    <a href="#">
+                        <img src="image/best_recommend.png" alt="추천수 1등">
+                        <span class="text_box">
+                            <h2>최고 추천수</h2>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="box2">
+            <ul class="clearfix">
+                <li onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)">
+                    <a href="#">
+                        <img src="image/T1_photo.png" alt="첫번째 팀">
+                        <span class="text_box">
+                            <h3>첫번째 팀</h3>
+                        </span>
+                    </a>
+                </li>
+                <li onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)">
+                    <a href="#">
+                        <img src="image/T2_video.png" alt="두번째 팀">
+                        <span class="text_box">
+                            <h3>두번째 팀</h3>
+                        </span>
+                    </a>
+                </li>
+                <li onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)">
+                    <a href="#">
+                        <img src="image/T3_photo.png" alt="세번재 팀">
+                        <span class="text_box">
+                            <h3>세번째 팀</h3>
+                        </span>
+                    </a>
+                </li>
+                <li onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)">
+                    <a href="#">
+                        <img src="image/T4_interview.png" alt="네번째 팀">
+                        <span class="text_box">
+                            <h3>네번째 팀</h3>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div> -->
+<!-- content-->
+<!-- inner -->
+<!-- footer-->
+
+<!--통계 대신 넣은 기록물 목록 조회-->
 <div class="container">
     <div class="inner">
         <div class="list-inner">
@@ -192,7 +258,7 @@
                         <tr>
                             <td align="center"><?= htmlspecialchars($row['identifier']) ?></td>
                             <td align="center"><a
-                                        href="record_detail_view.html.php?record_id=<?= $row['record_id'] ?>"><?= htmlspecialchars($row['title']) ?>
+                                        href="php/record_detail_view.html.php?record_id=<?= $row['record_id'] ?>"><?= htmlspecialchars($row['title']) ?>
                             </td>
                             <td align="center"><?= htmlspecialchars($row['register']) ?></td>
                             <td align="center"><?= htmlspecialchars($row['regist_date']) ?></td>
@@ -204,22 +270,22 @@
                 ?>
                 </tbody>
             </table>
-<!--            <div class="page-button">-->
-<!--                <div class="material-icons">arrow_back_ios_new-->
-<!--                    --><?//
-//                    for ($i = 1; $i <= $total_page; $i++) {
-//                        if ($page == $i) {
-//                            echo "<b>$i</b>";
-//                        } else {
-//                            echo "<a href='record_list_view.html.php?page=$i'> $i </a>";
-//                        }
-//                    }
-//                    ?>
-<!--                    arrow_forward_ios_new-->
-<!--                </div>-->
-<!--            </div>-->
+            <!--            <div class="page-button">-->
+            <!--                <div class="material-icons">arrow_back_ios_new-->
+            <!--                    --><? //
+            //                    for ($i = 1; $i <= $total_page; $i++) {
+            //                        if ($page == $i) {
+            //                            echo "<b>$i</b>";
+            //                        } else {
+            //                            echo "<a href='record_list_view.html.php?page=$i'> $i </a>";
+            //                        }
+            //                    }
+            //                    ?>
+            <!--                    arrow_forward_ios_new-->
+            <!--                </div>-->
+            <!--            </div>-->
             <div class="search-group">
-                <form class="form-inline my-2 my-lg-0" action="record_list_view_search.html.php" method="GET">
+                <form class="form-inline my-2 my-lg-0" action="php/record_list_view_search.html.php" method="GET">
                     <div class="input-group mb-3">
                         <select class="custom-select" id="inputGroupSelect01" name="select_option[]">
                             <option selected>검색 카테고리</option>
@@ -281,5 +347,7 @@
         </div>
     </div>
 </footer>
+<!-- footer-->
 </body>
+
 </html>
