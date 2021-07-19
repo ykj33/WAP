@@ -86,7 +86,7 @@
             <a href="../record_regist.html">기록물 등록</a>
         </div>
         <div class="menu">
-            <a href="#">기록물 조회</a>
+            <a href="record_list_view.html.php">기록물 조회</a>
         </div>
         <div class="menu">
             <a href="#">게시판</a>
@@ -97,20 +97,21 @@
             <div class="list-inner">
 
                 <?php
-                // DB 연결 정보
-                //                        $db_user = "rikarsong";
-                //                        $db_pass = "rikar0217@@";
-                //                        $db_host = "localhost";
-                //                        $db_name = "rikarsong";
-                //                        $db_type = "mysql";
-                //                        $dsn = "$db_type:host=$db_host;dbname=$db_name;charset=utf8";
-
-                $db_user = "root";
-                $db_pass = "audwleogkrry";
+                //                 DB 연결 정보
+                $db_user = "rikarsong";
+                $db_pass = "rikar0217@@";
                 $db_host = "localhost";
-                $db_name = "wap";
+                $db_name = "rikarsong";
                 $db_type = "mysql";
                 $dsn = "$db_type:host=$db_host;dbname=$db_name;charset=utf8";
+
+                //                $db_user = "root";
+                //                $db_pass = "audwleogkrry";
+                //                $db_host = "localhost";
+                //                $db_name = "wap";
+                //                $db_type = "mysql";
+                //                $dsn = "$db_type:host=$db_host;dbname=$db_name;charset=utf8";
+
 
                 try {
                     // DB 연결
@@ -121,52 +122,59 @@
                 } catch (Exception $exception) {
                     die('오류:' . $exception->getMessage());
                 }
-                $select_option = $_POST["select_option"];
-                print $select_option;
-                $search_key = '%' . $_POST["search_key"] . '%';
-                if ($select_option == "title") {
-                    // 목록 데이터 조회
-                    try {
-                        $sql = "SELECT identifier, title, register, regist_date FROM wap.record WHERE title = :title AND delete_yn = 'N'";
-                        $stmh = $pdo->prepare($sql);
-                        $stmh->bindValue(':title', $search_key, PDO::PARAM_STR);
-                        $stmh->execute();
-                        $count = $stmh->rowCount();
-                    } catch (Exception $exception) {
-                        print "오류: " . $exception->getMessage();
-                    }
-                    ?>
-                    <table class="table">
-                        <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">식별자</th>
-                            <th scope="col">제목</th>
-                            <th scope="col">등록자</th>
-                            <th scope="col">등록일</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php
-                        while ($row = $stmh->fetch(PDO::FETCH_ASSOC)) {
+                if (isset($_GET["select_option"])) {
+                    foreach ($_GET["select_option"] as $select_option) {
+                        print $select_option;
+                        $search_word = '%' . $_GET["search_word"] . '%';
+                        print $search_word;
+                        if ($select_option == "title") {
+                            // 목록 데이터 조회
+                            try {
+                                $sql = "SELECT * FROM rikarsong.record WHERE title like :title AND delete_yn = 'N' ORDER BY regist_date DESC";
+                                $stmh = $pdo->prepare($sql);
+                                $stmh->bindValue(':title', $search_word, PDO::PARAM_STR);
+                                $stmh->execute();
+                                $count = $stmh->rowCount();
+                            } catch (Exception $exception) {
+                                print "오류: " . $exception->getMessage();
+                            }
                             ?>
-                            <tr>
-                                <td align="center"><?= htmlspecialchars($row['identifier']) ?></td>
-                                <td align="center"><?= htmlspecialchars($row['title']) ?></td>
-                                <td align="center"><?= htmlspecialchars($row['register']) ?></td>
-                                <td align="center"><?= htmlspecialchars($row['regist_date']) ?></td>
-                            </tr>
-                            <?php
+                            <table class="table">
+                                <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">식별자</th>
+                                    <th scope="col">제목</th>
+                                    <th scope="col">등록자</th>
+                                    <th scope="col">등록일</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                while ($row = $stmh->fetch(PDO::FETCH_ASSOC)) {
+                                    ?>
+                                    <tr>
+                                        <td align="center"><?= htmlspecialchars($row['identifier']) ?></td>
+                                        <td align="center"><a
+                                                    href="record_detail_view.html.php?record_id=<?= $row['record_id'] ?>"><?= htmlspecialchars($row['title']) ?>
+                                        </td>
+                                        <td align="center"><?= htmlspecialchars($row['register']) ?></td>
+                                        <td align="center"><?= htmlspecialchars($row['regist_date']) ?></td>
+                                    </tr>
+                                    <?php
+                                }
+                                ?>
+                                </tbody>
+                            </table>
+                            <?
                         }
-                        ?>
-                        </tbody>
-                    </table>
-                    <?
+                    }
                 } else {
                     // 목록 데이터 조회
                     try {
-                        $sql = "SELECT identifier, title, register, regist_date FROM wap.record WHERE register = :register AND delete_yn = 'N'";
+                        $search_word = '%' . $_GET["search_word"] . '%';
+                        $sql = "SELECT * FROM rikarsong.record WHERE register like :register AND delete_yn = 'N' ORDER BY regist_date DESC";
                         $stmh = $pdo->prepare($sql);
-                        $stmh->bindValue(':register', $search_key, PDO::PARAM_STR);
+                        $stmh->bindValue(':register', $search_word, PDO::PARAM_STR);
                         $stmh->execute();
                         $count = $stmh->rowCount();
                     } catch (Exception $exception) {
@@ -189,7 +197,9 @@
                             ?>
                             <tr>
                                 <td align="center"><?= htmlspecialchars($row['identifier']) ?></td>
-                                <td align="center"><?= htmlspecialchars($row['title']) ?></td>
+                                <td align="center"><a
+                                            href="record_detail_view.html.php?record_id=<?= $row['record_id'] ?>"><?= htmlspecialchars($row['title']) ?>
+                                </td>
                                 <td align="center"><?= htmlspecialchars($row['register']) ?></td>
                                 <td align="center"><?= htmlspecialchars($row['regist_date']) ?></td>
                             </tr>

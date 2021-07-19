@@ -86,7 +86,7 @@
             <a href="../record_regist.html">기록물 등록</a>
         </div>
         <div class="menu">
-            <a href="#">기록물 조회</a>
+            <a href="record_list_view.html.php">기록물 조회</a>
         </div>
         <div class="menu">
             <a href="#">게시판</a>
@@ -99,19 +99,19 @@
 
             <?php
             // DB 연결 정보
-            //                        $db_user = "rikarsong";
-            //                        $db_pass = "rikar0217@@";
-            //                        $db_host = "localhost";
-            //                        $db_name = "rikarsong";
-            //                        $db_type = "mysql";
-            //                        $dsn = "$db_type:host=$db_host;dbname=$db_name;charset=utf8";
-
-            $db_user = "root";
-            $db_pass = "audwleogkrry";
+            $db_user = "rikarsong";
+            $db_pass = "rikar0217@@";
             $db_host = "localhost";
-            $db_name = "wap";
+            $db_name = "rikarsong";
             $db_type = "mysql";
             $dsn = "$db_type:host=$db_host;dbname=$db_name;charset=utf8";
+
+            //            $db_user = "root";
+            //            $db_pass = "audwleogkrry";
+            //            $db_host = "localhost";
+            //            $db_name = "wap";
+            //            $db_type = "mysql";
+            //            $dsn = "$db_type:host=$db_host;dbname=$db_name;charset=utf8";
             $page_set = 10;
             $block_set = 5;
 
@@ -126,13 +126,13 @@
             }
             // 목록 데이터 조회
             try {
-            $sql = "SELECT * FROM wap.record WHERE delete_yn = 'N'";
-            $stmh = $pdo->prepare($sql);
-            $stmh->execute();
-            $count = $stmh->rowCount();
-
+                $sql = "SELECT * FROM rikarsong.record WHERE delete_yn = 'N' ORDER BY regist_date DESC";
+                $stmh = $pdo->prepare($sql);
+                $stmh->execute();
+                $count = $stmh->rowCount();
+echo $count;
             } catch (Exception $exception) {
-            print "오류: " . $exception->getMessage();
+                print "오류: " . $exception->getMessage();
             }
             ?>
             <table class="table">
@@ -162,20 +162,20 @@
                 ?>
                 </tbody>
             </table>
-            <!--                <div class="search-group">-->
-            <!--                    <form class="form-inline my-2 my-lg-0" action="record_list_view_search.html.php" method="POST">-->
-            <!--                        <div class="input-group mb-3">-->
-            <!--                            <select class="custom-select" id="inputGroupSelect01" name="select_option">-->
-            <!--                                <option selected>검색 카테고리</option>-->
-            <!--                                <option  value="title">제목</option>-->
-            <!--                                <option  value="register">작성자</option>-->
-            <!--                            </select>-->
-            <!--                        </div>-->
-            <!--                        <input class="form-control mr-sm-2" type="search" placeholder="검색어 입력" aria-label="Search">-->
-            <!--                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="search_key">검색</button>-->
-            <!---->
-            <!--                    </form>-->
-            <!--                </div>-->
+                            <div class="search-group">
+                                <form class="form-inline my-2 my-lg-0" action="record_list_view_search.html.php" method="GET">
+                                    <div class="input-group mb-3">
+                                        <select class="custom-select" id="inputGroupSelect01" name="select_option[]">
+                                            <option selected>검색 카테고리</option>
+                                            <option  value="title">제목</option>
+                                            <option  value="register">작성자</option>
+                                        </select>
+                                    </div>
+                                    <input class="form-control mr-sm-2" type="search" placeholder="검색어 입력" aria-label="Search" name="search_word" id = "search_word">
+                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
+
+                                </form>
+                            </div>
 
         </div>
     </div>

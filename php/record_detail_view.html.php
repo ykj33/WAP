@@ -87,7 +87,7 @@
             <a href="../record_regist.html">기록물 등록</a>
         </div>
         <div class="menu">
-            <a href="#">기록물 조회</a>
+            <a href="record_list_view.html.php">기록물 조회</a>
         </div>
         <div class="menu">
             <a href="#">게시판</a>
@@ -102,23 +102,23 @@
             <div class="regist-inner">
 
 
-                <form  method="POST" class="register" id="register_form"
+                <form method="POST" class="register" id="register_form"
                       name="register_form"
                       enctype="multipart/form-data">
                     <?php
                     // DB 연결 정보
-                    //                        $db_user = "rikarsong";
-                    //                        $db_pass = "rikar0217@@";
-                    //                        $db_host = "localhost";
-                    //                        $db_name = "rikarsong";
-                    //                        $db_type = "mysql";
-                    //                        $dsn = "$db_type:host=$db_host;dbname=$db_name;charset=utf8";
-                    $db_user = "root";
-                    $db_pass = "audwleogkrry";
+                    $db_user = "rikarsong";
+                    $db_pass = "rikar0217@@";
                     $db_host = "localhost";
-                    $db_name = "wap";
+                    $db_name = "rikarsong";
                     $db_type = "mysql";
                     $dsn = "$db_type:host=$db_host;dbname=$db_name;charset=utf8";
+                    //                    $db_user = "root";
+                    //                    $db_pass = "audwleogkrry";
+                    //                    $db_host = "localhost";
+                    //                    $db_name = "wap";
+                    //                    $db_type = "mysql";
+                    //                    $dsn = "$db_type:host=$db_host;dbname=$db_name;charset=utf8";
                     try {
                         // DB 연결
                         $pdo = new PDO($dsn, $db_user, $db_pass);
@@ -131,7 +131,7 @@
                     $record_id = $_GET["record_id"];
                     // 목록 데이터 조회
                     try {
-                        $sql = "SELECT * FROM wap.record WHERE record_id = :record_id AND delete_yn = 'N'";
+                        $sql = "SELECT * FROM rikarsong.record WHERE record_id = :record_id AND delete_yn = 'N'";
                         $stmh = $pdo->prepare($sql);
                         $stmh->bindValue(':record_id', $record_id, PDO::PARAM_STR);
                         $stmh->execute();
@@ -146,10 +146,8 @@
 
                     <div class="metadata-group">
                         <section class="image-section">
-                            <img src="<?= htmlspecialchars($row['url'])?>" alt="<?= htmlspecialchars($row['title'])."이미지" ?>">
-                            <?php
-                            echo $row['url']
-                            ?>
+                            <img src="<?= htmlspecialchars($row['url']) ?>"
+                                 alt="<?= htmlspecialchars($row['title']) . "이미지" ?>">
                         </section>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
@@ -235,28 +233,37 @@
                             </div>
                             <textarea class="form-control" aria-label="기술"
                                       aria-describedby="record_description" name="record_description"
-                                      id=record_description value="<?= htmlspecialchars($row['description']) ?>" disabled></textarea>
+                                      id=record_description value="<?= htmlspecialchars($row['description']) ?>"
+                                      disabled></textarea>
                         </div>
-<!--                        <div class="input-group mb-3">-->
-<!--                            <div class="input-group-prepend">-->
-<!--                                <span class="input-group-text" id="upload_label">기록물 첨부</span>-->
-<!--                            </div>-->
-<!--                            <div class="custom-file">-->
-<!--                                <input type="file" class="custom-file-input" name="uploadfile" id="uploadfile"-->
-<!--                                       aria-describedby="upload" onchange="checkFile(this)">-->
-<!--                                <label class="custom-file-label" id="custom-file-label" for="uploadfile"></label>-->
-<!--                            </div>-->
-<!---->
-<!--                        </div>-->
+                        <!--                        <div class="input-group mb-3">-->
+                        <!--                            <div class="input-group-prepend">-->
+                        <!--                                <span class="input-group-text" id="upload_label">기록물 첨부</span>-->
+                        <!--                            </div>-->
+                        <!--                            <div class="custom-file">-->
+                        <!--                                <input type="file" class="custom-file-input" name="uploadfile" id="uploadfile"-->
+                        <!--                                       aria-describedby="upload" onchange="checkFile(this)">-->
+                        <!--                                <label class="custom-file-label" id="custom-file-label" for="uploadfile"></label>-->
+                        <!--                            </div>-->
+                        <!---->
+                        <!--                        </div>-->
                         <?php
                         }
                         ?>
                         <div class="button-group">
-                            <a href="record_list_view.html.php"><button type="button" id="update" class="btn btn-secondary btn-lg">수정</button></a>
-                            <a href="record_list_view.html.php"><button type="button" id="delete" class="btn btn-secondary btn-lg">삭제</button></a>
-                            <a href="record_list_view.html.php"><button type="button" id="list" class="btn btn-secondary btn-lg">목록</button></a>
-<!--                            <a href="record_detail_view.html.php?record_id = --><?//=$row['record_id']-1 ?><!--"><button type="button" id="prev_button" class="btn btn-secondary btn-lg">이전글</button></a>-->
-<!--                            <a href="record_detail_view.html.php?record_id = --><?//=$row['record_id'] + 1 ?><!--"><button type="button" id="next_button" class="btn btn-secondary btn-lg">다음글</button></a>-->
+                            <a href="record_list_view.html.php">
+                                <button type="button" id="update" class="btn btn-secondary btn-lg">수정</button>
+                            </a>
+                            <a href="record_list_view.html.php">
+                                <button type="button" id="delete" class="btn btn-secondary btn-lg">삭제</button>
+                            </a>
+                            <a href="record_list_view.html.php">
+                                <button type="button" id="list" class="btn btn-secondary btn-lg">목록</button>
+                            </a>
+                            <!--                            <a href="record_detail_view.html.php?record_id = -->
+                            <? //=$row['record_id']-1 ?><!--"><button type="button" id="prev_button" class="btn btn-secondary btn-lg">이전글</button></a>-->
+                            <!--                            <a href="record_detail_view.html.php?record_id = -->
+                            <? //=$row['record_id'] + 1 ?><!--"><button type="button" id="next_button" class="btn btn-secondary btn-lg">다음글</button></a>-->
                         </div>
                     </div>
                 </form>
@@ -273,7 +280,7 @@
                 <tbody>
                 <?php
                 try {
-                    $sql = "SELECT * FROM wap.record WHERE delete_yn = 'N'";
+                    $sql = "SELECT * FROM rikarsong.record WHERE delete_yn = 'N' ORDER BY regist_date DESC";
                     $stmh = $pdo->prepare($sql);
                     $stmh->execute();
                     $count = $stmh->rowCount();
