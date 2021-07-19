@@ -92,127 +92,134 @@
             <a href="#">게시판</a>
         </div>
     </div>
-    <div class="container">
-        <div class="inner">
-            <div class="list-inner">
+</header>
+<div class="container">
+    <div class="inner">
+        <div class="list-inner">
 
-                <?php
-                // DB 연결 정보
-                //                        $db_user = "rikarsong";
-                //                        $db_pass = "rikar0217@@";
-                //                        $db_host = "localhost";
-                //                        $db_name = "rikarsong";
-                //                        $db_type = "mysql";
-                //                        $dsn = "$db_type:host=$db_host;dbname=$db_name;charset=utf8";
+            <?php
+            // DB 연결 정보
+            //                        $db_user = "rikarsong";
+            //                        $db_pass = "rikar0217@@";
+            //                        $db_host = "localhost";
+            //                        $db_name = "rikarsong";
+            //                        $db_type = "mysql";
+            //                        $dsn = "$db_type:host=$db_host;dbname=$db_name;charset=utf8";
 
-                $db_user = "root";
-                $db_pass = "audwleogkrry";
-                $db_host = "localhost";
-                $db_name = "wap";
-                $db_type = "mysql";
-                $dsn = "$db_type:host=$db_host;dbname=$db_name;charset=utf8";
+            $db_user = "root";
+            $db_pass = "audwleogkrry";
+            $db_host = "localhost";
+            $db_name = "wap";
+            $db_type = "mysql";
+            $dsn = "$db_type:host=$db_host;dbname=$db_name;charset=utf8";
+            $page_set = 10;
+            $block_set = 5;
 
-                try {
-                    // DB 연결
-                    $pdo = new PDO($dsn, $db_user, $db_pass);
-                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+            try {
+                // DB 연결
+                $pdo = new PDO($dsn, $db_user, $db_pass);
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 //                    print "접속하였습니다.";
-                } catch (Exception $exception) {
-                    die('오류:' . $exception->getMessage());
-                }
-                // 목록 데이터 조회
-                try {
-                    $sql = "SELECT identifier, title, register, regist_date FROM wap.record WHERE delete_yn = 'N'";
-                    $stmh = $pdo->prepare($sql);
-                    $stmh->execute();
-                    $count = $stmh->rowCount();
-                } catch (Exception $exception) {
-                    print "오류: " . $exception->getMessage();
+            } catch (Exception $exception) {
+                die('오류:' . $exception->getMessage());
+            }
+            // 목록 데이터 조회
+            try {
+            $sql = "SELECT * FROM wap.record WHERE delete_yn = 'N'";
+            $stmh = $pdo->prepare($sql);
+            $stmh->execute();
+            $count = $stmh->rowCount();
+
+            } catch (Exception $exception) {
+            print "오류: " . $exception->getMessage();
+            }
+            ?>
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">식별자</th>
+                    <th scope="col">제목</th>
+                    <th scope="col">등록자</th>
+                    <th scope="col">등록일</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+                while ($row = $stmh->fetch(PDO::FETCH_ASSOC)) {
+                    echo $row[0];
+                    ?>
+                    <tr>
+                        <td align="center"><?= htmlspecialchars($row['identifier']) ?></td>
+                        <td align="center"><a
+                                    href="record_detail_view.html.php?record_id=<?= $row['record_id'] ?>"><?= htmlspecialchars($row['title']) ?>
+                        </td>
+                        <td align="center"><?= htmlspecialchars($row['register']) ?></td>
+                        <td align="center"><?= htmlspecialchars($row['regist_date']) ?></td>
+                    </tr>
+                    <?php
                 }
                 ?>
-                <table class="table">
-                    <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">식별자</th>
-                        <th scope="col">제목</th>
-                        <th scope="col">등록자</th>
-                        <th scope="col">등록일</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php
-                    while ($row = $stmh->fetch(PDO::FETCH_ASSOC)) {
-                        echo $row[0];
-                        ?>
-                        <tr>
-                            <td align="center"><?= htmlspecialchars($row['identifier']) ?></td>
-                            <td align="center"><?= htmlspecialchars($row['title']) ?></td>
-                            <td align="center"><?= htmlspecialchars($row['register']) ?></td>
-                            <td align="center"><?= htmlspecialchars($row['regist_date']) ?></td>
-                        </tr>
-                        <?php
-                    }
-                    ?>
-                    </tbody>
-                </table>
-                <div class="search-group">
-                    <form class="form-inline my-2 my-lg-0" action="record_list_view_search.html.php" method = "POST">
-                        <div class="input-group mb-3">
-                            <select class="custom-select" id="inputGroupSelect01">
-                                <option selected>검색 카테고리</option>
-                                <option value="title">제목</option>
-                                <option value="register">작성자</option>
-                            </select>
-                        </div>
-                        <input class="form-control mr-sm-2" type="search" placeholder="검색어 입력" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
+                </tbody>
+            </table>
+            <!--                <div class="search-group">-->
+            <!--                    <form class="form-inline my-2 my-lg-0" action="record_list_view_search.html.php" method="POST">-->
+            <!--                        <div class="input-group mb-3">-->
+            <!--                            <select class="custom-select" id="inputGroupSelect01" name="select_option">-->
+            <!--                                <option selected>검색 카테고리</option>-->
+            <!--                                <option  value="title">제목</option>-->
+            <!--                                <option  value="register">작성자</option>-->
+            <!--                            </select>-->
+            <!--                        </div>-->
+            <!--                        <input class="form-control mr-sm-2" type="search" placeholder="검색어 입력" aria-label="Search">-->
+            <!--                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="search_key">검색</button>-->
+            <!---->
+            <!--                    </form>-->
+            <!--                </div>-->
 
-                    </form>
-                </div>
-            </div>
         </div>
     </div>
-    <footer>
-        <div class="footer-logo-group">
-            <div class="footer-logo">
-                <a href="https://www.gb.go.kr/Main/index.html"><img src="../image/gb_mark.png"
-                                                                    alt="경북도청 로고"><span>경북도청</span></a>
-            </div>
-            <div class="footer-logo">
-                <a href="https://www.gumi.go.kr/main.do"><img src="../image/gumi_logo2.png"
-                                                              alt="구미시청 로고"><span>구미시청</span></a>
-
-            </div>
-            <div class="footer-logo">
-                <a href="https://blog.naver.com/gumi-urc"><img src="../image/wp_logo.png"
-                                                               alt="구미시 도시재생지원센터 로고"><span>구미도시재생지원센터</span></a>
-
-            </div>
-            <div class="footer-logo">
-                <a href="https://www.instagram.com/gumi_urc/"><img src="../image/instagram.png"
-                                                                   alt="구미시 원평동 현장지원센터 SNS 로고"><span>instagram</span></a>
-            </div>
+</div>
+<footer>
+    <div class="footer-logo-group">
+        <div class="footer-logo">
+            <a href="https://www.gb.go.kr/Main/index.html"><img src="../image/gb_mark.png"
+                                                                alt="경북도청 로고"><span>경북도청</span></a>
         </div>
-        <div class="footer-description">
-            <div class="mylogo">
+        <div class="footer-logo">
+            <a href="https://www.gumi.go.kr/main.do"><img src="../image/gumi_logo2.png"
+                                                          alt="구미시청 로고"><span>구미시청</span></a>
 
-            </div>
-            <div class="description">
-                | 기관명: OOOO
-                <br>
-                | 전화번호: 00-000-0000
-                <br>
-                |주소: (00000) OO시 OO동 OOOOOOOOOOOO
-            </div>
-            <div class="description2">
-                | 대표자: OOO
-                <br>
-                | E-mail: OOOO@OOOO.kr
-
-            </div>
         </div>
+        <div class="footer-logo">
+            <a href="https://blog.naver.com/gumi-urc"><img src="../image/wp_logo.png"
+                                                           alt="구미시 도시재생지원센터 로고"><span>구미도시재생지원센터</span></a>
 
-    </footer>
+        </div>
+        <div class="footer-logo">
+            <a href="https://www.instagram.com/gumi_urc/"><img src="../image/instagram.png"
+                                                               alt="구미시 원평동 현장지원센터 SNS 로고"><span>instagram</span></a>
+        </div>
+    </div>
+    <div class="footer-description">
+        <div class="mylogo">
+
+        </div>
+        <div class="description">
+            | 기관명: OOOO
+            <br>
+            | 전화번호: 00-000-0000
+            <br>
+            |주소: (00000) OO시 OO동 OOOOOOOOOOOO
+        </div>
+        <div class="description2">
+            | 대표자: OOO
+            <br>
+            | E-mail: OOOO@OOOO.kr
+
+        </div>
+    </div>
+
+</footer>
 </body>
 </html>

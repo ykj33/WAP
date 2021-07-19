@@ -309,3 +309,7 @@
     display: flex;
     justify-content: flex-end;
 }
+
+.table thead .th {
+    text-align: center;
+}
