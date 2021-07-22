@@ -107,7 +107,7 @@ function checkFile(f) {
     } else {
         // 파일 용량 체크
         checkFileSize(f)
-
+        fileTableAdd(f)
     }
 
 }
@@ -128,4 +128,81 @@ function checkFileSize(f) {
         document.getElementById("custom-file-label").innerHTML = file[0].name;
         console.log("10메가보다 작다.")
     }
+}
+
+// // 다중 파일 업로드시 미리보기, 구현 시도중 중지
+// let sel_files = [];
+// $(document).ready(function () {
+//     $("uploadfile").on("change", handleImgFileSelect);
+// });
+//
+// function fileUploadAction() {
+//     console.log("fileUploadAction");
+//     $("#uploadfile").trigger('click');
+// }
+//
+// function handleImgFileSelect(e) {
+//     sel_files = [];
+//     $(".upload_board").empty();
+//
+//     let files = e.target.files;
+//     let filesArr = Array.prototype.slice.call(files);
+//
+//     let index = 0;
+//     filesArr.forEach(function (f) {
+//         if (!f.type.match("image.*")) {
+//             alert("이미지 파일만 가능합니다.");
+//             return;
+//         }
+//         sel_files.push(f);
+//
+//         const reader = new FileReader();
+//         reader.onload = function (e) {
+//             let html = "<a href=\"javascript:void(0);\" onclick=\"deleteImageAction("+index+")\" id=\"uploadfile_id_"+index+"\"><img src=\"" + e.target.result + "\" data-file='"+f.name+"' class = 'selProductFile' title='Click to remove'></a>";
+//             $(".upload_board").append(html);
+//             index++;
+//         }
+//         reader.readAsDataURL(f);
+//     });
+// }
+
+// 파일 첨부시 리스트 생성
+let lastTableindex = 0;
+function fileTableAdd(f) {
+    console.log("함수 실행")
+    let file = f.files;
+    let i = 0;
+    let fileName = "";
+
+
+    for (i; i < file.length; i++) {
+        fileName = file[i].name;
+        let tableIndex = 0;
+        if(lastTableindex == 0) {
+            tableIndex = i+1;
+        } else {
+            tableIndex = lastTableindex + i;
+        }
+        let insertHtml = "<tbody><tr><td><input type='checkbox' name='upload-board-check'></td><td>" + tableIndex + "</td><td>" + fileName + "</td></tr></tbody>";
+        $(".upload-board table").append(insertHtml);
+        console.log(file);
+        // 업로드 버튼 막기
+        $("#uploadfile").attr('disabled', true);
+    }
+
+    $(".upload-board").css("display", "block");
+    lastTableindex = document.getElementById('uploadFileList').rows.length;
+    console.log('마지막번호' + lastTableindex)
+};
+// 전체 선택, 전체 해제
+$('input[name=upload-board-check-all]').on('change', function(){
+    $('input[name=upload-board-check]').prop('checked', this.checked);
+});
+
+// 파일 추가
+$()
+
+// 체크한 파일 삭제
+function deleteFile(){
+    $('input[name=upload-board-check]:checked').parent().parent().remove();
 }

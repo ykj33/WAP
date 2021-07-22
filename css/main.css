@@ -345,3 +345,22 @@ margin-left: 150px;
     width: 800px;
     height: auto;
 }
+.upload-board {
+    display: none;
+    background-color: beige;
+}
+.upload-board table{
+    width: 700px;
+    margin : auto;
+}
+
+.upload-board th {
+    text-align: center;
+}
+.upload-board td {
+    text-align: center;
+}
+
+.upload-board #additionalUpload {
+    display: none;
+}
