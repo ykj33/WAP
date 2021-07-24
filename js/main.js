@@ -1,21 +1,6 @@
 // 화면 출력 완료
 console.log("로딩완료");
 
-// 배너 슬라이드
-new Swiper('.banner .swiper-container', {
-
-    autoplay: true,
-    loop: true,
-    pagination: {
-        el: '.banner .swiper-pagination',
-        clickable: true
-    },
-    navigation: {
-        prevEl: '.banner .swiper-prev',
-        nextEl: '.banner .swiper-next'
-    }
-});
-
 // 등록버튼 클릭 시 유효성 검사
 document.querySelector('#confirm').addEventListener('click', function () {
     // 필수항목입력 여부 체크
@@ -34,10 +19,6 @@ document.querySelector('#cancel').addEventListener('click', function () {
         return;
     }
 });
-// $("input[type='file']").on('change', function () {
-//     $(this).next('.custom-file-label').html(event.target.files[0].name);
-// });
-
 
 // 마우스 올렸을 시 확대
 function zoomIn(event) {
@@ -93,21 +74,20 @@ function checkForm() {
     }
 }
 
-
 // 파일 확장자 체크
 function checkFile(f) {
     let file = f.files;
     console.log(file)
     // 정규표현식으로 확장자 체크
-    if (!/\.(gif|jpg|jpeg|png|mp4|avi)$/i.test(file[0].name)) {
-        alert('gif, jpg, jpeg, png, mp4, avi 파일만 선택해주세요.\n\n현재파일 : ' + file[0].name);
+    if (!/\.(jpg|jpeg|png|tiff)$/i.test(file[0].name)) {
+        alert('이미지 파일만 선택해주세요.\njpg, jpeg, png, tiff 파일만 가능합니다. \n현재파일 : ' + file[0].name);
         f.outerHTML = f.outerHTML;
         console.log("파일 형식 체크")
         return;
     } else {
         // 파일 용량 체크
         checkFileSize(f)
-        fileTableAdd(f)
+        fileUpload(f)
     }
 
 }
@@ -168,41 +148,59 @@ function checkFileSize(f) {
 
 // 파일 첨부시 리스트 생성
 let lastTableindex = 0;
-function fileTableAdd(f) {
-    console.log("함수 실행")
+// function fileUpload(f) {
+//     console.log("함수 실행")
+//     let file = f.files;
+//     let i = 0;
+//     let fileName = "";
+//
+//
+//     for (i; i < file.length; i++) {
+//         fileName = file[i].name;
+//         let tableIndex = 0;
+//         if(lastTableindex == 0) {
+//             tableIndex = i+1;
+//         } else {
+//             tableIndex = lastTableindex + i;
+//         }
+//         let insertHtml = "<tbody><tr><td><input type='checkbox' name='upload-board-check'></td><td>" + tableIndex + "</td><td>" + fileName + "</td></tr></tbody>";
+//         $(".upload-board table").append(insertHtml);
+//         console.log(file);
+//         // 업로드 버튼 막기
+//         $("#uploadfile").attr('disabled', true);
+//     }
+//
+//     $(".upload-board").css("display", "block");
+//     lastTableindex = document.getElementById('uploadFileList').rows.length;
+//     console.log('마지막번호' + lastTableindex)
+// };
+
+function fileUpload(f) {
     let file = f.files;
-    let i = 0;
-    let fileName = "";
 
+    for (let i = 0; i < file.length; i++) {
+        let src = URL.createObjectURL(file[i]);
+        let html = "<div><input type='checkbox' name='upload-thumb-check' class='upload-thumb-check' id='upload-thumb-check" + i + "'><label for='upload-thumb-check" + i + "'><img src=" + src + " className='upload-thumb' alt='썸네일' width='170px' style='margin: 10px'></label></div>"
+        $(".thumb-box").append(html);
+        console.log("단계 확인 1")
 
-    for (i; i < file.length; i++) {
-        fileName = file[i].name;
-        let tableIndex = 0;
-        if(lastTableindex == 0) {
-            tableIndex = i+1;
-        } else {
-            tableIndex = lastTableindex + i;
-        }
-        let insertHtml = "<tbody><tr><td><input type='checkbox' name='upload-board-check'></td><td>" + tableIndex + "</td><td>" + fileName + "</td></tr></tbody>";
-        $(".upload-board table").append(insertHtml);
-        console.log(file);
-        // 업로드 버튼 막기
-        $("#uploadfile").attr('disabled', true);
+        $(".upload-board").css("display", "block");
+        console.log("이미지 연결")
     }
+}
 
-    $(".upload-board").css("display", "block");
-    lastTableindex = document.getElementById('uploadFileList').rows.length;
-    console.log('마지막번호' + lastTableindex)
-};
 // 전체 선택, 전체 해제
-$('input[name=upload-board-check-all]').on('change', function(){
-    $('input[name=upload-board-check]').prop('checked', this.checked);
-});
+// $('input[name=upload-board-check-all]').on('change', function () {
+//     $('input[name=upload-board-check]').prop('checked', this.checked);
+// });
 
-// 파일 추가
-$()
 
 // 체크한 파일 삭제
-function deleteFile(){
-    $('input[name=upload-board-check]:checked').parent().parent().remove();
+function deleteFile() {
+    console.log("개수" + $(".thumb-box").children().length)
+    $('input[name=upload-thumb-check]:checked').parent().remove();
+    // 더 이상 삭제할 것이 없으면 썸네일 목록 화면에서 감춤
+    if ($(".thumb-box").children().length == 0) {
+        $(".upload-board").css("display", "none");
+    }
 }

@@ -77,7 +77,7 @@
     </div>
     <div class="menu-group">
         <div class="menu">
-            <a href="../record_regist.html">기록물 등록</a>
+            <a href="../record_single_regist.html">기록물 등록</a>
         </div>
         <div class="menu">
             <a href="record_list_view.html.php">기록물 조회</a>

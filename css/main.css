@@ -6,7 +6,7 @@
 /*    overflow: hidden;*/
 /*}*/
 
-inner{
+inner {
     width: auto;
     height: auto;
     margin: auto;
@@ -68,9 +68,10 @@ inner{
     display: block;
     clear: both;
 }
-header{
+
+header {
     width: 1200px;
-    background-image: url(/image/background-image_3.png);
+    background-image: url(../image/background-image_3.png);
     z-index: -1;
     margin: auto;
 }
@@ -83,7 +84,7 @@ header{
     /* background-color: #EDEDED; */
     /* position: relative; */
     display: flex;
-    
+
 }
 
 .container-fluid .d-flex {
@@ -115,14 +116,14 @@ header{
 
 }
 
-.logo-line .application-name p{
-    
+.logo-line .application-name p {
+
     height: 200px;
     /* width: 1200px; */
     margin-left: 200px;
 }
 
-.logo-line .login{
+.logo-line .login {
     padding: 50px 30px 0px 300px;
 }
 
@@ -134,69 +135,6 @@ header{
     color: black;
     justify-content: flex-end;
 }
-
-/* .banner {
-    position: relative;
-}
-
-.banner .swiper-container {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-}
-
-.banner .swiper-slide {
-    position: relative;
-}
-
-.banner .swiper-pagination {
-    bottom: 40px;
-    left: 0;
-    right: 0;
-    z-index: 1;
-}
-
-.banner .swiper-prev,
-.banner .swiper-next {
-    width: 53px;
-    height: 53px;
-    border: 2px solid #333;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    z-index: 1;
-    cursor: pointer;
-    outline: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.4s;
-
-}
-
-.banner .swiper-prev .material-icons {
-    font-size: 50px;
-}
-
-.banner .swiper-next .material-icons {
-    font-size: 50px;
-}
-
-.banner .swiper-prev {
-    left: 10%;
-    margin-left: -5%;
-}
-
-.banner .swiper-next {
-    right: 10%;
-    margin-right: -5%;
-}
-
-.banner .swiper-prev:hover,
-.banner .swiper-next:hover {
-    background-color: #333;
-    color: #fff;
-} */
 
 .menu-group {
     display: flex;
@@ -212,6 +150,7 @@ header{
 .menu-group .menu {
     width: 150px;
     font-size: 20px;
+    cursor: pointer;
 }
 
 .menu-group .menu:first-child {
@@ -231,77 +170,15 @@ header{
     align-items: center;
 }
 
-/*.inner .box1,*/
-/*.inner .box2 {*/
-/*    position: relative;*/
-/*}*/
-
-/*.box1 {*/
-/*    position: absolute;*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    !*left: 25%;*!*/
-
-/*}*/
-
-/*.box2 {*/
-/*    height: 500px;*/
-/*    position: absolute;*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    !*left: 22%;*!*/
-/*    margin-top: 25px;*/
-/*}*/
-
-/*.box1 li {*/
-/*    width: 450px;*/
-/*    height: 350px;*/
-/*    text-align: center;*/
-/*    line-height: 50px;*/
-/*    float: left;*/
-/*    margin-top: 150px;*/
-/*    margin-left: 20px;*/
-/*}*/
-
-/*.box2 li {*/
-/*    width: 250px;*/
-/*    height: 250px;*/
-/*    text-align: center;*/
-/*    line-height: 50px;*/
-/*    float: left;*/
-/*    margin-top: 50px;*/
-/*    margin-left: 20px;*/
-/*}*/
-
-/*.box2 li:first-child {*/
-/*    margin-left: 0;*/
-/*}*/
-
-/*.box1 h2 {*/
-/*    font-size: 25px;*/
-/*    color: #111;*/
-/*    border-bottom: 1px solid #ddd;*/
-/*    padding-bottom: 15px;*/
-/*}*/
-
-/*.box2 h3 {*/
-/*    font-size: 20px;*/
-/*    color: #111;*/
-/*    border-bottom: 1px solid #ddd;*/
-/*    padding-bottom: 15px;*/
-/*}*/
-
 .input-group-prepend {
     width: 100%;
 }
 
 /* FOOTER */
-footer{
+footer {
     margin: auto;
     width: 1200px;
-    background-image: url(/image/background-image_3.png);
+    background-image: url(../image/background-image_3.png);
     z-index: -1;
 }
 
@@ -327,7 +204,7 @@ footer{
     height: 200px;
     display: flex;
     margin: auto;
-    justify-content: right;    
+    justify-content: right;
 }
 
 .footer-description .description {
@@ -383,24 +260,33 @@ footer{
     height: auto;
 }
 
+/*파일 업로드시 나타나는 이미지 썸네일 공간*/
 .upload-board {
     display: none;
+    width: 800px;
+    padding: 20px;
     background-color: beige;
 }
 
-.upload-board table {
-    width: 700px;
+.upload-board .upload-thumb {
+    width: 400px;
     margin: auto;
 }
 
-.upload-board th {
-    text-align: center;
+.upload-board .button-group .uploadfile-del {
+    width: 60px;
+    height: 40px;
+    margin-left: 10px;
 }
 
-.upload-board td {
+.upload-board .button-group .additional {
+    background-color: #EFEFEF;
+    border: 2px solid black;
+    width: 60px;
+    height: 40px;
     text-align: center;
-}
-
-.upload-board #additionalUpload {
-    display: none;
+    vertical-align: middle;
+    padding: 3px 6px 1px 6px;
+    margin: 0px;
+    cursor:pointer;
 }

@@ -72,7 +72,7 @@ try {
     $stmh->bindValue(':url', $upload_file_path, PDO::PARAM_STR);
     $stmh->execute();
     $pdo->commit();
-    Header("Location:https://rikarsong.cafe24.com/wap/record_regist.html");
+    Header("Location:https://rikarsong.cafe24.com/wap/record_single_regist.html");
 } catch (Exception $exception) {
     $pdo->rollBack();
     print "오류: " . $exception->getMessage();
