@@ -7,9 +7,10 @@
 /*}*/
 
 inner {
-    width: auto;
-    height: auto;
-    margin: auto;
+    width: 1200px;
+    height: 1500px;
+    margin:auto;
+    display: flex;
 }
 
 .inner .regist-inner {
@@ -204,11 +205,17 @@ footer {
     height: 200px;
     display: flex;
     margin: auto;
-    justify-content: right;
+    font-size: 25px;
+}
+
+.footer-description .mylogo {
+    margin-top: 10px;
 }
 
 .footer-description .description {
+    justify-content: center;
     margin-top: 10px;
+    margin-left: 120px;
 }
 
 .footer-description .between {
@@ -217,6 +224,7 @@ footer {
 }
 
 .footer-description .description2 {
+    justify-content: center;
     margin-top: 10px;
 }
 
