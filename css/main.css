@@ -9,7 +9,7 @@
 inner {
     width: 1200px;
     height: 1500px;
-    margin:auto;
+    margin: auto;
     display: flex;
 }
 
@@ -273,7 +273,7 @@ footer {
     display: none;
     width: 800px;
     padding: 20px;
-    background-color: beige;
+    background-color: #eeee;
 }
 
 .upload-board .upload-thumb {
@@ -285,18 +285,19 @@ footer {
     width: 60px;
     height: 40px;
     margin-left: 10px;
+    border: 1px solid black;
 }
 
 .upload-board .button-group .additional {
-    background-color: #EFEFEF;
-    border: 2px solid black;
+    /* background-color: #EFEFEF; */
+    border: 1px solid black;
     width: 60px;
     height: 40px;
     text-align: center;
     vertical-align: middle;
     padding: 3px 6px 1px 6px;
     margin: 0px;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .upload-board .thumb-box {
