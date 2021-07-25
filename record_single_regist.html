@@ -61,7 +61,7 @@
 <header>
     <div class="logo-line">
         <div class="logo">
-            <a href="http://rikarsong.cafe24.com/wap/index.html.php">
+            <a href="index.html">
                 <img src="./image/rikar_logo.png" alt="로고" class="logo">
             </a>
         </div>
@@ -77,13 +77,19 @@
     </div>
     <div class="menu-group">
         <div class="menu">
-            <a href="record_single_regist.html">기록물 등록</a>
+            <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true">
+                기록물 등록
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="record_single_regist.html">기록물 단일 등록</a>
+                <a class="dropdown-item" href="./record_multi_regist.html">기록물 다중 등록</a>
+            </div>
         </div>
         <div class="menu">
             <a href="php/record_list_view.html.php">기록물 조회</a>
         </div>
         <div class="menu">
-            <a href="board_list_view.html">모니터링단<br> 커뮤니티</a>
+            <a href="#">모니터링단<br> 커뮤니티</a>
         </div>
     </div>
     <!-- <div class="container-fluid">
@@ -102,9 +108,19 @@
     <div class="content">
         <div class="inner">
             <div class="regist-inner">
-                <form action="php/multi_upload_test.php" method="POST" class="register" id="register_form"
+                <form action="php/record_regist.html.php" method="POST" class="register" id="register_form"
                       name="register_form" enctype="multipart/form-data">
                     <div class="metadata-group">
+                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                            <label class="btn btn-outline-primary" for="btnradio1">Radio 1</label>
+
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="btnradio2">Radio 2</label>
+
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="btnradio3">Radio 3</label>
+                        </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="upload_label">기록물 첨부</span>
@@ -117,7 +133,13 @@
 
                         </div>
                         <div class="upload-board">
-                            <img src="" class="upload-thumb">
+                            <div class="button-group">
+                                <label class="additional" for="uploadfile">추가</label>
+                                <button type="button" class="uploadfile-del" onclick="deleteFile()">삭제</button>
+                            </div>
+                            <div class="thumb-box">
+
+                            </div>
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">

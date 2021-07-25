@@ -110,44 +110,8 @@ function checkFileSize(f) {
     }
 }
 
-// // 다중 파일 업로드시 미리보기, 구현 시도중 중지
-// let sel_files = [];
-// $(document).ready(function () {
-//     $("uploadfile").on("change", handleImgFileSelect);
-// });
-//
-// function fileUploadAction() {
-//     console.log("fileUploadAction");
-//     $("#uploadfile").trigger('click');
-// }
-//
-// function handleImgFileSelect(e) {
-//     sel_files = [];
-//     $(".upload_board").empty();
-//
-//     let files = e.target.files;
-//     let filesArr = Array.prototype.slice.call(files);
-//
-//     let index = 0;
-//     filesArr.forEach(function (f) {
-//         if (!f.type.match("image.*")) {
-//             alert("이미지 파일만 가능합니다.");
-//             return;
-//         }
-//         sel_files.push(f);
-//
-//         const reader = new FileReader();
-//         reader.onload = function (e) {
-//             let html = "<a href=\"javascript:void(0);\" onclick=\"deleteImageAction("+index+")\" id=\"uploadfile_id_"+index+"\"><img src=\"" + e.target.result + "\" data-file='"+f.name+"' class = 'selProductFile' title='Click to remove'></a>";
-//             $(".upload_board").append(html);
-//             index++;
-//         }
-//         reader.readAsDataURL(f);
-//     });
-// }
-
 // 파일 첨부시 리스트 생성
-let lastTableindex = 0;
+// let lastTableindex = 0;
 // function fileUpload(f) {
 //     console.log("함수 실행")
 //     let file = f.files;
@@ -174,19 +138,33 @@ let lastTableindex = 0;
 //     lastTableindex = document.getElementById('uploadFileList').rows.length;
 //     console.log('마지막번호' + lastTableindex)
 // };
+let lastTableindex = 0;
 
+// 파일 업로드 시 이미지 썸네일 출력
 function fileUpload(f) {
     let file = f.files;
+    console.log("파일들 :"+file)
+    // let i = 0;
+    let tableIndex = 0;
+    for (let i =0; i < file.length; i++) {
 
-    for (let i = 0; i < file.length; i++) {
+        if (lastTableindex == 0) {
+            tableIndex = i + 1;
+        } else {
+            tableIndex = lastTableindex + i;
+        }
+        lastTableindex = tableIndex+1;
+        console.log("마지막 번호1 :"+ lastTableindex)
         let src = URL.createObjectURL(file[i]);
-        let html = "<div><input type='checkbox' name='upload-thumb-check' class='upload-thumb-check' id='upload-thumb-check" + i + "'><label for='upload-thumb-check" + i + "'><img src=" + src + " className='upload-thumb' alt='썸네일' width='170px' style='margin: 10px'></label></div>"
+        console.log(src)
+        let html = "<div><input type='checkbox' name='upload-thumb-check' class='upload-thumb-check' id='upload-thumb-check" + tableIndex + "'><label for='upload-thumb-check" + tableIndex + "'><img src=" + src + " className='upload-thumb' alt='썸네일' width='170px' style='margin: 10px'></label></div>"
         $(".thumb-box").append(html);
-        console.log("단계 확인 1")
+        console.log("마지막 번호2 :"+ lastTableindex)
 
         $(".upload-board").css("display", "block");
         console.log("이미지 연결")
     }
+
 }
 
 // 전체 선택, 전체 해제

@@ -61,7 +61,7 @@
 <header>
     <div class="logo-line">
         <div class="logo">
-            <a href="http://rikarsong.cafe24.com/wap/index.html.php">
+            <a href="../index.html">
                 <img src="../image/rikar_logo.png" alt="로고" class="logo">
             </a>
         </div>
@@ -77,10 +77,16 @@
     </div>
     <div class="menu-group">
         <div class="menu">
-            <a href="../record_single_regist.html">기록물 등록</a>
+            <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true">
+                기록물 등록
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="../record_single_regist.html">기록물 단일 등록</a>
+                <a class="dropdown-item" href="../record_multi_regist.html">기록물 다중 등록</a>
+            </div>
         </div>
         <div class="menu">
-            <a href="record_list_view.html.php">기록물 조회</a>
+            <a href="php/record_list_view.html.php">기록물 조회</a>
         </div>
         <div class="menu">
             <a href="#">모니터링단<br> 커뮤니티</a>

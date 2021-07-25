@@ -298,3 +298,8 @@ footer {
     margin: 0px;
     cursor:pointer;
 }
+
+.upload-board .thumb-box {
+    display: flex;
+    overflow: auto;
+}
