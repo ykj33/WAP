@@ -271,13 +271,6 @@ footer {
     align-items: center;
 }
 
-.footer-logo-group .footer-logo {
-    margin: 0px 0px 0px 0px;
-}
-
-.footer-logo-group .footer-logo span {
-    color: black;
-}
 
 .footer-description {
     border-top: 2px solid black;
@@ -291,7 +284,8 @@ footer {
 .footer-description .mylogo {
     display: flex;
     width: 30%;
-    margin-top: 10px;
+    height: 30%;
+    margin-top: 30px;
     margin-left: 20px;
 }
 
@@ -299,7 +293,7 @@ footer {
     width: 35%;
     justify-content: center;
     margin-top: 20px;
-    margin-left: 100px;
+    margin-left: 50px;
 }
 
 .footer-description .between {
