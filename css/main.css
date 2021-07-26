@@ -144,23 +144,15 @@ header {
 }
 
 .application-name {
-    /* margin-left: 150px; */
     height: 100px;
-    width: 750px;
+    width: 300px;
     font-size: 40px;
-    padding: 10px 0px 0px 0px;
-
-}
-
-.application-name p {
-
-    height: 100px;
-    /* width: 1200px; */
+    padding: 25px 0px 0px 0px;
     margin-left: 200px;
 }
 
 .login {
-    padding: 20px 30px 0px 200px;
+    padding: 15px 0px 0px 395px;
     font-size: 35px;
     text-decoration: none;
 }
@@ -280,8 +272,7 @@ footer {
 }
 
 .footer-logo-group .footer-logo {
-    /* background-color: #fff; */
-    margin: 0px 20px 0px 20px;
+    margin: 0px 0px 0px 0px;
 }
 
 .footer-logo-group .footer-logo span {
@@ -291,22 +282,24 @@ footer {
 .footer-description {
     border-top: 2px solid black;
     width: 1200px;
-    height: 200px;
+    height: 150px;
     display: flex;
     margin-top: 10px;
     font-size: 20px;
 }
 
 .footer-description .mylogo {
+    display: flex;
+    width: 30%;
     margin-top: 10px;
     margin-left: 20px;
 }
 
 .footer-description .description {
-    width: 40%;
+    width: 35%;
     justify-content: center;
     margin-top: 20px;
-    margin-left: 140px;
+    margin-left: 100px;
 }
 
 .footer-description .between {
@@ -318,7 +311,7 @@ footer {
     width: 50%;
     /* justify-content: center; */
     margin-top: 20px;
-    margin-left: 10px;
+    margin-left: 5px;
 
 }
 
