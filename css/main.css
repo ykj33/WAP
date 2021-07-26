@@ -213,6 +213,10 @@ header {
     /* background-color: #EDEDED; */
 }
 
+.row{
+    margin: auto;
+}
+
 .menu-group .menu {
     width: 150px;
     font-size: 20px;
@@ -269,7 +273,7 @@ footer {
     width: 1200px;
     height: 200px;
     display: flex;
-    margin: auto;
+    margin-top: 10px;
     font-size: 20px;
 }
 
