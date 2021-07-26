@@ -60,17 +60,17 @@
 <header>
     <div class="logo-line">
         <div class="logo">
-            <a href="../index.html">
-                <img src="../image/rikar_logo.png" alt="로고" class="logo">
+            <a href="index.html">
+                <img src="./image/rikar_logo.png" alt="로고" class="logo">
             </a>
         </div>
         <div class="application-name">
-            원평동<br>
-            도시재생기록화
+            <p>원평동<br>
+                도시재생기록화</p>
         </div>
         <div class="login">
-            <a href="#">
-                <p>로그인</p>
+            <a href="login.html">
+                로그인
             </a>
         </div>
     </div>
@@ -80,17 +80,25 @@
                 기록물 등록
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="../record_single_regist.html">기록물 단일 등록</a>
-                <a class="dropdown-item" href="../record_multi_regist.html">기록물 다중 등록</a>
+                <a class="dropdown-item" href="record_single_regist.html">기록물 단일 등록</a>
+                <a class="dropdown-item" href="./record_multi_regist.html">기록물 다중 등록</a>
             </div>
         </div>
         <div class="menu">
             <a href="php/record_list_view.html.php">기록물 조회</a>
         </div>
-        <div class="menu">
-            <a href="#">모니터링단<br> 커뮤니티</a>
-        </div>
+        <!-- <div class="menu">
+            <a href="#">모니터링단<br> 커뮤니티</a> -->
     </div>
+    </div>
+    <!-- <div class="container-fluid">
+<form class="d-flex">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">검색</button>
+</form>
+</div> -->
+    </div>
+
     <!-- menu 부분 -->
 </header>
 <div class="container">
@@ -170,8 +178,8 @@
 
                     ?>
                     <tr>
-                        <td align="center"><?= htmlspecialchars($row['identifier']) ?></td>
-                        <td align="center"><a
+                        <td align="left"><?= htmlspecialchars($row['identifier']) ?></td>
+                        <td align="left"><a
                                     href="record_detail_view.html.php?record_id=<?= $row['record_id'] ?>"><?= htmlspecialchars($row['title']) ?>
                         </td>
                         <td align="center"><?= htmlspecialchars($row['register']) ?></td>

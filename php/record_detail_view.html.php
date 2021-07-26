@@ -371,8 +371,8 @@
 
                                     ?>
                                     <tr>
-                                        <td align="center"><?= htmlspecialchars($row['identifier']) ?></td>
-                                        <td align="center"><a
+                                        <td align="left"><?= htmlspecialchars($row['identifier']) ?></td>
+                                        <td align="left"><a
                                                     href="record_detail_view.html.php?record_id=<?= $row['record_id'] ?>"><?= htmlspecialchars($row['title']) ?>
                                         </td>
                                         <td align="center"><?= htmlspecialchars($row['register']) ?></td>
