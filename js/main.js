@@ -92,6 +92,23 @@ function checkFile(f) {
 
 }
 
+function checkFileSingle(f) {
+    let file = f.files;
+    console.log(file)
+    // 정규표현식으로 확장자 체크
+    if (!/\.(jpg|jpeg|png|tiff)$/i.test(file[0].name)) {
+        alert('이미지 파일만 선택해주세요.\njpg, jpeg, png, tiff 파일만 가능합니다. \n현재파일 : ' + file[0].name);
+        f.outerHTML = f.outerHTML;
+        console.log("파일 형식 체크")
+        return;
+    } else {
+        // 파일 용량 체크
+        checkFileSize(f)
+        fileUploadSingle(f)
+    }
+
+}
+
 // 파일 용량 체크
 function checkFileSize(f) {
     let file = f.files;
@@ -139,31 +156,47 @@ function checkFileSize(f) {
 //     console.log('마지막번호' + lastTableindex)
 // };
 let lastTableindex = 0;
-
 // 파일 업로드 시 이미지 썸네일 출력
 function fileUpload(f) {
     let file = f.files;
-    console.log("파일들 :"+file)
-    // let i = 0;
+    console.log(file)
+
     let tableIndex = 0;
-    for (let i =0; i < file.length; i++) {
+    for (let i = 0; i < file.length; i++) {
 
         if (lastTableindex == 0) {
             tableIndex = i + 1;
         } else {
             tableIndex = lastTableindex + i;
         }
-        lastTableindex = tableIndex+1;
-        console.log("마지막 번호1 :"+ lastTableindex)
+        lastTableindex = tableIndex + 1;
+        console.log("마지막 번호1 :" + lastTableindex)
         let src = URL.createObjectURL(file[i]);
         console.log(src)
         let html = "<div><input type='checkbox' name='upload-thumb-check' class='upload-thumb-check' id='upload-thumb-check" + tableIndex + "'><label for='upload-thumb-check" + tableIndex + "'><img src=" + src + " className='upload-thumb' alt='썸네일' width='170px' style='margin: 10px'></label></div>"
         $(".thumb-box").append(html);
-        console.log("마지막 번호2 :"+ lastTableindex)
+        $('#img_box').append("<img src='이미지경로' data-image='tmp1' class='tmp1'><input type=hidden name='tmpfile[]' value='이미지경로'  class='tmp1'>");
+        console.log("마지막 번호2 :" + lastTableindex)
 
         $(".upload-board").css("display", "block");
         console.log("이미지 연결")
     }
+}
+
+function fileUploadSingle(f) {
+    let file = f.files;
+    console.log(file)
+    let tableIndex = 0;
+        console.log("마지막 번호1 :" + lastTableindex)
+        let src = URL.createObjectURL(file[0]);
+        console.log(src)
+        let html = "<div><input type='checkbox' name='upload-thumb-check' class='upload-thumb-check' id='upload-thumb-check" + tableIndex + "'><label for='upload-thumb-check" + tableIndex + "'><img src=" + src + " className='upload-thumb' alt='썸네일' width='250px' style='margin: 10px'></label></div>"
+        $(".thumb-box").html(html);
+        index++;
+        console.log("마지막 번호2 :" + lastTableindex)
+
+        $(".upload-board").css("display", "block");
+        console.log("이미지 연결")
 
 }
 
@@ -174,9 +207,10 @@ function fileUpload(f) {
 
 
 // 체크한 파일 삭제
-function deleteFile() {
+function deleteFile(f) {
     console.log("개수" + $(".thumb-box").children().length)
     $('input[name=upload-thumb-check]:checked').parent().remove();
+    console.log("삭제됨")
     // 더 이상 삭제할 것이 없으면 썸네일 목록 화면에서 감춤
     if ($(".thumb-box").children().length == 0) {
         $(".upload-board").css("display", "none");
