@@ -69,11 +69,11 @@
                 <p>원평동<br>
                     도시재생기록화</p>
             </div>
-            <div class="login">
+            <!-- <div class="login">
                 <a href="#">
                     로그인
                 </a>
-            </div>
+            </div> -->
         </div>
         <div class="menu-group">
             <div class="menu">
@@ -88,9 +88,9 @@
             <div class="menu">
                 <a href="php/record_list_view.html.php">기록물 조회</a>
             </div>
-            <div class="menu">
-                <a href="#">모니터링단<br> 커뮤니티</a>
-            </div>
+            <!-- <div class="menu">
+                <a href="#">모니터링단<br> 커뮤니티</a> -->
+        </div>
         </div>
         <!-- <div class="container-fluid">
     <form class="d-flex">
@@ -107,127 +107,125 @@
     <div class="container">
         <div class="content">
             <div class="inner">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                               value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1">
-                            모니터링단
-                        </label>
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                               value="option2">
-                        <label class="form-check-label" for="exampleRadios2">
-                            아카이빙단
-                        </label>
-                    </div>
-                    <div class="form-check2">
-                    </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                        value="option1" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                        모니터링단
+                    </label>
+                    <input class="form-check-input2" type="radio" name="exampleRadios" id="exampleRadios2"
+                        value="option2">
+                    <label class="form-check-label2" for="exampleRadios2">
+                        아카이빙단
+                    </label>
+                </div>
+                <div class="form-check2">
+                </div>
 
                 <div class="regist-inner">
                     <form action="php/record_regist.html.php" method="POST" class="register" id="register_form"
                         name="register_form" enctype="multipart/form-data">
                         <div class="metadata-group">
 
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="upload_label">기록물 첨부</span>
-                                    </div>
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" name="uploadfile[]" id="uploadfile"
-                                            aria-describedby="upload" onchange="checkFile(this)" multiple>
-                                        <label class="custom-file-label" id="custom-file-label"
-                                            for="uploadfile"></label>
-                                    </div>
-
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="upload_label">기록물 첨부</span>
                                 </div>
-                                <div class="upload-board">
-                                    <div class="button-group">
-                                        <label class="additional" for="uploadfile">추가</label>
-                                        <button type="button" class="uploadfile-del" onclick="deleteFile()">삭제</button>
-                                    </div>
-                                    <div class="thumb-box">
-
-                                    </div>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="uploadfile[]" id="uploadfile"
+                                        aria-describedby="upload" onchange="checkFile(this)" multiple>
+                                    <label class="custom-file-label" id="custom-file-label" for="uploadfile"></label>
                                 </div>
 
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="title_label">제목(*)</span>
-                                    </div>
-                                    <input type="text" class="form-control" aria-label="제목" aria-describedby="title"
-                                        name="title" id="title">
-                                </div>
-
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="creator_label">생산자(*)</span>
-                                    </div>
-                                    <input type="text" class="form-control" aria-label="생산자" aria-describedby="creator"
-                                        name="creator" id="creator">
-                                </div>
-
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="collector_label">수집자</span>
-                                    </div>
-                                    <input type="text" class="form-control" aria-label="수집자"
-                                        aria-describedby="collector" name="collector" id="collector">
-                                </div>
-
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="date_from_label">시작날짜(*)</span>
-                                    </div>
-                                    <input type="date" class="form-control" aria-label="시작날짜"
-                                        aria-describedby="date_from" name="date_from" id="date_from">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="date_to_label">종료날짜(*)</span>
-                                    </div>
-                                    <input type="date" class="form-control" aria-label="종료날짜" aria-describedby="date_to"
-                                        name="date_to" id="date_to">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="extent_label">기록규모(*)</span>
-                                    </div>
-                                    <input type="text" class="form-control" aria-label="기록규모" aria-describedby="extent"
-                                        name="extent" id="extent">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="medium_label">기록매체(*)</span>
-                                    </div>
-                                    <input type="text" class="form-control" aria-label="기록매체" aria-describedby="medium"
-                                        name="medium" id="medium">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="scope_label">기록범위</span>
-                                    </div>
-                                    <input type="text" class="form-control" aria-describedby="scope" name="scope"
-                                        id="scope">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="type_label">기록유형(*)</span>
-                                    </div>
-                                    <input type="text" class="form-control" aria-describedby="type" name="type"
-                                        id="type">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="record_description_label">기술</span>
-                                    </div>
-                                    <textarea class="form-control" aria-label="기술" aria-describedby="record_description"
-                                        name="record_description" id=record_description></textarea>
-                                </div>
-
+                            </div>
+                            <div class="upload-board">
                                 <div class="button-group">
-                                    <button type="submit" id="confirm" class="btn btn-secondary btn-lg">등록</button>
-                                    <button type="button" id="cancel" class="btn btn-secondary btn-lg">취소</button>
+                                    <label class="additional" for="uploadfile">추가</label>
+                                    <button type="button" class="uploadfile-del" onclick="deleteFile()">삭제</button>
+                                </div>
+                                <div class="thumb-box">
+
                                 </div>
                             </div>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="title_label">제목(*)</span>
+                                </div>
+                                <input type="text" class="form-control" aria-label="제목" aria-describedby="title"
+                                    name="title" id="title">
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="creator_label">생산자(*)</span>
+                                </div>
+                                <input type="text" class="form-control" aria-label="생산자" aria-describedby="creator"
+                                    name="creator" id="creator">
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="collector_label">수집자</span>
+                                </div>
+                                <input type="text" class="form-control" aria-label="수집자" aria-describedby="collector"
+                                    name="collector" id="collector">
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="date_from_label">시작날짜(*)</span>
+                                </div>
+                                <input type="date" class="form-control" aria-label="시작날짜" aria-describedby="date_from"
+                                    name="date_from" id="date_from">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="date_to_label">종료날짜(*)</span>
+                                </div>
+                                <input type="date" class="form-control" aria-label="종료날짜" aria-describedby="date_to"
+                                    name="date_to" id="date_to">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="extent_label">기록규모(*)</span>
+                                </div>
+                                <input type="text" class="form-control" aria-label="기록규모" aria-describedby="extent"
+                                    name="extent" id="extent">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="medium_label">기록매체(*)</span>
+                                </div>
+                                <input type="text" class="form-control" aria-label="기록매체" aria-describedby="medium"
+                                    name="medium" id="medium">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="scope_label">기록범위</span>
+                                </div>
+                                <input type="text" class="form-control" aria-describedby="scope" name="scope"
+                                    id="scope">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="type_label">기록유형(*)</span>
+                                </div>
+                                <input type="text" class="form-control" aria-describedby="type" name="type" id="type">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="record_description_label">기술</span>
+                                </div>
+                                <textarea class="form-control" aria-label="기술" aria-describedby="record_description"
+                                    name="record_description" id=record_description></textarea>
+                            </div>
+
+                            <div class="button-group">
+                                <button type="submit" id="confirm" class="btn btn-secondary btn-lg">등록</button>
+                                <button type="button" id="cancel" class="btn btn-secondary btn-lg">취소</button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -258,21 +256,29 @@
         <div class="footer-description">
             <div class="mylogo">
                 <img src="image/wp_logo.png">
-            </div>
-            <div class="description">
-                | 기관명: 원평동 도시재생현장지원센터
                 <br>
-                | 전화번호: 00-000-0000
-                <br>
-                |주소: 경상북도 구미시 원평동 59-3
+                <img src="image/OCS_logo.png">
             </div>
+            <!-- <div class="description">
+        | 단체명: 오씨에스도시건축
+        <br>
+        | 전화번호: 02-539-8734
+        <br>
+        |주소: 서울특별시 강남구 논현로 338. 경안빌딩 3층
+        (역삼동)
+    </div> -->
             <div class="between">
 
             </div>
             <div class="description2">
-                | 대표자: 배홍소
+                | 담당자: 이지은
                 <br>
-                | E-mail: OOOO@OOOO.kr
+                | E-mail: jiniii0819@ocsint.co.kr
+                <br>
+                | 전화번호: 02-539-8734
+                <br>
+                | 오픈카톡방 들어오는 방법:
+                <br> 카카오톡 우측상단의 오픈채팅에서 구미시 원평동 모니터링단을 <br> 검색해주세요!
 
             </div>
         </div>

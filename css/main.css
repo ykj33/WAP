@@ -9,7 +9,6 @@
 inner {
     width: 1200px;
     /*height: 1500px;*/
-    background-color: red;
     margin: auto;
     display: flex;
 }
@@ -17,6 +16,10 @@ inner {
 inner .poster-right{
     width: 400px;
     background-color: lightgray;
+}
+
+.table{
+    margin-top: 30px;
 }
 
 .inner .regist-inner {
@@ -46,6 +49,10 @@ inner .poster-right{
     width: 1200px;
     height: 70px;
     background-color: lightgray;
+}
+
+#exampleRadios1 .form-check-input{
+    padding-left: 20px;
 }
 
 .form-check2{
@@ -123,27 +130,27 @@ header {
 
 }
 
-.logo-line .application-name {
+.application-name {
     /* margin-left: 150px; */
     height: 200px;
     width: 750px;
     font-size: 40px;
-    padding: 30px 30px 0px 0px;
+    padding: 30px 0px 0px 0px;
 
 }
 
-.logo-line .application-name p {
+.application-name p {
 
     height: 200px;
     /* width: 1200px; */
     margin-left: 200px;
 }
 
-.logo-line .login {
+.login {
     padding: 50px 30px 0px 300px;
 }
 
-.logo-line .login a {
+.login a {
     font-size: 35px;
     height: 100px;
     width: 150px;
@@ -158,7 +165,7 @@ header {
     align-items: center;
     height: 100px;
     width: 1200px;
-    margin: auto;
+    /* margin-left: px; */
     margin-bottom: 10px;
     /* background-color: #EDEDED; */
 }
@@ -172,7 +179,7 @@ header {
 .menu-group .menu:first-child {
     width: 150px;
     font-size: 20px;
-    margin-left: 750px;
+    margin-left: 700px;
 }
 
 .menu-group .menu a {
@@ -220,27 +227,30 @@ footer {
     height: 200px;
     display: flex;
     margin: auto;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .footer-description .mylogo {
     margin-top: 10px;
+    margin-left: 20px;
 }
 
 .footer-description .description {
     justify-content: center;
-    margin-top: 10px;
-    margin-left: 120px;
+    margin-top: 20px;
+    margin-left: 250px;
 }
 
 .footer-description .between {
-    width: 100px;
+    width: 30px;
     height: 100%;
 }
 
 .footer-description .description2 {
-    justify-content: center;
-    margin-top: 10px;
+    /* justify-content: center; */
+    margin-top: 20px;
+    margin-left: 280px;
+    
 }
 
 .collapse {
@@ -286,17 +296,17 @@ footer {
 /*파일 업로드시 나타나는 이미지 썸네일 공간*/
 .upload-board {
     display: none;
-    width: 800px;
+    width: 1150px;
     padding: 20px;
     background-color: #eeee;
 }
 
-.upload-board .upload-thumb {
+.upload-thumb {
     width: 400px;
     margin: auto;
 }
 
-.upload-board .button-group .uploadfile-del {
+.button-group .uploadfile-del {
     width: 60px;
     height: 40px;
     margin-left: 10px;
