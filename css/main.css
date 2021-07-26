@@ -13,13 +13,20 @@ inner {
     display: flex;
 }
 
-inner .poster-right{
+.poster-right {
     width: 400px;
-    background-color: lightgray;
+    background-color: #efefef
 }
 
-.table{
+.poster-right h2{
+    font-size: 30px;
+    margin-top: 29px;
+    margin-left: 120px;
+}
+
+.table {
     margin-top: 30px;
+    font-size: 11px;
 }
 
 .inner .regist-inner {
@@ -43,7 +50,7 @@ inner .poster-right{
     padding: 25px;
 }
 
-.form-check{
+.form-check {
     padding-top: 15px;
     padding-left: 20px;
     width: 1200px;
@@ -51,14 +58,20 @@ inner .poster-right{
     background-color: lightgray;
 }
 
-#exampleRadios1 .form-check-input{
-    padding-left: 20px;
+.form-check span{
+    padding-left: 10px;
 }
 
-.form-check2{
-    width: 1200px;
-    height: 10px;
- background-color: white;
+.form-check .form-check-input{
+    margin-left: 70%;
+}
+
+.form-check .form-check-label{
+    margin-left: 73%;
+}
+
+#exampleRadios1 .form-check-input {
+    padding-left: 20px;
 }
 
 .metadata-group .input-group .form-control {
@@ -72,7 +85,6 @@ inner .poster-right{
 }
 
 .inner .regist-inner .register .button-group {
-
     display: flex;
     justify-content: flex-end;
 }
@@ -101,7 +113,7 @@ header {
 
 /* HEADER */
 .logo-line {
-    height: 100px;
+    height: 50px;
     width: 1200px;
     margin: auto;
     /* background-color: #EDEDED; */
@@ -123,7 +135,7 @@ header {
 } */
 
 .logo-line .logo {
-    margin-top: 25px;
+    margin-top: 10px;
     position: absolute;
     width: 150px;
     display: flex;
@@ -132,22 +144,22 @@ header {
 
 .application-name {
     /* margin-left: 150px; */
-    height: 200px;
+    height: 100px;
     width: 750px;
     font-size: 40px;
-    padding: 30px 0px 0px 0px;
+    padding: 10px 0px 0px 0px;
 
 }
 
 .application-name p {
 
-    height: 200px;
+    height: 100px;
     /* width: 1200px; */
     margin-left: 200px;
 }
 
 .login {
-    padding: 50px 30px 0px 300px;
+    padding: 20px 30px 0px 200px;
     font-size: 35px;
     text-decoration: none;
 }
@@ -166,37 +178,42 @@ header {
     justify-content: flex-end;
 }
 
-.login-container{
+.login-container {
     margin-top: 5%;
     margin-bottom: 5%;
 }
-.login-form-1{
+
+.login-form-1 {
+    margin-left: 25%;
+    margin-bottom: 10px;
     padding: 5%;
-    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    /* box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19); */
 }
-.login-form-1 h3{
+
+.login-form-1 h3 {
     text-align: center;
     color: #333;
 }
 
-.login-container form{
+.login-container form {
     padding: 10%;
 }
-.btnSubmit
-{
-    width: 50%;
+
+.btnSubmit {
+    width: 100%;
     border-radius: 1rem;
     padding: 1.5%;
     border: none;
     cursor: pointer;
 }
-.login-form-1 .btnSubmit{
+
+.login-form-1 .btnSubmit {
     font-weight: 600;
     color: #fff;
     background-color: #0062cc;
 }
 
-.login-form-1 .ForgetPwd{
+.login-form-1 .ForgetPwd {
     color: #0062cc;
     font-weight: 600;
     text-decoration: none;
@@ -213,8 +230,10 @@ header {
     /* background-color: #EDEDED; */
 }
 
-.row{
-    margin: auto;
+.row {
+    width: 1200px;
+    height: 500px;
+
 }
 
 .menu-group .menu {
@@ -283,9 +302,10 @@ footer {
 }
 
 .footer-description .description {
+    width: 40%;
     justify-content: center;
     margin-top: 20px;
-    margin-left: 250px;
+    margin-left: 140px;
 }
 
 .footer-description .between {
@@ -294,10 +314,11 @@ footer {
 }
 
 .footer-description .description2 {
+    width: 50%;
     /* justify-content: center; */
     margin-top: 20px;
-    margin-left: 280px;
-    
+    margin-left: 10px;
+
 }
 
 .collapse {
