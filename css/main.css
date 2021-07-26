@@ -8,9 +8,15 @@
 
 inner {
     width: 1200px;
-    height: 1500px;
+    /*height: 1500px;*/
+    background-color: red;
     margin: auto;
     display: flex;
+}
+
+inner .poster-right{
+    width: 400px;
+    background-color: lightgray;
 }
 
 .inner .regist-inner {
@@ -34,9 +40,18 @@ inner {
     padding: 25px;
 }
 
-.metadata-group {
-    width: 800px;
-    margin: auto;
+.form-check{
+    padding-top: 15px;
+    padding-left: 20px;
+    width: 1200px;
+    height: 70px;
+    background-color: lightgray;
+}
+
+.form-check2{
+    width: 1200px;
+    height: 10px;
+ background-color: white;
 }
 
 .metadata-group .input-group .form-control {
