@@ -171,6 +171,28 @@
                                 $stmh->bindValue(':title', $search_word, PDO::PARAM_STR);
                                 $stmh->execute();
                                 $count = $stmh->rowCount();
+                                if (isset($_GET["page"])) {
+                                    $page = $_GET["page"];
+
+                                } else {
+                                    $page = 1;
+                                }
+                                $total_record = $count;
+                                $list = 15;
+                                $block_cnt = 5;
+                                $block_num = ceil($page / $block_cnt);
+                                $block_start = (($block_num - 1) * $block_cnt) + 1;
+                                $block_end = $block_start + $block_cnt - 1;
+                                $total_page = ceil(($total_record / $list));
+                                if ($block_end > $total_page) {
+                                    $block_end = $total_page;
+                                }
+                                $total_block = ceil($total_page / $block_cnt);
+                                $page_start = ($page - 1) * $list;
+                                $page_sql = "SELECT * FROM rikarsong.record WHERE title like :title AND delete_yn = 'N' ORDER BY regist_date DESC LIMIT $page_start, $list";
+                                $stmh = $pdo->prepare($page_sql);
+                                $stmh->bindValue(':title', $search_word, PDO::PARAM_STR);
+                                $stmh->execute();
                             } catch (Exception $exception) {
                                 print "오류: " . $exception->getMessage();
                             }
@@ -213,6 +235,28 @@
                         $stmh->bindValue(':register', $search_word, PDO::PARAM_STR);
                         $stmh->execute();
                         $count = $stmh->rowCount();
+                        if (isset($_GET["page"])) {
+                            $page = $_GET["page"];
+
+                        } else {
+                            $page = 1;
+                        }
+                        $total_record = $count;
+                        $list = 15;
+                        $block_cnt = 5;
+                        $block_num = ceil($page / $block_cnt);
+                        $block_start = (($block_num - 1) * $block_cnt) + 1;
+                        $block_end = $block_start + $block_cnt - 1;
+                        $total_page = ceil(($total_record / $list));
+                        if ($block_end > $total_page) {
+                            $block_end = $total_page;
+                        }
+                        $total_block = ceil($total_page / $block_cnt);
+                        $page_start = ($page - 1) * $list;
+                        $page_sql = "SELECT * FROM rikarsong.record WHERE register like :register AND delete_yn = 'N' ORDER BY regist_date DESC LIMIT $page_start, $list";
+                        $stmh = $pdo->prepare($page_sql);
+                        $stmh->bindValue(':register', $search_word, PDO::PARAM_STR);
+                        $stmh->execute();
                     } catch (Exception $exception) {
                         print "오류: " . $exception->getMessage();
                     }
@@ -244,6 +288,40 @@
                         ?>
                         </tbody>
                     </table>
+                    <!--            페이지네이션 번호-->
+<!--                    나중에 구현해야 함-->
+<!--                    <div id="page_num" style="text-align: center">-->
+<!--                        --><?php
+//                        if($page <= 1){
+//                        } else {
+//                            echo "<a href=record_list_view.html.php?page=1'> 처음 </a>";
+//                        }
+//                        if($page <= 1){
+//
+//                        } else {
+//                            $pre = $page-1;
+//                            echo "<a href='record_list_view.html.php?$pre'> 이전 </a>";
+//                        }
+//                        for($i = $block_start; $i <= $block_end; $i++){
+//                            if($page == $i){
+//                                echo "<b> $i </b>";
+//                            } else {
+//                                echo "<a href='record_list_view.html.php?page=$i'> $i </a>";
+//                            }
+//                        }
+//                        if($page>= $total_page){
+//
+//                        } else {
+//                            $next = $page + 1;
+//                            echo "<a href='record_list_view.html.php?page=$next'> 다음 </a>";
+//                        }
+//                        if($page >= $total_page) {
+//
+//                        } else {
+//                            echo "<a href='recorcd_list_view.html.php?$page=$total_page'> 마지막 </a>";
+//                        }
+//                        ?>
+<!--                    </div>-->
                     <?
                 }
                 ?>
@@ -267,26 +345,6 @@
         </div>
     </div>
 <footer>
-    <!-- <div class="footer-logo-group">
-        <div class="footer-logo">
-            <a href="https://www.gb.go.kr/Main/index.html"><img src="image/gb_mark.png"
-                    alt="경북도청 로고"><span>경북도청</span></a>
-        </div>
-        <div class="footer-logo">
-            <a href="https://www.gumi.go.kr/main.do"><img src="image/gumi_logo2.png"
-                    alt="구미시청 로고"><span>구미시청</span></a>
-
-        </div>
-        <div class="footer-logo">
-            <a href="https://blog.naver.com/gumi-urc"><img src="image/wp_logo.png"
-                    alt="구미시 도시재생지원센터 로고"><span>구미도시재생지원센터</span></a>
-
-        </div>
-        <div class="footer-logo">
-            <a href="https://www.instagram.com/gumi_urc/"><img src="image/instagram.png"
-                    alt="구미시 원평동 현장지원센터 SNS 로고"><span>instagram</span></a>
-        </div>
-    </div> -->
     <div class="footer-description">
         <div class="mylogo">
 
