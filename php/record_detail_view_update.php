@@ -1,5 +1,4 @@
 <?php
-
 // DB 연결 정보
 $db_user = "rikarsong";
 $db_pass = "rikar0217@@";
@@ -18,21 +17,10 @@ try {
     die('오류:' . $exception->getMessage());
 }
 
-// DB에 데이터 입력
 $file_count = count($_FILES['uploadfile']['name']);
 if ($file_count <= 2 && $_FILES['uploadfile']['name'][1] == null) {
     try {
-
-        $register = $_POST['register'];
-
-// record_id의 현재 최대값을 가져와 +1을 한 뒤 앞으로 입력할 기록에 할당
-        $sql = "SELECT record_id FROM rikarsong.record";
-        $stmh = $pdo->prepare($sql);
-        $stmh->execute();
-        $biggest_record_id = $stmh->rowCount();
-        $record_id = $biggest_record_id + 1;
-        $record_id = sprintf('%04d', $record_id);
-        $identifier = $_POST['exampleRadios'] . "_" . $_POST["date_from"] . "_" . $_POST['title'] . "_" . $record_id;
+        $identifier = $_POST['identifier'];
 
         // 파일 업로드
         // 업로드 될 파일이 이동할 디렉토리의 경우 서버 환경에 맞게 재설정 필요
@@ -55,13 +43,23 @@ if ($file_count <= 2 && $_FILES['uploadfile']['name'][1] == null) {
             $upload_file_path = null;
         }
 
-        // 트랜잭션 시작
         $pdo->beginTransaction();
-        $sql = "INSERT INTO rikarsong.record (identifier, record_id, title, creator, collector, date_from, date_to, extent, medium, scope, type, description, level_of_description, url, delete_Yn, kind_of, register)
-            VALUES (:identifier, :record_id, :title, :creator, :collector, :date_from, :date_to, :extent, :medium, :scope, :type, :description, 'item', :url, 'N', :kind_of, :register)";
+        $sql = "UPDATE rikarsong.record SET
+                            title = :title,
+                            creator = :creator,
+                            collector = :collector,
+                            date_from = :date_from,
+                            date_to = :date_to,
+                            extent = :extent,
+                            medium = :medium,
+                            scope = :scope,
+                            type = :type,
+                            description = :description,
+                            url=:url,
+                            kind_of = :kind_of
+                WHERE record_id = :record_id";
         $stmh = $pdo->prepare($sql);
-        $stmh->bindValue(':identifier', $identifier, PDO::PARAM_STR);
-        $stmh->bindValue(':record_id', $record_id, PDO::PARAM_STR);
+        $stmh->bindValue(':record_id', $_POST['record_id'], PDO::PARAM_STR);
         $stmh->bindValue(':title', $_POST['title'], PDO::PARAM_STR);
         $stmh->bindValue(':creator', $_POST['creator'], PDO::PARAM_STR);
         $stmh->bindValue(':collector', $_POST['collector'], PDO::PARAM_STR);
@@ -74,42 +72,22 @@ if ($file_count <= 2 && $_FILES['uploadfile']['name'][1] == null) {
         $stmh->bindValue(':description', $_POST['record_description'], PDO::PARAM_STR);
         $stmh->bindValue(':url', $upload_file_path, PDO::PARAM_STR);
         $stmh->bindValue(':kind_of', $_POST['exampleRadios'], PDO::PARAM_STR);
-        $stmh->bindValue(':register', $register, PDO::PARAM_STR);
         $stmh->execute();
         $pdo->commit();
-        Header("Location:https://rikarsong.cafe24.com/wap/record_single_regist.html");
-
+        Header("Location:https://rikarsong.cafe24.com/wap/php/record_list_view.html.php");
     } catch (Exception $exception) {
         $pdo->rollBack();
         print "오류: " . $exception->getMessage();
     }
-
-    // 등록하려는 기록물이 2개 이상일 때
 } else {
     for ($i = 0; $i < $file_count; $i++) {
         if ($_FILES['uploadfile']['name'][$i] == null) {
             break;
         } else {
-
-
             try {
-
-                $register = $_POST['register'];
-// record_id의 현재 최대값을 가져와 +1을 한 뒤 앞으로 입력할 기록에 할당
-// identifier는 record_id에 WP_를 붙여 사용
-                $sql = "SELECT record_id FROM rikarsong.record";
-                $stmh = $pdo->prepare($sql);
-                $stmh->execute();
-                $biggest_record_id = $stmh->rowCount();
-                $record_id = $biggest_record_id + 1;
-                $record_id = sprintf('%04d', $record_id);
                 $title_number = $i + 1;
                 $title = $_POST['title'] . "_" . $title_number;
-                $identifier = $_POST['exampleRadios'] . "_" . $_POST["date_from"] . "_" . $_POST['title'] . "_" . $record_id;
-                print $_POST['exampleRadios'];
-                // 파일 업로드
-                // 업로드 될 파일이 이동할 디렉토리의 경우 서버 환경에 맞게 재설정 필요
-                // 원격 웹 호스팅 환경
+                $identifier = $_POST['identifier'];
                 $upload_file_dir = '../upload/';
 
                 // 파일이 이동할 경로
@@ -127,13 +105,23 @@ if ($file_count <= 2 && $_FILES['uploadfile']['name'][1] == null) {
                     $upload_file_path = null;
                 }
 
-                // 트랜잭션 시작
                 $pdo->beginTransaction();
-                $sql = "INSERT INTO rikarsong.record (identifier, record_id, title, creator, collector, date_from, date_to, extent, medium, scope, type, description, level_of_description, url, delete_Yn, kind_of, register)
-            VALUES (:identifier, :record_id, :title, :creator, :collector, :date_from, :date_to, :extent, :medium, :scope, :type, :description, 'item', :url, 'N', :kind_of, :register)";
+                $sql = "UPDATE rikarsong.record SET
+                            title = :title,
+                            creator = :creator,
+                            collector = :collector,
+                            date_from = :date_from,
+                            date_to = :date_to,
+                            extent = :extent,
+                            medium = :medium,
+                            scope = :scope,
+                            type = :type,
+                            description = :description,
+                            url=:url,
+                            kind_of = :kind_of
+                WHERE record_id = :record_id";
                 $stmh = $pdo->prepare($sql);
-                $stmh->bindValue(':identifier', $identifier, PDO::PARAM_STR);
-                $stmh->bindValue(':record_id', $record_id, PDO::PARAM_STR);
+                $stmh->bindValue(':record_id', $_POST['record_id'], PDO::PARAM_STR);
                 $stmh->bindValue(':title', $title, PDO::PARAM_STR);
                 $stmh->bindValue(':creator', $_POST['creator'], PDO::PARAM_STR);
                 $stmh->bindValue(':collector', $_POST['collector'], PDO::PARAM_STR);
@@ -146,15 +134,14 @@ if ($file_count <= 2 && $_FILES['uploadfile']['name'][1] == null) {
                 $stmh->bindValue(':description', $_POST['record_description'], PDO::PARAM_STR);
                 $stmh->bindValue(':url', $upload_file_path, PDO::PARAM_STR);
                 $stmh->bindValue(':kind_of', $_POST['exampleRadios'], PDO::PARAM_STR);
-                $stmh->bindValue(':register', $register, PDO::PARAM_STR);
                 $stmh->execute();
                 $pdo->commit();
-                Header("Location:https://rikarsong.cafe24.com/wap/record_single_regist.html");
-
+                Header("Location:https://rikarsong.cafe24.com/wap/php/record_list_view.html.php");
             } catch (Exception $exception) {
                 $pdo->rollBack();
                 print "오류: " . $exception->getMessage();
             }
         }
     }
+
 }

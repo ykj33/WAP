@@ -60,46 +60,36 @@
 <header>
     <div class="logo-line">
         <div class="logo">
-            <a href="index.html">
-                <img src="./image/rikar_logo.png" alt="로고" class="logo">
+            <a href="../index.html">
+                <img src="../image/rikar_logo.png" alt="로고" class="logo">
             </a>
         </div>
         <div class="application-name">
-            <p>원평동<br>
-                도시재생기록화</p>
+            <img src="../image/wp_title.png" alt="">
+            <!-- <p>원평동<br>
+                도시재생기록화</p> -->
         </div>
-        <div class="login">
-            <a href="login.html">
-                로그인
-            </a>
-        </div>
+<!--        <div class="login">-->
+<!--            <a href="../login.html"><img src="../image/login.png" alt=""></a>-->
+<!--        </div>-->
     </div>
     <div class="menu-group">
         <div class="menu">
             <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true">
-                기록물 등록
+                <img src="../image/record_regist.png" alt="">
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="record_single_regist.html">기록물 단일 등록</a>
-                <a class="dropdown-item" href="./record_multi_regist.html">기록물 다중 등록</a>
+                <a class="dropdown-item" href="../record_single_regist.html">기록물 단일 등록</a>
+                <a class="dropdown-item" href="../record_multi_regist.html">기록물 다중 등록</a>
             </div>
         </div>
         <div class="menu">
-            <a href="php/record_list_view.html.php">기록물 조회</a>
+            <a href="./record_list_view.html.php"><img src="../image/record_view.png" alt=""></a>
         </div>
         <!-- <div class="menu">
-            <a href="#">모니터링단<br> 커뮤니티</a> -->
+        <a href="#">모니터링단<br> 커뮤니티</a> -->
     </div>
     </div>
-    <!-- <div class="container-fluid">
-<form class="d-flex">
-    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success" type="submit">검색</button>
-</form>
-</div> -->
-    </div>
-
-    <!-- menu 부분 -->
 </header>
 <div class="container">
     <div class="inner">
@@ -133,7 +123,7 @@
             }
             // 목록 데이터 조회
             try {
-                $sql = "SELECT * FROM rikarsong.record WHERE delete_yn = 'N' ORDER BY regist_date DESC";
+                $sql = "SELECT * FROM rikarsong.record WHERE delete_yn = 'N' ORDER BY record_id DESC";
                 $stmh = $pdo->prepare($sql);
                 $stmh->execute();
                 $count = $stmh->rowCount();
@@ -155,7 +145,7 @@
                 }
                 $total_block = ceil($total_page / $block_cnt);
                 $page_start = ($page - 1) * $list;
-                $page_sql = "SELECT * FROM rikarsong.record WHERE delete_yn = 'N' ORDER BY regist_date DESC LIMIT $page_start, $list";
+                $page_sql = "SELECT * FROM rikarsong.record WHERE delete_yn = 'N' ORDER BY record_id DESC LIMIT $page_start, $list";
                 $stmh = $pdo->prepare($page_sql);
                 $stmh->execute();
             } catch (Exception $exception) {
@@ -178,7 +168,7 @@
 
                     ?>
                     <tr>
-                        <td align="left"><?= htmlspecialchars($row['identifier']) ?></td>
+                        <td align="left" width="30%"><?= htmlspecialchars($row['identifier']) ?></td>
                         <td align="left"><a
                                     href="record_detail_view.html.php?record_id=<?= $row['record_id'] ?>"><?= htmlspecialchars($row['title']) ?>
                         </td>
@@ -245,27 +235,51 @@
     </div>
 </div>
 <footer>
+    <!-- <div class="footer-logo-group">
+    <div class="footer-logo">
+        <a href="https://www.gb.go.kr/Main/index.html"><img src="image/gb_mark.png"
+                alt="경북도청 로고"><span>경북도청</span></a>
+    </div>
+    <div class="footer-logo">
+        <a href="https://www.gumi.go.kr/main.do"><img src="image/gumi_logo2.png"
+                alt="구미시청 로고"><span>구미시청</span></a>
+
+    </div>
+    <div class="footer-logo">
+        <a href="https://blog.naver.com/gumi-urc"><img src="image/wp_logo.png"
+                alt="구미시 도시재생지원센터 로고"><span>구미도시재생지원센터</span></a>
+
+    </div>
+    <div class="footer-logo">
+        <a href="https://www.instagram.com/gumi_urc/"><img src="image/instagram.png"
+                alt="구미시 원평동 현장지원센터 SNS 로고"><span>instagram</span></a>
+    </div>
+</div> -->
     <div class="footer-description">
         <div class="mylogo">
+            <img src="../image/wp_logo.png">
+            <img src="../image/OCS_logo2.png">
+        </div>
+        <div class="between">
 
         </div>
         <div class="description">
-            | 기관명: OOOO
+            | 담당자: 이지은
             <br>
-            | 전화번호: 00-000-0000
+            | 전화번호: 02-539-8734
             <br>
-            |주소: (00000) OO시 OO동 OOOOOOOOOOOO
+            | E-mail: iniii0819@ocsint.co.kr
         </div>
         <div class="between">
 
         </div>
         <div class="description2">
-            | 대표자: OOO
-            <br>
-            | E-mail: OOOO@OOOO.kr
+            | 오픈카톡방 들어오는 방법:
+            <br> 카카오톡 우측상단에 있는 오픈채팅에서 <br>☆구미시 원평동 모니터링단☆을 검색해주세요!
 
         </div>
     </div>
+
 </footer>
 </body>
 </html>

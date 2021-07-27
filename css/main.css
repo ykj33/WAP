@@ -344,10 +344,10 @@ footer {
 .table thead th {
     text-align: center;
 }
-
 .image-section img {
     width: 800px;
     height: auto;
+    margin-bottom: 50px;
 }
 
 /*파일 업로드시 나타나는 이미지 썸네일 공간*/
