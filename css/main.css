@@ -25,6 +25,7 @@ inner {
 }
 
 .table {
+    text-align: center;
     margin-top: 30px;
     font-size: 11px;
 }
@@ -351,6 +352,7 @@ footer {
 
 /*파일 업로드시 나타나는 이미지 썸네일 공간*/
 .upload-board {
+    margin-bottom: 10px;
     display: none;
     width: 1150px;
     padding: 20px;
@@ -367,7 +369,7 @@ footer {
     height: 40px;
     margin-left: 10px;
     margin-bottom: 10px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .upload-board .button-group .additional {
