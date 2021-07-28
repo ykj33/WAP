@@ -65,19 +65,18 @@
             </a>
         </div>
         <div class="application-name">
-            원평동<br>
-            도시재생기록화
+            <img src="../image/wp_title.png" alt="">
+            <!-- <p>원평동<br>
+                도시재생기록화</p> -->
         </div>
-        <div class="login">
-            <a href="#">
-                <p>로그인</p>
-            </a>
-        </div>
+        <!--        <div class="login">-->
+        <!--            <a href="../login.html"><img src="../image/login.png" alt=""></a>-->
+        <!--        </div>-->
     </div>
     <div class="menu-group">
         <div class="menu">
             <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true">
-                기록물 등록
+                <img src="../image/record_regist.png" alt="">
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="../record_single_regist.html">기록물 단일 등록</a>
@@ -85,48 +84,12 @@
             </div>
         </div>
         <div class="menu">
-            <a href="php/record_list_view.html.php">기록물 조회</a>
+            <a href="./record_list_view.html.php"><img src="../image/record_view.png" alt=""></a>
         </div>
-        <div class="menu">
-            <a href="#">모니터링단<br> 커뮤니티</a>
-        </div>
+        <!-- <div class="menu">
+        <a href="#">모니터링단<br> 커뮤니티</a> -->
     </div>
-    <!-- <div class="container-fluid">
-        <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">검색</button>
-        </form>
-    </div> -->
     </div>
-
-    <!-- banner 부분-->
-    <!-- <div class="banner">
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img src="./image/wp_banner1.png" alt="배너 1">
-                </div>
-                <div class="swiper-slide">
-                    <img src="./image/wp_banner2.png" alt="배너 2">
-                </div>
-                <div class="swiper-slide">
-                    <img src="./image/wp_banner3.png" alt="배너 3">
-                </div>
-                <div class="swiper-slide">
-                    <img src="./image/wp_banner4.png" alt="배너 4">
-                </div>
-            </div>
-            <div class="swiper-pagination"></div>
-            <div class="swiper-prev">
-                <div class="material-icons">arrow_back_ios_new</div>
-            </div>
-            <div class="swiper-next">
-                <div class="material-icons">arrow_forward_ios</div>
-            </div>
-        </div>
-        <img src="./image/wp_banner1.png">
-    </div> -->
-    <!-- menu 부분 -->
 </header>
     <div class="container">
         <div class="inner">
@@ -345,27 +308,51 @@
         </div>
     </div>
 <footer>
+    <!-- <div class="footer-logo-group">
+    <div class="footer-logo">
+        <a href="https://www.gb.go.kr/Main/index.html"><img src="image/gb_mark.png"
+                alt="경북도청 로고"><span>경북도청</span></a>
+    </div>
+    <div class="footer-logo">
+        <a href="https://www.gumi.go.kr/main.do"><img src="image/gumi_logo2.png"
+                alt="구미시청 로고"><span>구미시청</span></a>
+
+    </div>
+    <div class="footer-logo">
+        <a href="https://blog.naver.com/gumi-urc"><img src="image/wp_logo.png"
+                alt="구미시 도시재생지원센터 로고"><span>구미도시재생지원센터</span></a>
+
+    </div>
+    <div class="footer-logo">
+        <a href="https://www.instagram.com/gumi_urc/"><img src="image/instagram.png"
+                alt="구미시 원평동 현장지원센터 SNS 로고"><span>instagram</span></a>
+    </div>
+</div> -->
     <div class="footer-description">
         <div class="mylogo">
+            <img src="../image/wp_logo.png">
+            <img src="../image/OCS_logo2.png">
+        </div>
+        <div class="between">
 
         </div>
         <div class="description">
-            | 기관명: OOOO
+            | 담당자: 이지은
             <br>
-            | 전화번호: 00-000-0000
+            | 전화번호: 02-539-8734
             <br>
-            |주소: (00000) OO시 OO동 OOOOOOOOOOOO
+            | E-mail: iniii0819@ocsint.co.kr
         </div>
         <div class="between">
 
         </div>
         <div class="description2">
-            | 대표자: OOO
-            <br>
-            | E-mail: OOOO@OOOO.kr
+            | 오픈카톡방 들어오는 방법:
+            <br> 카카오톡 우측상단에 있는 오픈채팅에서 <br>☆구미시 원평동 모니터링단☆을 검색해주세요!
 
         </div>
     </div>
+
 </footer>
 </body>
 </html>

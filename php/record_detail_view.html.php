@@ -349,9 +349,9 @@
 //                            ?>
 <!--                            </tbody>-->
 <!--                        </table>-->
-<!--                        <!--            <div class="page-button">-->-->
-<!--                        <!--                <div class="material-icons">arrow_back_ios_new-->-->
-<!--                        <!--                    -->--><?// //
+                        <!--            <div class="page-button">-->
+                        <!--                <div class="material-icons">arrow_back_ios_new-->
+                        <!--                    --><? //
 //                        //                    for ($i = 1; $i <= $total_page; $i++) {
 //                        //                        if ($page == $i) {
 //                        //                            echo "<b>$i</b>";
@@ -360,9 +360,9 @@
 //                        //                        }
 //                        //                    }
 //                        //                    ?>
-<!--                        <!--                    arrow_forward_ios_new-->-->
-<!--                        <!--                </div>-->-->
-<!--                        <!--            </div>-->-->
+                        <!--                    arrow_forward_ios_new-->
+                        <!--                </div>-->
+                        <!--            </div>-->
 <!--                        <div class="search-group">-->
 <!--                            <form class="form-inline my-2 my-lg-0" action="record_list_view_search.html.php"-->
 <!--                                  method="GET">-->

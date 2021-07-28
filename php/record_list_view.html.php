@@ -168,7 +168,7 @@
 
                     ?>
                     <tr>
-                        <td align="left" width="30%"><?= htmlspecialchars($row['identifier']) ?></td>
+                        <td align="left" width="40%"><?= htmlspecialchars($row['identifier']) ?></td>
                         <td align="left"><a
                                     href="record_detail_view.html.php?record_id=<?= $row['record_id'] ?>"><?= htmlspecialchars($row['title']) ?>
                         </td>
@@ -218,8 +218,8 @@
                 <form class="form-inline my-2 my-lg-0" action="record_list_view_search.html.php" method="GET">
                     <div class="input-group mb-3">
                         <select class="custom-select" id="inputGroupSelect01" name="select_option[]">
-                            <option selected>검색 카테고리</option>
-                            <option value="title">제목</option>
+
+                            <option value="title" selected>제목</option>
                             <option value="register">작성자</option>
                         </select>
                         <input class="form-control mr-sm-2" type="search" placeholder="검색어 입력" aria-label="Search"

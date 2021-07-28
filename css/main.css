@@ -329,12 +329,14 @@ footer {
 }
 
 .container .inner .list-inner {
-    width: 100%;
+    /*width: 1200px;*/
     margin: auto;
     background-color: #fff;
 }
 
-
+.container .inner .list-inner .table {
+    font-size: 15px;
+}
 .inner .list-inner .search-group .form-inline {
     display: flex;
     justify-content: flex-end;
