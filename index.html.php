@@ -8,7 +8,7 @@
     <title>WAP</title>
 
     <!-- css 리셋 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
     <!--    material-icons-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- google font -->
@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
     <!-- SWIPER -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="css/main.css">
 
@@ -56,29 +56,27 @@
 </head>
 
 <body>
+<!-- header -->
 <header>
     <div class="logo-line">
         <div class="logo">
-            <a href="http://rikarsong.cafe24.com/wap/index.html.php">
+            <a href="index.html">
                 <img src="./image/rikar_logo.png" alt="로고" class="logo">
             </a>
         </div>
         <div class="application-name">
-            원평동<br>
-            도시재생기록화
+            <img src="image/wp_title.png" alt="">
+            <!-- <p>원평동<br>
+                도시재생기록화</p> -->
         </div>
-        <div class="login">
-            <a href="#">
-                <p>로그인</p>
-            </a>
-        </div>
+        <!-- <div class=" ">
+            <a href="login.html"><img src="image/login.png" alt=""></a>
+        </div> -->
     </div>
-
-    <!-- menu 부분 -->
     <div class="menu-group">
         <div class="menu">
             <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true">
-                기록물 등록
+                <img src="image/record_regist.png" alt="">
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="record_single_regist.html">기록물 단일 등록</a>
@@ -86,38 +84,149 @@
             </div>
         </div>
         <div class="menu">
-            <a href="php/record_list_view.html.php">기록물 조회</a>
+            <a href="php/record_list_view.html.php"><img src="image/record_view.png" alt=""></a>
         </div>
-        <div class="menu">
-            <a href="#">모니터링단<br> 커뮤니티</a>
+        <!-- <div class="menu">
+        <a href="#">모니터링단<br> 커뮤니티</a> -->
+    </div>
+    </div>
+</header>
+<!-- header -->
+
+<!-- content-->
+
+<!-- inner -->
+<inner>
+    <div class="pposter"><img src="image/wp_poster.jpg" width="800px"></div>
+    <div class="poster-right">
+        <div>
+            <h2>모니터링단</h2>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>1회차<br>7월 27일</th>
+                    <th>2회차<br>7월 28일</th>
+                    <th>3회차<br>8월 3일</th>
+                    <th>4회차<br>8월 4일</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>13시 ~<br>15시</td>
+                    <td>현장조사</td>
+                    <td>현장조사</td>
+                    <td>현장조사</td>
+                    <td>현장조사</td>
+                </tr>
+                <tr>
+                    <td>15시~<br>17시</td>
+                    <td>공유 및 정리</td>
+                    <td>공유 및 정리</td>
+                    <td>공유 및 정리</td>
+                    <td>공유 및 정리</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <h2>아카이빙단</h2>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>1회차<br>8월 10일</th>
+                    <th>2회차<br>8월 11일</th>
+                    <th>3회차<br>8월 17일</th>
+                    <th>4회차<br>8월 18일</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>13시 ~<br>15시</td>
+                    <td>현장활동</td>
+                    <td>현장활동</td>
+                    <td>현장활동</td>
+                    <td>현장활동</td>
+                </tr>
+                <tr>
+                    <td>15시~<br>17시</td>
+                    <td>공유 및 정리</td>
+                    <td>공유 및 정리</td>
+                    <td>공유 및 정리</td>
+                    <td>공유 및 정리</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                </tbody>
+            </table>
         </div>
     </div>
 
+</inner>
+<!-- inner -->
 
-</header>
-
+<!-- footer-->
 <footer>
+    <!-- <div class="footer-logo-group">
+    <div class="footer-logo">
+        <a href="https://www.gb.go.kr/Main/index.html"><img src="image/gb_mark.png"
+                alt="경북도청 로고"><span>경북도청</span></a>
+    </div>
+    <div class="footer-logo">
+        <a href="https://www.gumi.go.kr/main.do"><img src="image/gumi_logo2.png"
+                alt="구미시청 로고"><span>구미시청</span></a>
+
+    </div>
+    <div class="footer-logo">
+        <a href="https://blog.naver.com/gumi-urc"><img src="image/wp_logo.png"
+                alt="구미시 도시재생지원센터 로고"><span>구미도시재생지원센터</span></a>
+
+    </div>
+    <div class="footer-logo">
+        <a href="https://www.instagram.com/gumi_urc/"><img src="image/instagram.png"
+                alt="구미시 원평동 현장지원센터 SNS 로고"><span>instagram</span></a>
+    </div>
+</div> -->
     <div class="footer-description">
         <div class="mylogo">
+            <img src="image/wp_logo.png">
+            <img src="image/OCS_logo2.png">
+        </div>
+        <div class="between">
 
         </div>
         <div class="description">
-            | 기관명: OOOO
+            | 담당자: 이지은
             <br>
-            | 전화번호: 00-000-0000
+            | 전화번호: 02-539-8734
             <br>
-            |주소: (00000) OO시 OO동 OOOOOOOOOOOO
+            | E-mail: iniii0819@ocsint.co.kr
         </div>
         <div class="between">
 
         </div>
         <div class="description2">
-            | 대표자: OOO
-            <br>
-            | E-mail: OOOO@OOOO.kr
+            | 오픈카톡방 들어오는 방법:
+            <br> 카카오톡 우측상단에 있는 오픈채팅에서 <br>☆구미시 원평동 모니터링단☆을 검색해주세요!
 
         </div>
     </div>
+
 </footer>
 <!-- footer-->
 </body>
