@@ -79,8 +79,8 @@
                 <img src="../image/record_regist.png" alt="">
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="../record_single_regist.html">기록물 단일 등록</a>
-                <a class="dropdown-item" href="../record_multi_regist.html">기록물 다중 등록</a>
+                <a class="dropdown-item" href="record_single_regist.html.php">기록물 단일 등록</a>
+                <a class="dropdown-item" href="record_multi_regist.html.php">기록물 다중 등록</a>
             </div>
         </div>
         <div class="menu">
@@ -214,22 +214,23 @@
                 }
                 ?>
             </div>
-            <div class="search-group">
-                <form class="form-inline my-2 my-lg-0" action="record_list_view_search.html.php" method="GET">
-                    <div class="input-group mb-3">
-                        <select class="custom-select" id="inputGroupSelect01" name="select_option[]">
-
-                            <option value="title" selected>제목</option>
-                            <option value="register">작성자</option>
-                        </select>
-                        <input class="form-control mr-sm-2" type="search" placeholder="검색어 입력" aria-label="Search"
-                               name="search_word" id="search_word">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
-                    </div>
-
-
-                </form>
-            </div>
+<!--            기록물 검색-->
+<!--            <div class="search-group">-->
+<!--                <form class="form-inline my-2 my-lg-0" action="record_list_view_search.html.php" method="GET">-->
+<!--                    <div class="input-group mb-3">-->
+<!--                        <select class="custom-select" id="inputGroupSelect01" name="select_option[]">-->
+<!---->
+<!--                            <option value="title" selected>제목</option>-->
+<!--                            <option value="register">작성자</option>-->
+<!--                        </select>-->
+<!--                        <input class="form-control mr-sm-2" type="search" placeholder="검색어 입력" aria-label="Search"-->
+<!--                               name="search_word" id="search_word">-->
+<!--                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>-->
+<!--                    </div>-->
+<!---->
+<!---->
+<!--                </form>-->
+<!--            </div>-->
 
         </div>
     </div>

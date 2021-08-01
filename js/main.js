@@ -13,7 +13,7 @@ document.querySelector('#confirm').addEventListener('click', function () {
 document.querySelector('#cancel').addEventListener('click', function () {
     if (confirm("입력한 내용이 삭제됩니다. 등록을 취소하시겠습니까?")) {
         // 확인 버튼 클릭 시 동작
-        window.location.href = "https://rikarsong.cafe24.com/wap/index.html.php";
+        window.location.href = "../php/index.html.php";
     } else {
         // 취소 버튼 클릭 시 동작
         return;

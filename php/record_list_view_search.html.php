@@ -79,8 +79,8 @@
                 <img src="../image/record_regist.png" alt="">
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="../record_single_regist.html">기록물 단일 등록</a>
-                <a class="dropdown-item" href="../record_multi_regist.html">기록물 다중 등록</a>
+                <a class="dropdown-item" href="record_single_regist.html.php">기록물 단일 등록</a>
+                <a class="dropdown-item" href="record_multi_regist.html.php">기록물 다중 등록</a>
             </div>
         </div>
         <div class="menu">
