@@ -108,7 +108,8 @@ inner {
 
 header {
     width: 1200px;
-    background-image: url(../image/background-image_3.png);
+    background-color: #efefef;
+    /* background-image: url(../image/background-image_3.png); */
     z-index: -1;
     margin: auto;
 }
@@ -261,7 +262,9 @@ header {
 footer {
     margin: auto;
     width: 1200px;
-    background-image: url(../image/background-image_3.png);
+    background-color: #efefef;
+    position: fixed;
+    /* background-image: url(../image/background-image_3.png); */
     z-index: -1;
 }
 
