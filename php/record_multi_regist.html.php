@@ -1,4 +1,25 @@
 <!DOCTYPE html>
+<?php session_start();
+
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['password'])) {
+?>
+<script>
+    alert("로그인하지 않은 사용자는 이용하실 수 없습니다. 로그인 화면으로 이동합니다.");
+    location.href = "./login.html.php";
+</script>
+<?php
+} else {
+    $user_id = $_SESSION['user_id'];
+    $password = $_SESSION['password'];
+    $team_name = $_SESSION['team_name'];
+    ?>
+    <!--    <div class="login">-->
+    <!--        <a href="./php/login.html.php"><img src="./image/login.png" alt=""></a>-->
+    <!--        --><?//= $team_name ?><!--님 안녕하세요.-->
+    <!--    </div>-->
+    <?php
+}
+?>
 <html lang="ko">
 
 <head>
@@ -107,7 +128,7 @@
     <div class="content">
         <div class="inner">
             <div class="regist-inner">
-                <form action="record_regist.html.php" method="POST" class="register" id="register_form"
+                <form action="record_regist.php" method="POST" class="register" id="register_form"
                       name="register_form" enctype="multipart/form-data">
                     <div class="metadata-group">
                         <div class="form-check">
@@ -171,17 +192,18 @@
                             <input type="text" class="form-control" aria-label="수집자" aria-describedby="collector"
                                    name="collector" id="collector">
                         </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="register_label">등록자(*)</span>
-                            </div>
-                            <select class="custom-select" id="register" name="register">
-                                <option value="마이구미" selected>마이구미</option>
-                                <option value="천지창조">천지창조</option>
-                                <option value="오아시스">오아시스</option>
-                                <option value="자만추">자만추</option>
-                            </select>
-                        </div>
+<!--                        <div class="input-group mb-3">-->
+<!--                            <div class="input-group-prepend">-->
+<!--                                <span class="input-group-text" id="register_label">등록자(*)</span>-->
+<!--                            </div>-->
+<!--                            <select class="custom-select" id="register" name="register">-->
+<!--                                <option value="마이구미" selected>마이구미</option>-->
+<!--                                <option value="천지창조">천지창조</option>-->
+<!--                                <option value="오아시스">오아시스</option>-->
+<!--                                <option value="자만추">자만추</option>-->
+<!--                            </select>-->
+<!--                        </div>-->
+                        <input type="text" name="register" id = "register" value="<?= $_SESSION['team_name'] ?>" hidden>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="date_from_label">시작날짜(*)</span>

@@ -63,7 +63,7 @@
 <header>
     <div class="logo-line">
         <div class="logo">
-            <a href="index.html">
+            <a href="./index.html">
                 <img src="../image/rikar_logo.png" alt="로고" class="logo">
             </a>
         </div>
@@ -73,7 +73,7 @@
                 도시재생기록화</p> -->
         </div>
         <div class="login">
-            <a href="login.html"><img src="../image/login.png" alt=""></a>
+            <a href="login.html.php"><img src="../image/login.png" alt=""></a>
         </div>
     </div>
     <div class="menu-group">
@@ -82,8 +82,8 @@
                 <img src="../image/record_regist.png" alt="">
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="record_single_regist.html">기록물 단일 등록</a>
-                <a class="dropdown-item" href="./record_multi_regist.html">기록물 다중 등록</a>
+                <a class="dropdown-item" href="record_single_regist.html.php">기록물 단일 등록</a>
+                <a class="dropdown-item" href="./record_multi_regist.html.php">기록물 다중 등록</a>
             </div>
         </div>
         <div class="menu">

@@ -2,16 +2,10 @@
 // DB 연결 정보
 $db_user = "rikarsong";
 $db_pass = "rikar0217@@";
-$db_host = "localhost";
+$db_host = "rikarsong.cafe24.com";
 $db_name = "rikarsong";
 $db_type = "mysql";
 $dsn = "$db_type:host=$db_host;dbname=$db_name;charset=utf8";
-//                    $db_user = "root";
-//                    $db_pass = "audwleogkrry";
-//                    $db_host = "localhost";
-//                    $db_name = "wap";
-//                    $db_type = "mysql";
-//                    $dsn = "$db_type:host=$db_host;dbname=$db_name;charset=utf8";
 try {
     // DB 연결
     $pdo = new PDO($dsn, $db_user, $db_pass);
@@ -24,19 +18,24 @@ try {
 try {
     $user_id = $_POST['user_id'];
     $password = $_POST['password'];
+//    $sql = "SELECT * FROM rikarsong.user WHERE user_id = :user_id";
     $sql = "SELECT * FROM rikarsong.user WHERE user_id = :user_id";
     $stmh = $pdo->prepare($sql);
     $stmh->bindValue(':user_id', $user_id, PDO::PARAM_STR);
     $stmh->execute();
     while ($row = $stmh->fetch(PDO::FETCH_ASSOC)) {
         if ($password == $row['password']) {
-session_start();
-$_SESSION['user_id'] = $user_id;
-$_SESSION['password'] = $password;
-$_SESSION['team_name'] = $row['team_name'];
-            Header("Location:../index.html.php");
+            session_start();
+            $_SESSION['user_id'] = $user_id;
+            $_SESSION['password'] = $password;
+            $_SESSION['team_name'] = $row['team_name'];
+            Header("Location:./index.html.php");
         } else {
-            Header("Location:./login.html.php");
+
+            echo '<script>alert("잘못된 계정정보를 입력하셨습니다. 다시 입력해주세요.");location.href="./login.html.php";</script>';
+
+
+//            Header("Location:./login.html.php");
         }
     }
 } catch (Exception $exception) {

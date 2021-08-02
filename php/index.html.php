@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<?php //session_start() ?>
+<?php session_start(); ?>
+
 <html lang="ko">
 
 <head>
@@ -72,25 +73,25 @@
             <!-- <p>원평동<br>
                 도시재생기록화</p> -->
         </div>
-<!--        --><?php
-//        if (!isset($_SESSION['user_id']) || !isset($_SESSION['password'])) {
-//            ?>
-<!--            <div class="login">-->
-<!--                <a href="login.html.php"><img src="../image/login.png" alt=""></a>-->
-<!--            </div>-->
-<!--            --><?php
-//        } else {
-//            $user_id = $_SESSION['user_id'];
-//            $password = $_SESSION['password'];
-//            $team_name = $_SESSION['team_name'];
-//            ?>
-<!--            <div class="login">-->
-<!--                <a href="./php/login.html.php"><img src="./image/login.png" alt=""></a>-->
-<!--                --><?//= $team_name ?><!--님 안녕하세요.-->
-<!--            </div>-->
-<!--        --><?php
-//        }
-//        ?>
+        <?php
+        if (!isset($_SESSION['user_id']) || !isset($_SESSION['password'])) {
+            ?>
+            <div class="login">
+                <a href="login.html.php"><img src="../image/login.png" alt=""></a>
+            </div>
+            <?php
+        } else {
+            $user_id = $_SESSION['user_id'];
+            $password = $_SESSION['password'];
+            $team_name = $_SESSION['team_name'];
+            ?>
+            <div class="login">
+                <a href="./logout.php">
+                    로그아웃</a>
+            </div>
+            <?php
+        }
+        ?>
 
     </div>
     <div class="menu-group">

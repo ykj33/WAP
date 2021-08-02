@@ -105,7 +105,7 @@
                     // DB 연결 정보
                     $db_user = "rikarsong";
                     $db_pass = "rikar0217@@";
-                    $db_host = "localhost";
+                    $db_host = "rikarsong.cafe24.com";
                     $db_name = "rikarsong";
                     $db_type = "mysql";
                     $dsn = "$db_type:host=$db_host;dbname=$db_name;charset=utf8";
