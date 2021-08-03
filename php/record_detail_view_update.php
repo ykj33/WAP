@@ -1,21 +1,6 @@
 <?php
 // DB 연결 정보
-$db_user = "rikarsong";
-$db_pass = "rikar0217@@";
-$db_host = "rikarsong.cafe24.com";
-$db_name = "rikarsong";
-$db_type = "mysql";
-$dsn = "$db_type:host=$db_host;dbname=$db_name;charset=utf8";
-
-try {
-    // DB 연결
-    $pdo = new PDO($dsn, $db_user, $db_pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-    print "접속하였습니다.";
-} catch (Exception $exception) {
-    die('오류:' . $exception->getMessage());
-}
+include "db_connect.php";
 
 $file_count = count($_FILES['uploadfile']['name']);
 if ($file_count <= 2 && $_FILES['uploadfile']['name'][1] == null) {
@@ -74,7 +59,7 @@ if ($file_count <= 2 && $_FILES['uploadfile']['name'][1] == null) {
         $stmh->bindValue(':kind_of', $_POST['exampleRadios'], PDO::PARAM_STR);
         $stmh->execute();
         $pdo->commit();
-        Header("Location:https://rikarsong.cafe24.com/wap/php/record_list_view.html.php");
+        Header("Location:../record_list_view.html");
     } catch (Exception $exception) {
         $pdo->rollBack();
         print "오류: " . $exception->getMessage();
@@ -136,7 +121,7 @@ if ($file_count <= 2 && $_FILES['uploadfile']['name'][1] == null) {
                 $stmh->bindValue(':kind_of', $_POST['exampleRadios'], PDO::PARAM_STR);
                 $stmh->execute();
                 $pdo->commit();
-                Header("Location:https://rikarsong.cafe24.com/wap/php/record_list_view.html.php");
+                Header("Location:../record_list_view.html");
             } catch (Exception $exception) {
                 $pdo->rollBack();
                 print "오류: " . $exception->getMessage();

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<?php session_start();?>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAP</title>
+
+    <!-- css 리셋 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+    <!--    material-icons-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- SWIPER -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="../css/main.css">
+
+    <!--    jQuery-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script defer src="../js/main.js"></script>
+
+    <!-- bootstrap include -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
+    </script>
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 20px;
+        }
+
+        footer {
+            font-size: 14px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: none;
+            font-size: 110%;
+        }
+    </style>
+</head>
+
+<body>
+<?php
+include 'header.html';
+?>
+
+<!-- CONTENT -->
+<div class="container">
+    <div class="content">
+        <div class="inner">
+            <div class="regist-inner">
+
+
+                <form method="POST" class="register" id="register_form"
+                      name="register_form"
+                      enctype="multipart/form-data">
+                    <?php
+                    include './php/record_detail_view.html.php';
+                    ?>
+                    <?php
+                    while ($row = $stmh->fetch(PDO::FETCH_ASSOC)) {
+                    ?>
+                    <?php print $_SESSION['team_name']; ?>
+                    <div class="metadata-group">
+                        <section class="image-section">
+                            <img src="<?= htmlspecialchars($row['url']) ?>"
+                                 alt="<?= htmlspecialchars($row['title']) . "이미지" ?>">
+                        </section>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="title_label">제목(*)</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="제목"
+                                   aria-describedby="title" name="title" id="title"
+                                   value="<?= htmlspecialchars($row['title']) ?>" disabled>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="creator_label">생산자(*)</span>
+                            </div>
+                            <input type="text" class="form-control"
+                                   aria-label="생산자" aria-describedby="creator" name="creator" id="creator"
+                                   value="<?= htmlspecialchars($row['creator']) ?>" disabled>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="collector_label">수집자</span>
+                            </div>
+                            <input type="text" class="form-control"
+                                   aria-label="수집자" aria-describedby="collector" name="collector" id="collector"
+                                   value="<?= htmlspecialchars($row['collector']) ?>" disabled>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="date_from_label">시작날짜(*)</span>
+                            </div>
+                            <input type="date" class="form-control" aria-label="시작날짜"
+                                   aria-describedby="date_from" name="date_from" id="date_from"
+                                   value="<?= htmlspecialchars($row['date_from']) ?>" disabled>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="date_to_label">종료날짜(*)</span>
+                            </div>
+                            <input type="date" class="form-control" aria-label="종료날짜"
+                                   aria-describedby="date_to" name="date_to" id="date_to"
+                                   value="<?= htmlspecialchars($row['date_to']) ?>" disabled>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="extent_label">기록규모(*)</span>
+                            </div>
+                            <input type="text" class="form-control"
+                                   aria-label="기록규모" aria-describedby="extent" name="extent" id="extent"
+                                   value="<?= htmlspecialchars($row['extent']) ?>" disabled>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="medium_label">기록매체(*)</span>
+                            </div>
+                            <input type="text" class="form-control"
+
+                                   aria-label="기록매체" aria-describedby="medium" name="medium" id="medium"
+                                   value="<?= htmlspecialchars($row['medium']) ?>" disabled>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="scope_label">기록범위</span>
+                            </div>
+                            <input type="text" class="form-control"
+
+                                   aria-describedby="scope" name="scope" id="scope"
+                                   value="<?= htmlspecialchars($row['scope']) ?>" disabled>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="type_label">기록유형(*)</span>
+                            </div>
+                            <input type="text" class="form-control"
+
+                                   aria-describedby="type" name="type" id="type"
+                                   value="<?= htmlspecialchars($row['type']) ?>" disabled>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="record_description_label">기술</span>
+                            </div>
+                            <textarea class="form-control" aria-label="기술"
+                                      aria-describedby="record_description" name="record_description"
+                                      id="record_description"
+                                      disabled><?= htmlspecialchars($row['description']) ?></textarea>
+                        </div>
+                        <!--                        <div class="input-group mb-3">-->
+                        <!--                            <div class="input-group-prepend">-->
+                        <!--                                <span class="input-group-text" id="upload_label">기록물 첨부</span>-->
+                        <!--                            </div>-->
+                        <!--                            <div class="custom-file">-->
+                        <!--                                <input type="file" class="custom-file-input" name="uploadfile" id="uploadfile"-->
+                        <!--                                       aria-describedby="upload" onchange="checkFile(this)">-->
+                        <!--                                <label class="custom-file-label" id="custom-file-label" for="uploadfile"></label>-->
+                        <!--                            </div>-->
+                        <!---->
+                        <!--                        </div>-->
+
+                        <div class="button-group">
+                            <?php
+
+                            if ($row['register'] == $_SESSION['team_name'] || $_SESSION['team_name'] == '관리자') {
+                                print '<a href="./record_detail_view_update.html?record_id=' . $row['record_id'] . '"><button type="button" id="update" class="btn btn-secondary btn-lg">수정</button></a>';
+                                print '<a href="./php/record_detail_view_delete.html.php?record_id=' . $row['record_id'] . '"><button type="button" id="delete" class="btn btn-secondary btn-lg">삭제</button></a>';
+                            } else {
+
+                            }
+                            ?>
+
+                            <a href="./record_list_view.html">
+                                <button type="button" id="list" class="btn btn-secondary btn-lg">목록</button>
+                            </a>
+                        </div>
+                    </div>
+                </form>
+                <?php
+                }
+                ?>
+            </div>
+
+        </div>
+    </div>
+</div>
+<?
+include "./php/record_list_view.html.php";
+?>
+<?php
+include 'footer.html';
+?>
+</body>
+
+</html>
