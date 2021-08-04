@@ -10,7 +10,7 @@ if (isset($_GET["select_option"])) {
         if ($select_option == "title") {
 // 목록 데이터 조회
             try {
-                $sql = "SELECT * FROM rikarsong.record WHERE title like :title AND delete_yn = 'N' ORDER BY regist_date DESC";
+                $sql = "SELECT * FROM rikarsong.record WHERE title like :title AND delete_yn = 'N' ORDER BY record_id DESC";
                 $stmh = $pdo->prepare($sql);
                 $stmh->bindValue(':title', $search_word, PDO::PARAM_STR);
                 $stmh->execute();
@@ -33,7 +33,7 @@ if (isset($_GET["select_option"])) {
                 }
                 $total_block = ceil($total_page / $block_cnt);
                 $page_start = ($page - 1) * $list;
-                $page_sql = "SELECT * FROM rikarsong.record WHERE title like :title AND delete_yn = 'N' ORDER BY regist_date DESC LIMIT $page_start, $list";
+                $page_sql = "SELECT * FROM rikarsong.record WHERE title like :title AND delete_yn = 'N' ORDER BY record_id DESC LIMIT $page_start, $list";
                 $stmh = $pdo->prepare($page_sql);
                 $stmh->bindValue(':title', $search_word, PDO::PARAM_STR);
                 $stmh->execute();
@@ -43,7 +43,7 @@ if (isset($_GET["select_option"])) {
         } elseif ($select_option == "register") {
             try {
                 $search_word = '%' . $_GET["search_word"] . '%';
-                $sql = "SELECT * FROM rikarsong.record WHERE register like :register AND delete_yn = 'N' ORDER BY regist_date DESC";
+                $sql = "SELECT * FROM rikarsong.record WHERE register like :register AND delete_yn = 'N' ORDER BY record_id DESC";
                 $stmh = $pdo->prepare($sql);
                 $stmh->bindValue(':register', $search_word, PDO::PARAM_STR);
                 $stmh->execute();
@@ -66,7 +66,7 @@ if (isset($_GET["select_option"])) {
                 }
                 $total_block = ceil($total_page / $block_cnt);
                 $page_start = ($page - 1) * $list;
-                $page_sql = "SELECT * FROM rikarsong.record WHERE register like :register AND delete_yn = 'N' ORDER BY regist_date DESC LIMIT $page_start, $list";
+                $page_sql = "SELECT * FROM rikarsong.record WHERE register like :register AND delete_yn = 'N' ORDER BY record_id DESC LIMIT $page_start, $list";
                 $stmh = $pdo->prepare($page_sql);
                 $stmh->bindValue(':register', $search_word, PDO::PARAM_STR);
                 $stmh->execute();
