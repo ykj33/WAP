@@ -61,7 +61,7 @@ if ($file_count <= 2 && $_FILES['uploadfile']['name'][1] == null) {
         $stmh->bindValue(':register', $register, PDO::PARAM_STR);
         $stmh->execute();
         $pdo->commit();
-        Header("Location:https://rikarsong.cafe24.com/wap/php/record_single_regist.html");
+        echo "<script>window.location.replace('../record_single_regist.html')</script>";
 
     } catch (Exception $exception) {
         $pdo->rollBack();
@@ -133,7 +133,7 @@ if ($file_count <= 2 && $_FILES['uploadfile']['name'][1] == null) {
                 $stmh->bindValue(':register', $register, PDO::PARAM_STR);
                 $stmh->execute();
                 $pdo->commit();
-                Header("Location:https://rikarsong.cafe24.com/wap/php/record_single_regist.html");
+                echo "<script>window.location.replace('../record_multi_regist.html')</script>";
 
             } catch (Exception $exception) {
                 $pdo->rollBack();
