@@ -73,48 +73,16 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['password'])) {
 </head>
 
 <body>
-<header>
-    <div class="logo-line">
-        <div class="logo">
-            <a href="index.html">
-                <img src="image/rikar_logo.png" alt="로고" class="logo">
-            </a>
-        </div>
-        <div class="application-name">
-            <img src="image/wp_title.png" alt="">
-        </div>
-        <!-- <div class="login">
-            <a href="login.html"><img src="image/login.png" alt=""></a>
-        </div> -->
-    </div>
-    <div class="menu-group">
-        <div class="menu">
-            <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true">
-                <img src="image/record_regist.png" alt="">
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="record_single_regist.html">기록물 단일 등록</a>
-                <a class="dropdown-item" href="./srecord_multi_regist.html.php">기록물 다중 등록</a>
-            </div>
-        </div>
-        <div class="menu">
-            <a href="php/record_list_view.html.php"><img src="image/record_view.png" alt=""></a>
-        </div>
-        <!-- <div class="menu">
-            <a href="#">모니터링단<br> 커뮤니티</a> -->
-    </div>
-    </div>
-    </div>
-
-    <!-- menu 부분 -->
-</header>
+<?php
+include 'header.html';
+?>>
 
 <!-- CONTENT -->
 <div class="container">
     <div class="content">
         <div class="inner">
             <div class="regist-inner">
-                <form action="php/record_regist.html.php" method="POST" class="register" id="register_form"
+                <form action="./php/record_regist.html.php" method="POST" class="register" id="register_form"
                       name="register_form" enctype="multipart/form-data">
                     <div class="metadata-group">
                         <div class="form-check">
@@ -235,33 +203,9 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['password'])) {
     </div>
 </div>
 </div>
-<footer>
-    <div class="footer-description">
-        <div class="mylogo">
-            <img src="image/wp_logo.png">
-            <img src="image/OCS_logo2.png">
-        </div>
-        <div class="between">
-
-        </div>
-        <div class="description">
-            | 담당자: 이지은
-            <br>
-            | 전화번호: 02-539-8734
-            <br>
-            | E-mail: iniii0819@ocsint.co.kr
-        </div>
-        <div class="between">
-
-        </div>
-        <div class="description2">
-            | 오픈카톡방 들어오는 방법:
-            <br> 카카오톡 우측상단에 있는 오픈채팅에서 <br>☆구미시 원평동 모니터링단☆을 검색해주세요!
-
-        </div>
-    </div>
-
-</footer>
+<?php
+include 'footer.html';
+?>
 </body>
 
 </html>

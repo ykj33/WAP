@@ -12,7 +12,7 @@ try {
     $pdo = new PDO($dsn, $db_user, $db_pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-    print "접속하였습니다.";
+//    print "접속하였습니다.";
 } catch (Exception $exception) {
     die('오류:' . $exception->getMessage());
 }
@@ -23,7 +23,7 @@ try {
     $stmh->bindValue(':record_id', $_GET['record_id'], PDO::PARAM_STR);
     $stmh->execute();
     $pdo->commit();
-    Header("Location:https://rikarsong.cafe24.com/wap/php/record_list_view.html.php");
+    echo "<script>window.location.replace('../record_list_view.html')</script>";
 } catch (Exception $exception) {
     $pdo->rollBack();
     print "오류: " . $exception->getMessage();

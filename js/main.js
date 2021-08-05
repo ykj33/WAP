@@ -76,19 +76,32 @@ function checkForm() {
 
 // 파일 확장자 체크
 function checkFile(f) {
+    let regist = true;
     let file = f.files;
-    console.log(file)
-    // 정규표현식으로 확장자 체크
-    if (!/\.(jpg|jpeg|png|tiff)$/i.test(file[0].name)) {
-        alert('이미지 파일만 선택해주세요.\njpg, jpeg, png, tiff 파일만 가능합니다. \n현재파일 : ' + file[0].name);
-        f.outerHTML = f.outerHTML;
-        console.log("파일 형식 체크")
-        return;
-    } else {
-        // 파일 용량 체크
+    for (let i = 0; i < file.length; i++) {
+        console.log(file);
+        console.log("값 확인해 보자" + i);
+        // 정규표현식으로 확장자 체크
+        if (!/\.(jpg|jpeg|png|tiff)$/i.test(file[i].name)) {
+
+            console.log("등록불가")
+            alert('이미지 파일만 선택해주세요.\njpg, jpeg, png, tiff 파일만 가능합니다. \n현재파일 : ' + file[i].name);
+            regist = false;
+            // break;
+            f.outerHTML = f.outerHTML;
+
+
+            console.log("파일 형식 체크");
+        }
+
+    }
+    // 파일 용량 체크
+    if (regist == true) {
         checkFileSize(f)
         fileUpload(f)
     }
+    console.log(regist)
+    // break;
 
 }
 
@@ -98,9 +111,9 @@ function checkFileSingle(f) {
     // 정규표현식으로 확장자 체크
     if (!/\.(jpg|jpeg|png|tiff)$/i.test(file[0].name)) {
         alert('이미지 파일만 선택해주세요.\njpg, jpeg, png, tiff 파일만 가능합니다. \n현재파일 : ' + file[0].name);
-        f.outerHTML = f.outerHTML;
+
+        return false;
         console.log("파일 형식 체크")
-        return;
     } else {
         // 파일 용량 체크
         checkFileSize(f)
@@ -113,17 +126,17 @@ function checkFileSingle(f) {
 function checkFileSize(f) {
     let file = f.files;
     if (file[0].size >= 10000000) {
-        console.log("이미지 파일 용량 체크")
+
         alert('파일은 10MB 이하의 크기만 첨부 가능합니다.');
 
         f.outerHTML = f.outerHTML;
-        console.log("10메가보다 크다.")
+
         return false;
     } else {
         // 파일 이름 출력하기
 
         document.getElementById("custom-file-label").innerHTML = file[0].name;
-        console.log("10메가보다 작다.")
+
     }
 }
 
@@ -160,8 +173,6 @@ let lastTableindex = 0;
 // 파일 업로드 시 이미지 썸네일 출력
 function fileUpload(f) {
     let file = f.files;
-    console.log(file)
-    console.log("추가 값" + $("#uploadfile2").value);
 
     let tableIndex = 0;
     for (let i = 0; i < file.length; i++) {
@@ -214,7 +225,7 @@ function fileUploadSingle(f) {
 function deleteFile() {
     console.log("개수" + $(".thumb-box").children().length)
     $(".upload-board .thumb-box").children().remove();
-    $("#uploadfile").value="";
+    $("#uploadfile").value = "";
     // $('input[name=upload-thumb-check]:checked').parent().remove();
     console.log("삭제됨")
     // 더 이상 삭제할 것이 없으면 썸네일 목록 화면에서 감춤
