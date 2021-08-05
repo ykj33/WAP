@@ -108,10 +108,10 @@ inner {
 
 header {
     width: 1200px;
-    background-color: #efefef;
+    background-color: rgb(128, 127, 127);
     /* background-image: url(../image/background-image_3.png); */
     z-index: -1;
-    margin: auto;
+    margin: auto;;
 }
 
 /* HEADER */
@@ -122,7 +122,6 @@ header {
     /* background-color: #EDEDED; */
     /* position: relative; */
     display: flex;
-
 }
 
 .container-fluid .d-flex {
