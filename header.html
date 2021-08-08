@@ -3,20 +3,21 @@
 
     <div class="logo-line">
         <div class="logo">
-            <a href="./index.html">
-                <img src="../image/rikar_logo.png" alt="로고" class="logo">
+            <a href="index.html">
+                <img src="image/rikar_logo.png" alt="로고" class="logo">
             </a>
         </div>
         <div class="application-name">
-            <img src="../image/wp_title.png" alt="">
-            <!-- <p>원평동<br>
-                도시재생기록화</p> -->
+            <p>원평동<br>
+                도시재생기록화</p>
         </div>
         <?php
         if (!isset($_SESSION['user_id']) || !isset($_SESSION['password'])) {
             ?>
             <div class="login">
-                <a href="./login.html"><img src="../image/login.png" alt=""></a>
+                <a href="login.html">
+                    <p>로그인</p>
+                </a>
             </div>
             <?php
         } else {
@@ -36,7 +37,7 @@
     <div class="menu-group">
         <div class="menu">
             <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true">
-                <img src="../image/record_regist.png" alt="">
+                <p>기록물 등록</p>
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="record_single_regist.html">기록물 단일 등록</a>
@@ -44,10 +45,13 @@
             </div>
         </div>
         <div class="menu">
-            <a href="./record_list_view.html"><img src="../image/record_view.png" alt=""></a>
+            <a href="./record_list_view.html">
+                <p>기록물 조회</p>
+            </a>
         </div>
         <div class="menu">
-        <a href="./board_list_view.html">모니터링단<br> 커뮤니티</a>
+            <a href="./board_list_view.html">모니터링단<br> 커뮤니티</a>
+        </div>
     </div>
-    </div>
+
 </header>

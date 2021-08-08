@@ -127,7 +127,7 @@ header {
     left: 0;
     right: 0;
     border-bottom: 20px solid lightgray;
-    
+
 }
 
 .logo-line {
@@ -219,7 +219,7 @@ header {
     justify-content: center;
     align-items: center;
     margin-left: 670px
-    
+
 }
 
 .menu-group .menu:first-child {
@@ -280,14 +280,14 @@ footer {
     width: 25%;
     height: 30%;
     margin-top: 30px;
-    
+
 }
 
 .footer-description .description {
     width: 35%;
     justify-content: center;
     margin-top: 20px;
-    
+
 }
 
 .footer-description .between {
