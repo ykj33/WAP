@@ -1,8 +1,7 @@
-<!doctype html>
-<?php
-session_start();
-?>
+<!DOCTYPE html>
+<?php session_start(); ?>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -63,6 +62,101 @@ session_start();
 <?php
 include 'header.html';
 ?>
+
+<!-- CONTENT -->
+<div class="container">
+    <div class="content">
+        <div class="inner">
+            <div class="regist-inner">
+
+
+                <form method="POST" class="register" id="register_form"
+                      name="register_form"
+                      enctype="multipart/form-data">
+                    <?php
+                    include './php/board_detail_view.html.php';
+                    ?>
+                    <?php
+                    while ($row = $stmh->fetch(PDO::FETCH_ASSOC)) {
+                    ?>
+                    <div class="metadata-group">
+                        <!--                        <section class="image-section">-->
+                        <!--                            <img src="--><?//= htmlspecialchars($row['url']) ?><!--"-->
+                        <!--                                 alt="-->
+                        <?//= htmlspecialchars($row['title']) . "이미지" ?><!--">-->
+                        <!--                        </section>-->
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="board_title_label">제목</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="제목"
+                                   aria-describedby="board_title" name="board_title" id="board_title"
+                                   value="<?= htmlspecialchars($row['board_title']) ?>" disabled>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="board_creator_label">작성자</span>
+                            </div>
+                            <input type="text" class="form-control"
+                                   aria-label="작성자" aria-describedby="board_creator" name="board_creator"
+                                   id="board_creator"
+                                   value="<?= htmlspecialchars($row['board_creator']) ?>" disabled>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="date_to_label">작성일</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="작성일"
+                                   aria-describedby="board_date" name="board_date" id="board_date"
+                                   value="<?= htmlspecialchars($row['board_date']) ?>" disabled>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <!--                                <span class="input-group-text" id="record_description_label">내용</span>-->
+                            </div>
+                            <textarea class="form-control" aria-label="내용"
+                                      aria-describedby="board_content" name="board_content"
+                                      id="board_content"
+                                      disabled><?= htmlspecialchars($row['board_content']) ?></textarea>
+                        </div>
+                        <!--                        <div class="input-group mb-3">-->
+                        <!--                            <div class="input-group-prepend">-->
+                        <!--                                <span class="input-group-text" id="upload_label">기록물 첨부</span>-->
+                        <!--                            </div>-->
+                        <!--                            <div class="custom-file">-->
+                        <!--                                <input type="file" class="custom-file-input" name="uploadfile" id="uploadfile"-->
+                        <!--                                       aria-describedby="upload" onchange="checkFile(this)">-->
+                        <!--                                <label class="custom-file-label" id="custom-file-label" for="uploadfile"></label>-->
+                        <!--                            </div>-->
+                        <!---->
+                        <!--                        </div>-->
+
+                        <div class="button-group">
+                            <?php
+
+                            if ($row['board_creator'] == $_SESSION['team_name'] || $_SESSION['auth'] == 'super_user') {
+                                print '<a href="./board_detail_view_update.html?board_id=' . $row['board_id'] . '"><button type="button" id="update" class="btn btn-secondary btn-lg">수정</button></a>';
+                                print '<a href="./php/board_detail_view_delete.html.php?board_id=' . $row['board_id'] . '"><button type="button" id="delete" class="btn btn-secondary btn-lg">삭제</button></a>';
+                            } else {
+
+                            }
+                            ?>
+
+                            <a href="./board_list_view.html">
+                                <button type="button" id="list" class="btn btn-secondary btn-lg">목록</button>
+                            </a>
+                        </div>
+                    </div>
+                </form>
+                <?php
+                }
+                ?>
+            </div>
+
+        </div>
+    </div>
+</div>
 <div class="container">
     <div class="inner">
         <div class="list-inner">
@@ -81,15 +175,15 @@ include 'header.html';
                 <?php
                 include './php/board_list_view_notice.html.php';
                 while ($row = $stmh->fetch(PDO::FETCH_ASSOC)) {
-                ?>
-<tr>
-                    <td align="center" style="background-color: wheat"><?= htmlspecialchars($row['board_id']) ?></td>
-                    <td align="left" style="background-color: wheat"><a
-                                href="./board_detail_view.html?board_id=<?= $row['board_id'] ?>"><?= htmlspecialchars($row['board_title']) ?></a>
-                    </td>
-                    <td align="center" style="background-color: wheat"><?= htmlspecialchars($row['board_creator']) ?></td>
-                    <td align="center" style="background-color: wheat"><?= htmlspecialchars($row['board_date']) ?></td>
-</tr>
+                    ?>
+                    <tr>
+                        <td align="center" style="background-color: wheat"><?= htmlspecialchars($row['board_id']) ?></td>
+                        <td align="left" style="background-color: wheat"><a
+                                    href="./board_detail_view.html?board_id=<?= $row['board_id'] ?>"><?= htmlspecialchars($row['board_title']) ?></a>
+                        </td>
+                        <td align="center" style="background-color: wheat"><?= htmlspecialchars($row['board_creator']) ?></td>
+                        <td align="center" style="background-color: wheat"><?= htmlspecialchars($row['board_date']) ?></td>
+                    </tr>
                     <?php
                 }
                 ?>
@@ -167,10 +261,9 @@ include 'header.html';
         </div>
     </div>
 </div>
-<!-- footer-->
 <?php
 include 'footer.html';
 ?>
-<!-- footer-->
 </body>
+
 </html>

@@ -72,6 +72,14 @@ inner {
     margin-left: 73%;
 }
 
+.form-check .form-check-input-notice{
+    margin-left: 0px;
+}
+
+.form-check notice .form-check-label{
+    margin-left: 73%;
+}
+
 #exampleRadios1 .form-check-input {
     padding-left: 20px;
 }
@@ -82,6 +90,10 @@ inner {
 }
 
 .metadata-group .input-group .form-control#record_description {
+    width: 800px;
+    height: 400px;
+}
+.metadata-group .input-group .form-control#board_content {
     width: 800px;
     height: 400px;
 }
@@ -358,8 +370,9 @@ footer {
 /*파일 업로드시 나타나는 이미지 썸네일 공간*/
 .upload-board {
     margin-bottom: 10px;
-    display: none;
+    /*display: none;*/
     width: 1150px;
+    height: 400px;
     padding: 20px;
     background-color: #eeee;
 }

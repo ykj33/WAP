@@ -11,13 +11,7 @@ document.querySelector('#confirm').addEventListener('click', function () {
     }
 })
 document.querySelector('#cancel').addEventListener('click', function () {
-    if (confirm("입력한 내용이 삭제됩니다. 등록을 취소하시겠습니까?")) {
-        // 확인 버튼 클릭 시 동작
-        window.location.href = "../index.html";
-    } else {
-        // 취소 버튼 클릭 시 동작
-        return;
-    }
+        location.reload();
 });
 
 // 마우스 올렸을 시 확대
@@ -183,14 +177,14 @@ function fileUpload(f) {
             tableIndex = lastTableindex + i;
         }
         lastTableindex = tableIndex + 1;
-        console.log("마지막 번호1 :" + lastTableindex)
+
         let src = URL.createObjectURL(file[i]);
-        console.log(src)
+
         let html = "<div>" +
-            // "<input type='checkbox' name='upload-thumb-check' class='upload-thumb-check' id='upload-thumb-check" + tableIndex + "'><label for='upload-thumb-check" + tableIndex + "'>" +
+            "<input type='checkbox' name='upload-thumb-check' class='upload-thumb-check' id='upload-thumb-check" + tableIndex + "' value='"+i+"'><label for='upload-thumb-check" + tableIndex + "'>" +
             "<img src=" + src + " className='upload-thumb' alt='썸네일' width='170px' style='margin: 10px'></label></div>"
         $(".thumb-box").append(html);
-        console.log("마지막 번호2 :" + lastTableindex)
+        console.log("id값 확인" + tableIndex);
 
         $(".upload-board").css("display", "block");
         console.log("이미지 연결")
@@ -221,8 +215,8 @@ function fileUploadSingle(f) {
 // });
 
 
-// 체크한 파일 삭제
-function deleteFile() {
+// 모든 파일 삭제
+function deleteFileAll() {
     console.log("개수" + $(".thumb-box").children().length)
     $(".upload-board .thumb-box").children().remove();
     $("#uploadfile").value = "";
@@ -232,4 +226,15 @@ function deleteFile() {
     // if ($(".thumb-box").children().length == 0) {
     //     $(".upload-board").css("display", "none");
     // }
+}
+
+// 체크한 파일 삭제
+function deleteFileChecked() {
+    let remainFile = $("#uploadfile");
+    $('input[name=upload-thumb-check]:checked').parent().remove();
+    $fileValue = $('input[name=upload-thumb-check]:checked').val();
+    console.log("이미지 삭제" + $fileValue);
+    // $('input[name=upload-thumb-check]:checked').parent().value = "";
+    console.log("파일 삭제");
+    console.log("뭐가 남았나" + remainFile);
 }
