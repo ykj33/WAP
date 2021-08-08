@@ -71,7 +71,7 @@ include 'header.html';
                       name="register_form" action="php/record_detail_view_update.php"
                       enctype="multipart/form-data">
                     <?php
-include './php/record_detail_view_update.html.php';
+                    include './php/record_detail_view_update.html.php';
                     ?>
                     <?php
                     while ($row = $stmh->fetch(PDO::FETCH_ASSOC)) {
@@ -80,7 +80,7 @@ include './php/record_detail_view_update.html.php';
                         <div class="metadata-group">
                             <div class="form-check">
                                 <span>
-                                    다중등록
+                                    수정
                                 </span>
                                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
                                        value="M" checked>
@@ -98,23 +98,21 @@ include './php/record_detail_view_update.html.php';
                                     <span class="input-group-text" id="upload_label">기록물 첨부</span>
                                 </div>
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" name="uploadfile[]" id="uploadfile1"
-                                           aria-describedby="upload" onchange="checkFile(this)" multiple>
-                                    <label class="custom-file-label" id="custom-file-label" for="uploadfile1"></label>
+                                    <input type="file" class="custom-file-input" name="uploadfile" id="uploadfile"
+                                           aria-describedby="upload" onchange="checkFileSingle(this)">
+                                    <label class="custom-file-label" id="custom-file-label" for="uploadfile"></label>
                                 </div>
 
                             </div>
                             <div class="upload-board">
                                 <div class="button-group">
-                                    <input type="file" class="custom-file-input" name="uploadfile[]" id="uploadfile2"
-                                           aria-describedby="upload" onchange="checkFile(this)" multiple>
-                                    <label class="additional" for="uploadfile2">추가</label>
-                                    <button type="button" class="uploadfile-del" onclick="deleteFile()">삭제</button>
+                                    <button type="button" class="uploadfile-del" onclick="deleteFileAll()">삭제</button>
                                 </div>
                                 <div class="thumb-box">
 
                                 </div>
                             </div>
+
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="title_label">제목(*)</span>
@@ -203,8 +201,10 @@ include './php/record_detail_view_update.html.php';
                                 ><?= htmlspecialchars($row['description']) ?></textarea>
                             </div>
 
-<!--                            수정을 위한 레코드 값 넘기기-->
-                            <input type="text" name="record_id" value="<?=$row['record_id']?>" hidden>
+                            <!--                            수정을 위한 레코드 값 넘기기-->
+                            <input type="text" name="record_id" value="<?= $row['record_id'] ?>" hidden>
+                            <input type="text" name="identifier" id="identifier" value="<?= $row['identifier'] ?>"
+                                   hidden>
                             <!--                        <div class="input-group mb-3">-->
                             <!--                            <div class="input-group-prepend">-->
                             <!--                                <span class="input-group-text" id="upload_label">기록물 첨부</span>-->

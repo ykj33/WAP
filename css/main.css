@@ -361,8 +361,9 @@ footer {
 /*파일 업로드시 나타나는 이미지 썸네일 공간*/
 .upload-board {
     margin-bottom: 10px;
-    display: none;
+    /*display: none;*/
     width: 1150px;
+    height: 300px;
     padding: 20px;
     background-color: #eeee;
 }
