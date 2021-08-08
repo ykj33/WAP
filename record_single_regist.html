@@ -75,7 +75,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['password'])) {
 <body>
 <?php
 include 'header.html';
-?>>
+?>
 
 <!-- CONTENT -->
 <div class="container">
@@ -105,7 +105,7 @@ include 'header.html';
                                 <span class="input-group-text" id="upload_label">기록물 첨부</span>
                             </div>
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" name="uploadfile[]" id="uploadfile"
+                                <input type="file" class="custom-file-input" name="uploadfile" id="uploadfile"
                                        aria-describedby="upload" onchange="checkFileSingle(this)">
                                 <label class="custom-file-label" id="custom-file-label" for="uploadfile"></label>
                             </div>
