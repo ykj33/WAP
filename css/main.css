@@ -120,10 +120,12 @@ inner {
 
 header {
     width: 1200px;
-    background-color: rgb(128, 127, 127);
-    /* background-image: url(../image/background-image_3.png); */
-    z-index: -1;
-    margin: auto;;
+    background-color: #01114d;
+    position: fixed;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    border-bottom: 20px solid lightgray;
 }
 
 /* HEADER */
@@ -162,12 +164,14 @@ header {
     font-size: 40px;
     padding: 25px 0px 0px 0px;
     margin-left: 200px;
+    color: white;
 }
 
 .login {
     padding: 15px 0px 0px 395px;
     font-size: 35px;
     text-decoration: none;
+    color: white;
 }
 
 .login a {
@@ -229,17 +233,8 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
-    width: 1200px;
-    /* margin-left: px; */
-    margin-bottom: 10px;
-    /* background-color: #EDEDED; */
-}
-
-.row {
-    width: 1200px;
-    height: 500px;
-
+    margin-left: 670px
+    
 }
 
 .menu-group .menu {
@@ -255,7 +250,7 @@ header {
 }
 
 .menu-group .menu a {
-    color: black;
+    color: white;
 }
 
 /* CONTENT */
@@ -296,23 +291,29 @@ footer {
     font-size: 20px;
 }
 
-.footer-description .mylogo {
+.footer-description .mylogo1 {
     display: flex;
-    width: 30%;
+    width: 25%;
     height: 30%;
     margin-top: 30px;
     margin-left: 20px;
+}
+
+.footer-description .mylogo2 {
+    width: 25%;
+    height: 30%;
+    margin-top: 30px;
+    
 }
 
 .footer-description .description {
     width: 35%;
     justify-content: center;
     margin-top: 20px;
-    margin-left: 50px;
 }
 
 .footer-description .between {
-    width: 30px;
+    width: 3px;
     height: 100%;
 }
 
