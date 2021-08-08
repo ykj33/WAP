@@ -15,10 +15,12 @@ inner {
 
 .poster-right {
     width: 400px;
-    background-color: #efefef
+    /* margin-left: 900px; */
+    margin-top: 120px;
+    /* background-color:  */
 }
 
-.poster-right h2{
+.poster-right h2 {
     font-size: 30px;
     margin-top: 29px;
     margin-left: 120px;
@@ -76,10 +78,6 @@ inner {
     margin-left: 0px;
 }
 
-.form-check notice .form-check-label{
-    margin-left: 73%;
-}
-
 #exampleRadios1 .form-check-input {
     padding-left: 20px;
 }
@@ -93,6 +91,7 @@ inner {
     width: 800px;
     height: 400px;
 }
+
 .metadata-group .input-group .form-control#board_content {
     width: 800px;
     height: 400px;
@@ -118,6 +117,8 @@ inner {
     clear: both;
 }
 
+
+/* HEADER */
 header {
     width: 1200px;
     background-color: #01114d;
@@ -126,11 +127,11 @@ header {
     left: 0;
     right: 0;
     border-bottom: 20px solid lightgray;
+    
 }
 
-/* HEADER */
 .logo-line {
-    height: 50px;
+    height: 80px;
     width: 1200px;
     margin: auto;
     /* background-color: #EDEDED; */
@@ -169,23 +170,7 @@ header {
 
 .login {
     padding: 15px 0px 0px 395px;
-    font-size: 35px;
-    text-decoration: none;
     color: white;
-}
-
-.login a {
-    color: black;
-}
-
-.login a:hover {
-    text-decoration: none;
-    font-size: 110%;
-    height: 100px;
-    width: 150px;
-    /* margin-left: 1050px; */
-    color: black;
-    justify-content: flex-end;
 }
 
 .login-container {
@@ -237,16 +222,9 @@ header {
     
 }
 
-.menu-group .menu {
-    width: 150px;
-    font-size: 20px;
-    cursor: pointer;
-}
-
 .menu-group .menu:first-child {
     width: 150px;
     font-size: 20px;
-    margin-left: 700px;
 }
 
 .menu-group .menu a {
@@ -268,8 +246,8 @@ header {
 footer {
     margin: auto;
     width: 1200px;
-    background-color: #efefef;
-    /*position: fixed;*/
+    background-color: lightgray;
+    /* position: fixed; */
     /* background-image: url(../image/background-image_3.png); */
     z-index: -1;
 }
@@ -280,7 +258,6 @@ footer {
     justify-content: center;
     align-items: center;
 }
-
 
 .footer-description {
     border-top: 2px solid black;
@@ -310,6 +287,7 @@ footer {
     width: 35%;
     justify-content: center;
     margin-top: 20px;
+    
 }
 
 .footer-description .between {
@@ -352,6 +330,7 @@ footer {
 .container .inner .list-inner .table {
     font-size: 15px;
 }
+
 .inner .list-inner .search-group .form-inline {
     display: flex;
     justify-content: flex-end;
@@ -361,6 +340,7 @@ footer {
 .table thead th {
     text-align: center;
 }
+
 .image-section img {
     width: 800px;
     height: auto;
@@ -370,9 +350,8 @@ footer {
 /*파일 업로드시 나타나는 이미지 썸네일 공간*/
 .upload-board {
     margin-bottom: 10px;
-    /*display: none;*/
+    display: none;
     width: 1150px;
-    height: 400px;
     padding: 20px;
     background-color: #eeee;
 }
