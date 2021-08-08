@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<?php session_start(); ?>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAP</title>
+
+    <!-- css 리셋 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+    <!--    material-icons-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- SWIPER -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="../css/main.css">
+
+    <!--    jQuery-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script defer src="../js/main.js"></script>
+
+    <!-- bootstrap include -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
+    </script>
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 20px;
+        }
+
+        footer {
+            font-size: 14px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: none;
+            font-size: 110%;
+        }
+    </style>
+</head>
+
+<body>
+<?php
+include 'header.html';
+?>
+
+<!-- CONTENT -->
+<div class="container">
+    <div class="content">
+        <div class="inner">
+            <div class="regist-inner">
+
+
+                <form method="POST" class="register" id="register_form"
+                      name="register_form" action="./php/board_detail_view_update.php"
+                      enctype="multipart/form-data">
+                    <?php
+                    include './php/board_detail_view_update.html.php';
+                    ?>
+                    <?php
+                    while ($row = $stmh->fetch(PDO::FETCH_ASSOC)) {
+                    ?>
+                    <div class="metadata-group">
+                        <!--                        <section class="image-section">-->
+                        <!--                            <img src="--><?//= htmlspecialchars($row['url']) ?><!--"-->
+                        <!--                                 alt="-->
+                        <?//= htmlspecialchars($row['title']) . "이미지" ?><!--">-->
+                        <!--                        </section>-->
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="board_title_label">제목</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="제목"
+                                   aria-describedby="board_title" name="board_title" id="board_title"
+                                   value="<?= htmlspecialchars($row['board_title']) ?>">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="board_creator_label">작성자</span>
+                            </div>
+                            <input type="text" class="form-control"
+                                   aria-label="작성자" aria-describedby="board_creator" name="board_creator"
+                                   id="board_creator"
+                                   value="<?= htmlspecialchars($row['board_creator']) ?>" disabled>
+                        </div>
+
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <!--                                <span class="input-group-text" id="record_description_label">내용</span>-->
+                            </div>
+                            <textarea class="form-control" aria-label="내용"
+                                      aria-describedby="board_content" name="board_content"
+                                      id="board_content"
+                                      ><?= htmlspecialchars($row['board_content']) ?></textarea>
+                        </div>
+                        <!--                        <div class="input-group mb-3">-->
+                        <!--                            <div class="input-group-prepend">-->
+                        <!--                                <span class="input-group-text" id="upload_label">기록물 첨부</span>-->
+                        <!--                            </div>-->
+                        <!--                            <div class="custom-file">-->
+                        <!--                                <input type="file" class="custom-file-input" name="uploadfile" id="uploadfile"-->
+                        <!--                                       aria-describedby="upload" onchange="checkFile(this)">-->
+                        <!--                                <label class="custom-file-label" id="custom-file-label" for="uploadfile"></label>-->
+                        <!--                            </div>-->
+                        <!---->
+                        <!--                        </div>-->
+                        <input type="text" name="board_id" value="<?=$row['board_id']?>" hidden>
+                        <div class="button-group">
+                            <a href="./php/board_detail_view_update.php">
+                                <button type="submit" id="update" class="btn btn-secondary btn-lg">수정</button>
+                            </a>
+                            <a href="board_detail_view.html?board_id=<?= $row['board_id'] ?>">
+                                <button type="button" id="list" class="btn btn-secondary btn-lg">취소</button>
+                            </a>
+                            <!--                            <a href="record_detail_view.html.php?record_id = -->
+                            <? //=$row['record_id']-1 ?><!--"><button type="button" id="prev_button" class="btn btn-secondary btn-lg">이전글</button></a>-->
+                            <!--                            <a href="record_detail_view.html.php?record_id = -->
+                            <? //=$row['record_id'] + 1 ?><!--"><button type="button" id="next_button" class="btn btn-secondary btn-lg">다음글</button></a>-->
+                        </div>
+                    </div>
+                </form>
+                <?php
+                }
+                ?>
+            </div>
+
+        </div>
+    </div>
+</div>
+<?php
+include 'footer.html';
+?>
+</body>
+
+</html>

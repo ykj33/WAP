@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<?php session_start();
+<?php
+session_start();
 
 if (!isset($_SESSION['user_id']) || !isset($_SESSION['password'])) {
 ?>
@@ -115,7 +116,7 @@ include 'header.html';
                                 <input type="file" class="custom-file-input" name="uploadfile[]" id="uploadfile2"
                                        aria-describedby="upload" onchange="checkFile(this)" multiple>
                                 <label class="additional" for="uploadfile2">추가</label>
-                                <button type="button" class="uploadfile-del" onclick="deleteFile()">삭제</button>
+                                <button type="button" class="uploadfile-del" onclick="deleteFileChecked()">삭제</button>
                             </div>
                             <div class="thumb-box">
 

@@ -20,6 +20,7 @@ try {
                 $_SESSION['user_id'] = $user_id;
                 $_SESSION['password'] = $password;
                 $_SESSION['team_name'] = $row['team_name'];
+                $_SESSION['auth'] = $row['auth'];
                 Header("Location:../index.html");
             } else {
 
