@@ -11,13 +11,20 @@ inner {
     /*height: 1500px;*/
     margin: auto;
     display: flex;
+    flex-grow: 1;
+}
+
+.poster-left {
+    width: 800px;
+    display: flex;
     flex-direction: column;
 }
 
 .poster-right {
-    width: 400px;
+    width: 350px;
     /* margin-left: 900px; */
     margin-top: 120px;
+    margin-left: 50px;
     /* background-color:  */
 }
 
@@ -438,5 +445,10 @@ footer {
 .upload-board .thumb-box {
     border-top: 1px solid black;
     display: flex;
+    overflow: auto;
+}
+.upload-board .board-thumb-box {
+    border-top: 1px solid black;
+
     overflow: auto;
 }
