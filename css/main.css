@@ -169,9 +169,21 @@ header {
     line-height: 120%;
 }
 
-.login {
+.login{
+    margin-top: 30px;
+    margin-left: 150px;
+}
+
+.login a{
     padding: 15px 0px 0px 395px;
     color: white;
+    font-size: 23px;
+}
+
+.login a:hover{
+    color: white;
+    text-decoration: none;
+    font-size: 23px;
 }
 
 .login-container {
@@ -219,17 +231,28 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 670px
-
+    margin-left: 780px;
 }
 
-.menu-group .menu:first-child {
-    width: 150px;
-    font-size: 20px;
+.menu-group a{
+    color: white;
+}
+
+.menu-group a:hover{
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.menu-group .menu{
+    width: 100px;
+    font-size: 16px;
+    color: white;
 }
 
 .menu-group .menu a {
     color: white;
+    font-size: 16px;
 }
 
 /* CONTENT */
