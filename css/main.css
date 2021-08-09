@@ -287,7 +287,11 @@ header {
 .photo img{
     display: flex;
     width: 800px;
-    height: 300px;
+    height: 200px;
+}
+
+.photo p{
+    margin-top: 50px;
 }
 
 /* FOOTER */
