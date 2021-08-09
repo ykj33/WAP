@@ -402,6 +402,7 @@ footer {
     height: 300px;
     padding: 20px;
     background-color: #eeee;
+    overflow: scroll;
 }
 
 .upload-thumb {
