@@ -46,7 +46,7 @@ include 'db_connect.php';
         $stmh->bindValue(':board_title', $_POST['board_title'], PDO::PARAM_STR);
         $stmh->bindValue(':board_creator', $_POST['board_creator'], PDO::PARAM_STR);
         $stmh->bindValue(':board_content', $_POST['board_content'], PDO::PARAM_STR);
-        $stmh->bindValue(':board_url', $_POST['board_url'], PDO::PARAM_STRa);
+        $stmh->bindValue(':board_url', $_POST['board_url'], PDO::PARAM_STR);
         $stmh->bindValue(':board_hit', $_POST['board_hit'], PDO::PARAM_STR);
         $stmh->bindValue(':notice_yn', $_POST['notice_yn'], PDO::PARAM_STR);
         $stmh->execute();

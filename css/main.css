@@ -254,6 +254,16 @@ header {
     color: white;
     font-size: 16px;
 }
+.menu-group .menu #dropdownMenuButton {
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+.menu-group .menu .dropdown-menu a {
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+}
 
 /* CONTENT */
 .content {
@@ -267,11 +277,14 @@ header {
 }
 
 .inner .photo{
+    display: flex;
     width: 500px;
     height: 200px;
+    margin : 20px 0;
 }
 
 .photo img{
+    display: inline;
     width: 300px;
     height: 300px;
 }
@@ -389,6 +402,7 @@ footer {
     height: 300px;
     padding: 20px;
     background-color: #eeee;
+    overflow: scroll;
 }
 
 .upload-thumb {
