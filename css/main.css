@@ -11,6 +11,7 @@ inner {
     /*height: 1500px;*/
     margin: auto;
     display: flex;
+    flex-direction: column;
 }
 
 .poster-right {
@@ -278,14 +279,14 @@ header {
 
 .inner .photo{
     display: flex;
-    width: 500px;
+    width: 1500px;
     height: 200px;
-    margin : 20px 0;
+    margin : auto;
 }
 
 .photo img{
-    display: inline;
-    width: 300px;
+    display: flex;
+    width: 800px;
     height: 300px;
 }
 
