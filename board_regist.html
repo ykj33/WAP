@@ -107,7 +107,8 @@ include 'header.html';
                                 <span class="input-group-text" id="board_content_label">내용</span>
                             </div>
                             <textarea class="form-control" aria-label="내용" aria-describedby="board_content"
-                                      name="board_content" id="board_content" height="400px"></textarea>
+                                      name="board_content" id="board_content"></textarea>
+<!--                            <div class="form-control" contenteditable="true" id="div_content"></div>-->
                         </div>
                         <?php
                         if ($_SESSION['auth'] == 'super_user') {
@@ -128,16 +129,6 @@ include 'header.html';
                                     공지사항 미등록
                                 </label>
                             </div>
-<!--                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"-->
-<!--                                   value="Y" checked>-->
-<!--                            <label class="form-check-label" for="exampleRadios1">-->
-<!--                                예-->
-<!--                            </label>-->
-<!--                            <input class="form-check-input2" type="radio" name="exampleRadios" id="exampleRadios2"-->
-<!--                                   value="N">-->
-<!--                            <label class="form-check-label2" for="exampleRadios2">-->
-<!--                                아니오-->
-<!--                            </label>-->
 
                         </div>
                         <?php
@@ -147,18 +138,18 @@ include 'header.html';
                         ?>
 <!--                        <div class="input-group mb-3">-->
 <!--                            <div class="input-group-prepend">-->
-<!--                                <span class="input-group-text" id="upload_label">이미지 첨부</span>-->
+<!--                                <span class="input-group-text" id="upload_label">파일 첨부</span>-->
 <!--                            </div>-->
 <!--                            <div class="custom-file">-->
 <!--                                <input type="file" class="custom-file-input" name="uploadfile[]" id="uploadfile"-->
-<!--                                       aria-describedby="upload" onchange="checkFile(this)">-->
+<!--                                       aria-describedby="upload" onchange="checkBoardFile(this)" multiple>-->
 <!--                                <label class="custom-file-label" id="custom-file-label" for="uploadfile"></label>-->
 <!--                            </div>-->
 <!--                            <div class="upload-board">-->
 <!--                                <div class="button-group">-->
 <!--                                    <button type="button" class="uploadfile-del" onclick="deleteFileAll()">삭제</button>-->
 <!--                                </div>-->
-<!--                                <div class="thumb-box">-->
+<!--                                <div class="board-thumb-box">-->
 <!---->
 <!--                                </div>-->
 <!--                            </div>-->

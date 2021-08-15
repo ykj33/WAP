@@ -29,7 +29,7 @@ if ($file_count <= 2 && $_FILES['uploadfile']['name'][1] == null) {
 
         // 파일 이동
         if (move_uploaded_file($_FILES["uploadfile"]["tmp_name"][0], $upload_file_path)) {
-            $file_dir = "upload/";
+            $file_dir = "../upload/";
             $file_path = $file_dir . $_FILES["uploadfile"]["name"][0];
 //            $size = filesize($upload_file_path);
         }
@@ -38,7 +38,7 @@ if ($file_count <= 2 && $_FILES['uploadfile']['name'][1] == null) {
         if ($_FILES['uploadfile']['name'] == null) {
             $upload_file_path = null;
         }
-
+        $upload_file_path = substr($upload_file_path, 1);
         // 트랜잭션 시작
         $pdo->beginTransaction();
         $sql = "INSERT INTO rikarsong.record (identifier, record_id, title, creator, collector, date_from, date_to, extent, medium, scope, type, description, level_of_description, url, delete_Yn, kind_of, register)
@@ -110,7 +110,7 @@ if ($file_count <= 2 && $_FILES['uploadfile']['name'][1] == null) {
                 if ($_FILES['uploadfile']['name'][$i] == null) {
                     $upload_file_path = null;
                 }
-
+                $upload_file_path = substr($upload_file_path, 1);
                 // 트랜잭션 시작
                 $pdo->beginTransaction();
                 $sql = "INSERT INTO rikarsong.record (identifier, record_id, title, creator, collector, date_from, date_to, extent, medium, scope, type, description, level_of_description, url, delete_Yn, kind_of, register)

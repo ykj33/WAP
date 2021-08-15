@@ -16,12 +16,12 @@
     <!-- SWIPER -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="./css/main.css">
 
     <!--    jQuery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script defer src="../js/main.js"></script>
+    <script defer src="./js/main.js"></script>
 
     <!-- bootstrap include -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
@@ -80,11 +80,6 @@ include 'header.html';
                     while ($row = $stmh->fetch(PDO::FETCH_ASSOC)) {
                     ?>
                     <div class="metadata-group">
-                        <!--                        <section class="image-section">-->
-                        <!--                            <img src="--><?//= htmlspecialchars($row['url']) ?><!--"-->
-                        <!--                                 alt="-->
-                        <?//= htmlspecialchars($row['title']) . "이미지" ?><!--">-->
-                        <!--                        </section>-->
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="board_title_label">제목</span>
@@ -120,17 +115,6 @@ include 'header.html';
                                       id="board_content"
                                       disabled><?= htmlspecialchars($row['board_content']) ?></textarea>
                         </div>
-                        <!--                        <div class="input-group mb-3">-->
-                        <!--                            <div class="input-group-prepend">-->
-                        <!--                                <span class="input-group-text" id="upload_label">기록물 첨부</span>-->
-                        <!--                            </div>-->
-                        <!--                            <div class="custom-file">-->
-                        <!--                                <input type="file" class="custom-file-input" name="uploadfile" id="uploadfile"-->
-                        <!--                                       aria-describedby="upload" onchange="checkFile(this)">-->
-                        <!--                                <label class="custom-file-label" id="custom-file-label" for="uploadfile"></label>-->
-                        <!--                            </div>-->
-                        <!---->
-                        <!--                        </div>-->
 
                         <div class="button-group">
                             <?php
@@ -177,12 +161,15 @@ include 'header.html';
                 while ($row = $stmh->fetch(PDO::FETCH_ASSOC)) {
                     ?>
                     <tr>
-                        <td align="center" style="background-color: wheat"><?= htmlspecialchars($row['board_id']) ?></td>
+                        <td align="center"
+                            style="background-color: wheat"><?= htmlspecialchars($row['board_id']) ?></td>
                         <td align="left" style="background-color: wheat"><a
                                     href="./board_detail_view.html?board_id=<?= $row['board_id'] ?>"><?= htmlspecialchars($row['board_title']) ?></a>
                         </td>
-                        <td align="center" style="background-color: wheat"><?= htmlspecialchars($row['board_creator']) ?></td>
-                        <td align="center" style="background-color: wheat"><?= htmlspecialchars($row['board_date']) ?></td>
+                        <td align="center"
+                            style="background-color: wheat"><?= htmlspecialchars($row['board_creator']) ?></td>
+                        <td align="center"
+                            style="background-color: wheat"><?= htmlspecialchars($row['board_date']) ?></td>
                     </tr>
                     <?php
                 }
