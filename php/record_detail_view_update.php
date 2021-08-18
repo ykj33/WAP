@@ -88,6 +88,7 @@ if ($file_change == null) {
         if ($_FILES['uploadfile']['name'] == null) {
             $upload_file_path = $_POST['url'];
         }
+        $upload_file_path = substr($upload_file_path, 1);
         $pdo->beginTransaction();
         $sql = "UPDATE rikarsong.record SET
                             title = :title,

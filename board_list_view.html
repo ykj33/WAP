@@ -17,12 +17,12 @@ session_start();
     <!-- SWIPER -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="./css/main.css">
 
     <!--    jQuery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script defer src="../js/main.js"></script>
+    <script defer src="./js/main.js"></script>
 
     <!-- bootstrap include -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
@@ -122,25 +122,25 @@ include 'header.html';
 
                 } else {
                     $pre = $page - 1;
-                    echo "<a href='board_list_view.html.php?$pre'> 이전 </a>";
+                    echo "<a href='board_list_view.html?$pre'> 이전 </a>";
                 }
                 for ($i = $block_start; $i <= $block_end; $i++) {
                     if ($page == $i) {
                         echo "<b> $i </b>";
                     } else {
-                        echo "<a href='board_list_view.html.php?page=$i'> $i </a>";
+                        echo "<a href='board_list_view.html?page=$i'> $i </a>";
                     }
                 }
                 if ($page >= $total_page) {
 
                 } else {
                     $next = $page + 1;
-                    echo "<a href='board_list_view.html.php?page=$next'> 다음 </a>";
+                    echo "<a href='board_list_view.html?page=$next'> 다음 </a>";
                 }
                 if ($page >= $total_page) {
 
                 } else {
-                    echo "<a href='board_list_view.html.php?$page=$total_page'> 마지막 </a>";
+                    echo "<a href='board_list_view.html?page=$total_page'> 마지막 </a>";
                 }
                 ?>
             </div>
