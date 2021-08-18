@@ -20,6 +20,12 @@ inner {
     flex-direction: column;
 }
 
+.poster-left .photo-middle {
+    width: 1200px;
+    display: flex;
+    justify-content: space-between;
+}
+
 .poster-right {
     width: 350px;
     /* margin-left: 900px; */
@@ -138,6 +144,10 @@ header {
 
 }
 
+.menu-bottom{
+    margin-top: 20px;
+}
+
 .logo-line {
     height: 80px;
     width: 1200px;
@@ -167,7 +177,7 @@ header {
 
 }
 
-.application-name {
+/* .application-name {
     height: 100px;
     width: 300px;
     font-size: 40px;
@@ -175,6 +185,13 @@ header {
     margin-left: 200px;
     color: white;
     line-height: 120%;
+} */
+
+.application-name img{
+    height: 130px;
+    width: 300px;
+    padding: 25px 0px 0px 0px;
+    margin-left: 200px;
 }
 
 .login{
@@ -256,6 +273,8 @@ header {
     width: 100px;
     font-size: 16px;
     color: white;
+    margin-bottom: 10px;
+    margin-left: 5px;
 }
 
 .menu-group .menu a {
@@ -293,8 +312,30 @@ header {
 
 .photo img{
     display: flex;
-    width: 800px;
-    height: 200px;
+    width: 1200px;
+    height: 300px;
+}
+
+.photo2 img {
+    padding-top: 30px;
+    /* display: flex; */
+    width: 580px;
+    height: 810px;
+}
+
+.photo3 img {
+    padding-top: 30px;
+    display: flex;
+    width: 580px;
+    height: 400px;
+    margin-bottom: 10px;
+}
+
+.photo4 img {
+    padding-top: 30px;
+    display: flex;
+    width: 580px;
+    height: 400px;
 }
 
 .photo p{
@@ -321,31 +362,30 @@ footer {
 .footer-description {
     border-top: 2px solid black;
     width: 1200px;
-    height: 150px;
+    height: 100px;
     display: flex;
-    margin-top: 10px;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .footer-description .mylogo1 {
     display: flex;
     width: 25%;
     height: 30%;
-    margin-top: 30px;
+    margin-top: 10px;
     margin-left: 20px;
 }
 
 .footer-description .mylogo2 {
     width: 25%;
-    height: 30%;
-    margin-top: 30px;
+    height: 20%;
+    margin-top: 20px;
 
 }
 
 .footer-description .description {
     width: 35%;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 10px;
 
 }
 
@@ -357,7 +397,7 @@ footer {
 .footer-description .description2 {
     width: 50%;
     /* justify-content: center; */
-    margin-top: 20px;
+    margin-top: 10px;
     margin-left: 5px;
 
 }
