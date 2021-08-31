@@ -1,14 +1,6 @@
-/*.inner {*/
-/*    width: 100%;*/
-/*    margin-bottom: 100px;*/
-/*    background-color: #fff;*/
-/*    position: relative;*/
-/*    overflow: hidden;*/
-/*}*/
-
 .inner {
     width: 1200px;
-    height: 920px;
+    height: 1100px;
     margin: auto;
     flex-grow: 1;
     background-color: rgb(236, 236, 236);
@@ -17,13 +9,14 @@
 .inner .row1 {
     width: 1200px;
     height: 300px;
-    margin: 0 0 20px 0;
+    margin: 0 0 200px 0;
 
 }
 
 .inner .row1 img {
     width: 1200px;
     height: 300px;
+    margin-top: 180px;
 }
 
 .inner .row2 {
@@ -225,9 +218,11 @@
     display: flex;
 }
 
+
 .header .header-col2 {
     width: 600px;
     height: 160px;
+
 }
 
 .header .header-col2 .header-col2-1 {
