@@ -168,8 +168,14 @@ function checkFileSize(f) {
 // };
 let lastTableindex = 0;
 
+// document.getElementById('thumb-box').addEventListener('change', (event) => {
+//     const fileList = event.target.files;
+//     console.log(fileList);
+// });
+
 // 파일 업로드 시 이미지 썸네일 출력
 function fileUpload(f) {
+
     let file = f.files;
 
     let tableIndex = 0;
@@ -185,15 +191,24 @@ function fileUpload(f) {
         let src = URL.createObjectURL(file[i]);
 
         let html = "<div>" +
-            // "<input type='checkbox' name='upload-thumb-check' class='upload-thumb-check' id='upload-thumb-check" + tableIndex + "' value='" + i + "'><label for='upload-thumb-check" + tableIndex + "'>" +
-            "<img src=" + src + " className='upload-thumb' alt='썸네일' width='170px' style='margin: 10px'></label></div>"
+            "<input type='button' name='delete-file' class='delete-file' id='delete-file" + tableIndex + "' value='삭제' onclick='deleteFile(this)'>" +
+            "<img src=" + src + " className='upload-thumb' alt='썸네일' width='170px' style='margin: 10px'></div>"
         $(".thumb-box").append(html);
         console.log("id값 확인" + tableIndex);
-
+        $('#img_box').append("<img src='" + src + "' data-image='tmp1' class='tmp1'><input type=hidden name='tmpfile[]' value='" + src + "'  class='tmp1'>");
+        console.log(file);
         $(".upload-board").css("display", "block");
         console.log("이미지 연결")
     }
 }
+
+
+function deleteFile(obj) {
+    $(obj).parent().empty();
+    $(obj).parent().parent().remove();
+    $(obj).parent().val("");
+}
+
 
 
 function fileUploadSingle(f) {
@@ -257,12 +272,18 @@ function deleteFileAll() {
     // }
 }
 
+function deleteBoardFileAll() {
+    $(".upload-board .board-thumb-box").children().remove();
+    $("#custom-file-input").value = "";
+}
+
 // 체크한 파일 삭제
 function deleteFileChecked() {
-    let remainFile = $("#uploadfile");
+
+    let remainFile = $(".thumb-box").val();
     $('input[name=upload-thumb-check]:checked').parent().remove();
-    $fileValue = $('input[name=upload-thumb-check]:checked').val();
-    console.log("이미지 삭제" + $fileValue);
+    let fileValue = $('input[name=upload-thumb-check]:checked').val();
+    console.log("이미지 삭제" + fileValue);
     // $('input[name=upload-thumb-check]:checked').parent().value = "";
     console.log("파일 삭제");
     console.log("뭐가 남았나" + remainFile);
@@ -272,3 +293,160 @@ function checkBoardFile(f) {
     checkFileSize(f);
     boardFileUpload(f);
 }
+
+$.fn.fileUploader = function (filesToUpload, sectionIdentifier) {
+    var fileIdCounter = 0;
+
+    this.closest(".files").change(function (evt) {
+        var output = [];
+
+        for (var i = 0; i < evt.target.files.length; i++) {
+            fileIdCounter++;
+            var file = evt.target.files[i];
+            var fileId = sectionIdentifier + fileIdCounter;
+
+            filesToUpload.push({
+                id: fileId,
+                file: file
+            });
+
+            var removeLink = "<a class=\"removeFile\" href=\"#\" data-fileid=\"" + fileId + "\">Remove</a>";
+
+            output.push("<li><strong>", escape(file.name), "</strong> - ", file.size, " bytes. &nbsp; &nbsp; ", removeLink, "</li> ");
+        }
+        ;
+
+        $(this).children(".fileList")
+            .append(output.join(""));
+
+        //reset the input to null - nice little chrome bug!
+        evt.target.value = null;
+    });
+
+    $(this).on("click", ".removeFile", function (e) {
+        e.preventDefault();
+
+        var fileId = $(this).parent().children("a").data("fileid");
+
+        // loop through the files array and check if the name of that file matches FileName
+        // and get the index of the match
+        for (var i = 0; i < filesToUpload.length; ++i) {
+            if (filesToUpload[i].id === fileId)
+                filesToUpload.splice(i, 1);
+        }
+
+        $(this).parent().remove();
+    });
+
+    this.clear = function () {
+        for (var i = 0; i < filesToUpload.length; ++i) {
+            if (filesToUpload[i].id.indexOf(sectionIdentifier) >= 0)
+                filesToUpload.splice(i, 1);
+        }
+
+        $(this).children(".fileList").empty();
+    }
+
+    return this;
+};
+
+(function () {
+    var filesToUpload = [];
+
+    var files1Uploader = $("#files1").fileUploader(filesToUpload, "files1");
+    var files2Uploader = $("#files2").fileUploader(filesToUpload, "files2");
+    var files3Uploader = $("#files3").fileUploader(filesToUpload, "files3");
+
+    $("#uploadBtn").click(function (e) {
+        e.preventDefault();
+
+        var formData = new FormData();
+
+        for (var i = 0, len = filesToUpload.length; i < len; i++) {
+            formData.append("files", filesToUpload[i].file);
+        }
+
+        $.ajax({
+            url: "http://requestb.in/1k0dxvs1",
+            data: formData,
+            processData: false,
+            contentType: false,
+            type: "POST",
+            success: function (data) {
+                alert("DONE");
+
+                files1Uploader.clear();
+                files2Uploader.clear();
+                files3Uploader.clear();
+            },
+            error: function (data) {
+                alert("ERROR - " + data.responseText);
+            }
+        });
+    });
+})()
+
+// 파일 등록시 파일 추가
+
+let files = {};
+let previewIndex = 0;
+
+function addPreview(input) {
+    if (input[0].files) {
+        for (let fileIndex = 0; fileIndex < input[0].files.length; fileIndex++) {
+            let file = input[0].files[fileIndex];
+
+            let reader = new FileReader();
+            reader.onload = function (img) {
+                let imgNum = previewIndex++;
+                $("#preview").append(
+                    "<div class=\"preview-box\" value=\"" + imgNum + "\">"
+                    + "<img class=\"thumnail\" src= \"" + img.target.result + "\"\ style='width: 150px'/>"
+                    + "<p>"
+                    + file.name
+                    + "</p>"
+                    + "<a href=\"#\" value=\"" + imgNum + "\" onclick=\"deletePreview(this)\">"
+                    + "삭제" + "</a>" + "</div>"
+                );
+                files[imgNum] = file;
+            };
+            reader.readAsDataURL(file);
+        }
+    } else {
+        alert("올바르지 않은 입력입니다.");
+    }
+}
+
+// 삭제 버튼 클릭시 미리보기 이미지 영역 삭제
+function deletePreview(obj) {
+    let imgNum = obj.attributes['value'].value;
+    console.log(imgNum);
+    delete files[imgNum];
+    console.log(files);
+    $("#preview .preview-box[value=" + imgNum + "]").remove();
+}
+
+$(document).ready(function() {
+        $("#preview").on('change', function(){
+        let form = $("#register_form")[0];
+        let formData = new FormData(form);
+
+        for (let index = 0; index<Object.keys(files).length; index++){
+            formData.append('files',files[index]);
+        }
+
+        $.ajax({
+            type : 'POST',
+            url : '../php/record_regist.html.php',
+            data:formData,
+            success : function(result){
+                console.log("성공");
+            }
+        })
+    })
+})
+
+$("#attach input[type=file]").change(function () {
+    console.log("작동")
+    addPreview($(this));
+});

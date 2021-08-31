@@ -115,7 +115,20 @@ include 'header.html';
                                       id="board_content"
                                       disabled><?= htmlspecialchars($row['board_content']) ?></textarea>
                         </div>
-
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="date_to_label">작성일</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="다운로드"
+                                   aria-describedby="download" name="download" id="download"
+                                   value="
+                               <?php
+                                   $directory = trim(substr($row['board_url'], 0, 16));
+                                   $download_file = trim(substr($row['board_url'], 16));
+                                   print $download_file;
+                                   ?>" disabled>
+                            <a href="./php/board_detail_view_download.html.php?file='<?=$row['board_url']?>'">다운로드</a>
+                        </div>
                         <div class="button-group">
                             <?php
 
@@ -156,6 +169,7 @@ include 'header.html';
                 </tr>
                 </thead>
                 <tbody>
+
                 <?php
                 include './php/board_list_view_notice.html.php';
                 while ($row = $stmh->fetch(PDO::FETCH_ASSOC)) {
@@ -174,6 +188,7 @@ include 'header.html';
                     <?php
                 }
                 ?>
+
                 <?php
                 include "./php/board_list_view.html.php";
                 while ($row = $stmh->fetch(PDO::FETCH_ASSOC)) {
@@ -192,6 +207,7 @@ include 'header.html';
                 ?>
                 </tbody>
             </table>
+
             <!--            페이지네이션 번호-->
             <div id="page_num" style="text-align: center">
                 <?php
