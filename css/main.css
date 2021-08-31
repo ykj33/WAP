@@ -6,12 +6,67 @@
 /*    overflow: hidden;*/
 /*}*/
 
-inner {
+.inner {
     width: 1200px;
-    /*height: 1500px;*/
+    height: 920px;
     margin: auto;
-    display: flex;
     flex-grow: 1;
+    background-color: rgb(236, 236, 236);
+}
+
+.inner .row1 {
+    width: 1200px;
+    height: 300px;
+    margin: 0 0 20px 0;
+
+}
+
+.inner .row1 img {
+    width: 1200px;
+    height: 300px;
+}
+
+.inner .row2 {
+    width: 1200px;
+    height: 600px;
+    display: flex;
+}
+
+.inner .row2 .row2-1 {
+    width: 550px;
+    height: 600px;
+    margin: 0 10px 0 0;
+
+}
+
+.inner .row2 .row2-1 img {
+    width: 550px;
+    height: 600px;
+}
+
+.inner .row2 .row2-2 {
+    width: 600px;
+    height: 600px;
+    margin: 0 0 0 10px;
+
+}
+
+.inner .row2 .row2-2 img {
+    width: 630px;
+    height: 290px;
+}
+
+.inner .row2 .row2-2 .row2-2-1 {
+    width: 600px;
+    height: 290px;
+    margin: 0 0 20px 0;
+
+}
+
+.inner .row2 .row2-2 .row2-2-2 {
+    width: 630px;
+    height: 290px;
+
 }
 
 .poster-left {
@@ -133,163 +188,102 @@ inner {
 
 
 /* HEADER */
-header {
+.header {
     width: 1200px;
+    height: 160px;
     background-color: #01114d;
-    /*position: fixed;*/
     margin: 0 auto;
+    margin-bottom: 20px;
     left: 0;
     right: 0;
-    border-bottom: 20px solid lightgray;
-
-}
-
-.menu-bottom{
-    margin-top: 20px;
-}
-
-.logo-line {
-    height: 80px;
-    width: 1200px;
-    margin: auto;
-    /* background-color: #EDEDED; */
-    /* position: relative; */
     display: flex;
+    position: fixed;
 }
 
-.container-fluid .d-flex {
-    width: 600px;
-    padding: 20px;
-    margin: auto;
-}
-
-/* .container-fluid .btn-outline-success {
-    width: 100px;
-    color: black;
-    border-color: black;
-} */
-
-.logo-line .logo {
-    margin-top: 10px;
-    position: absolute;
-    width: 150px;
-    display: flex;
-
-}
-
-/* .application-name {
-    height: 100px;
-    width: 300px;
+.header .header-col1 {
+    width: 250px;
+    height: 160px;
+    padding: 3% 0 0 2%;
     font-size: 40px;
-    padding: 25px 0px 0px 0px;
-    margin-left: 200px;
-    color: white;
-    line-height: 120%;
-} */
-
-.application-name img{
-    height: 130px;
-    width: 300px;
-    padding: 25px 0px 0px 0px;
-    margin-left: 200px;
-}
-
-.login{
-    margin-top: 30px;
-    margin-left: 150px;
-}
-
-.login a{
-    padding: 15px 0px 0px 395px;
-    color: white;
-    font-size: 23px;
-}
-
-.login a:hover{
-    color: white;
-    text-decoration: none;
-    font-size: 23px;
-}
-
-.login-container {
-    margin-top: 5%;
-    margin-bottom: 5%;
-}
-
-.login-form-1 {
-    margin-left: 25%;
-    margin-bottom: 10px;
-    padding: 5%;
-    /* box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19); */
-}
-
-.login-form-1 h3 {
-    text-align: center;
-    color: #333;
-}
-
-.login-container form {
-    padding: 10%;
-}
-
-.btnSubmit {
-    width: 100%;
-    border-radius: 1rem;
-    padding: 1.5%;
-    border: none;
-    cursor: pointer;
-}
-
-.login-form-1 .btnSubmit {
-    font-weight: 600;
-    color: #fff;
-    background-color: #0062cc;
-}
-
-.login-form-1 .ForgetPwd {
-    color: #0062cc;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.menu-group {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 780px;
+    background-color: rgb(231, 231, 231);
 }
 
-.menu-group a{
-    color: white;
+.header .header-col1 img {
+    width: 150px;
+    height: 84px;
+
 }
 
-.menu-group a:hover{
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
+.header-col1 .header-col1-1 {
+    width: 10px;
+    height: 84px;
+    background-color: gray;
 }
 
-.menu-group .menu{
-    width: 100px;
-    font-size: 16px;
-    color: white;
-    margin-bottom: 10px;
-    margin-left: 5px;
+.header-col1 .header-col1-2{
+    display: flex;
 }
 
-.menu-group .menu a {
-    color: white;
-    font-size: 16px;
+.header .header-col2 {
+    width: 600px;
+    height: 160px;
 }
-.menu-group .menu #dropdownMenuButton {
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
+
+.header .header-col2 .header-col2-1 {
+    width: 950px;
+    height: 50px;
+    display: flex;
 }
-.menu-group .menu .dropdown-menu a {
-    color: black;
-    font-size: 16px;
-    cursor: pointer;
+
+.header .header-col2 .header-col2-1 .header-col2-1-1 {
+    width: 650px;
+    height: 50px;
+    background-color: rgb(98, 98, 255);
+}
+
+.header .header-col2 .header-col2-1 .header-col2-1-1 img {
+    margin: 30px 0 0 0;
+    
+}
+
+.header .header-col2 .header-col2-1 .header-col2-1-2 {
+    width: 300px;
+    height: 50px;
+    background-color: rgb(153, 70, 153);
+}
+
+.header .header-col2 .header-col2-1 .header-col2-1-2 a {
+    color: white;
+    font-size: 25px;
+    padding: 70% 0 0 60%;
+    /*padding top 맞추기*/
+}
+
+.header .header-col2 .header-col2-2 {
+    width: 950px;
+    height: 110px;
+    display: flex;
+    background-color: navy
+}
+
+.header .header-col2 .header-col2-2-1{
+    width: 500px;
+    height: 110px;
+}
+
+.header .header-col2 .header-col2-2-2{
+    width: 500px;
+    height: 110px;
+    padding: 5% 0 0 0;
+}
+
+.header .header-col2 .header-col2-2-2 .menu-group {
+    display: flex;
+}
+
+.header .header-col2 .header-col2-2-2 .menu-group a{
+    color: rgb(233, 233, 248);
 }
 
 /* CONTENT */
@@ -347,9 +341,6 @@ footer {
     margin: auto;
     width: 1200px;
     background-color: lightgray;
-    /* position: fixed; */
-    /* background-image: url(../image/background-image_3.png); */
-    z-index: -1;
 }
 
 .footer-logo-group {
@@ -360,7 +351,7 @@ footer {
 }
 
 .footer-description {
-    border-top: 2px solid black;
+    margin-top: 20px;
     width: 1200px;
     height: 100px;
     display: flex;
@@ -371,21 +362,31 @@ footer {
     display: flex;
     width: 25%;
     height: 30%;
-    margin-top: 10px;
+    margin-top: 25px;
     margin-left: 20px;
+}
+
+.footer-description .mylogo1 img {
+    width: 150px;
+    height: 50px;
 }
 
 .footer-description .mylogo2 {
     width: 25%;
     height: 20%;
-    margin-top: 20px;
+    margin: 30px 100px 0 0;
+}
 
+.footer-description .mylogo2 img {
+    width: 130px;
+    height: 40px;
 }
 
 .footer-description .description {
     width: 35%;
     justify-content: center;
-    margin-top: 10px;
+    margin: 20px 0 0 0;
+    padding: 0 0 0 60px;
 
 }
 
@@ -397,8 +398,7 @@ footer {
 .footer-description .description2 {
     width: 50%;
     /* justify-content: center; */
-    margin-top: 10px;
-    margin-left: 5px;
+    margin: 20px 0 0 0;
 
 }
 
