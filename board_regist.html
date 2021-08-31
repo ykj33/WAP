@@ -136,24 +136,24 @@ include 'header.html';
 
                         }
                         ?>
-<!--                        <div class="input-group mb-3">-->
-<!--                            <div class="input-group-prepend">-->
-<!--                                <span class="input-group-text" id="upload_label">파일 첨부</span>-->
-<!--                            </div>-->
-<!--                            <div class="custom-file">-->
-<!--                                <input type="file" class="custom-file-input" name="uploadfile[]" id="uploadfile"-->
-<!--                                       aria-describedby="upload" onchange="checkBoardFile(this)" multiple>-->
-<!--                                <label class="custom-file-label" id="custom-file-label" for="uploadfile"></label>-->
-<!--                            </div>-->
-<!--                            <div class="upload-board">-->
-<!--                                <div class="button-group">-->
-<!--                                    <button type="button" class="uploadfile-del" onclick="deleteFileAll()">삭제</button>-->
-<!--                                </div>-->
-<!--                                <div class="board-thumb-box">-->
-<!---->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="upload_label">파일 첨부</span>
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" name="uploadfile" id="uploadfile"
+                                       aria-describedby="upload" onchange="checkBoardFile(this)">
+                                <label class="custom-file-label" id="custom-file-label" for="uploadfile"></label>
+                            </div>
+                            <div class="upload-board">
+                                <div class="button-group">
+                                    <button type="button" class="uploadfile-del" onclick="deleteBoardFileAll()">삭제</button>
+                                </div>
+                                <div class="board-thumb-box">
+
+                                </div>
+                            </div>
+                        </div>
                         <div class="button-group">
                             <button type="submit" id="confirm" class="btn btn-secondary btn-lg">등록</button>
                             <button type="button" id="cancel" class="btn btn-secondary btn-lg">취소</button>

@@ -450,11 +450,16 @@ footer {
     padding: 20px;
     background-color: #eeee;
     overflow: scroll;
+    display: flex;
 }
 
 .upload-thumb {
     width: 400px;
     margin: auto;
+}
+
+#preview .preview-box img .thumbnail {
+    width: 150px;
 }
 
 .button-group .uploadfile-del {

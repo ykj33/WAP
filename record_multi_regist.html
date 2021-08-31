@@ -36,7 +36,11 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['password'])) {
     <!--    jQuery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" type="text/javascript"
+            language="javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script defer src="js/main.js"></script>
+    <!--    <script defer src="js/test.js"></script>-->
 
     <!-- bootstrap include -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
@@ -100,29 +104,38 @@ include 'header.html';
                                 아카이빙단
                             </label>
                         </div>
+                        <!--                                                <div class="input-group mb-3">-->
+                        <!--                                                    <div class="input-group-prepend">-->
+                        <!--                                                        <span class="input-group-text" id="upload_label">기록물 첨부</span>-->
+                        <!--                                                    </div>-->
+                        <!--                                                    <div class="custom-file">-->
+                        <!--                                                        <input type="file" class="custom-file-input" name="uploadfile[]" id="uploadfile1"-->
+                        <!--                                                               aria-describedby="upload" onchange="checkFile(this)" multiple/>-->
+                        <!--                                                        <label class="custom-file-label" id="custom-file-label" for="uploadfile1"></label>-->
+                        <!--                                                    </div>-->
+                        <!---->
+                        <!--                                                </div>-->
+                        <!--                                                <div class="upload-board" id="upload-board">-->
+                        <!--                                                    <div class="button-group">-->
+                        <!--                                                        <input type="file" class="custom-file-input" name="uploadfile[]" id="uploadfile2"-->
+                        <!--                                                               aria-describedby="upload" onchange="checkFile(this)" multiple>-->
+                        <!--                                                        <label class="additional" for="uploadfile2">추가</label>-->
+                        <!--                                                        <button type="button" class="uploadfile-del" onclick="deleteFileChecked(this)">삭제-->
+                        <!--                                                        </button>-->
+                        <!--                                                    </div>-->
+                        <!--                                                    <div class="thumb-box" id="thumb-box">-->
+                        <!---->
+                        <!--                                                    </div>-->
+                        <!--                                                </div>-->
                         <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="upload_label">기록물 첨부</span>
-                            </div>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" name="uploadfile[]" id="uploadfile1"
-                                       aria-describedby="upload" onchange="checkFile(this)" multiple />
-                                <label class="custom-file-label" id="custom-file-label" for="uploadfile1"></label>
+                            <div id="attach">
+                                <label for="uploadInputBox">사진첨부</label>
+                                <input type="file" id="uploadInputBox" name="uploadfile" multiple/>
                             </div>
 
+                            <div id="preview" class="upload-board"></div>
+<!--                            <form id="uploadForm" style="display:none;"></form>-->
                         </div>
-                        <div class="upload-board">
-                            <div class="button-group">
-                                <input type="file" class="custom-file-input" name="uploadfile[]" id="uploadfile2"
-                                       aria-describedby="upload" onchange="checkFile(this)" multiple>
-                                <label class="additional" for="uploadfile2">추가</label>
-                                <button type="button" class="uploadfile-del" onclick="deleteFileAll()">삭제</button>
-                            </div>
-                            <div class="thumb-box">
-
-                            </div>
-                        </div>
-
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="title_label">제목(*)</span>

@@ -265,7 +265,7 @@ include 'header.html';
 
                 } else {
                     $pre = $page - 1;
-                    echo "<a href='record_list_view.html?$pre'> 이전 </a>";
+                    echo "<a href='record_list_view.html?page=$pre'> 이전 </a>";
                 }
                 for ($i = $block_start; $i <= $block_end; $i++) {
                     if ($page == $i) {
