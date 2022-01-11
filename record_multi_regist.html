@@ -91,7 +91,7 @@ include 'header.html';
                     <div class="metadata-group">
                         <div class="form-check">
                                 <span>
-                                    다중등록
+                                    등록
                                 </span>
                             <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
                                    value="M" checked>
@@ -129,8 +129,8 @@ include 'header.html';
                         <!--                                                </div>-->
                         <div class="input-group mb-3">
                             <div id="attach">
-                                <label for="uploadInputBox">사진첨부</label>
-                                <input type="file" id="uploadInputBox" name="uploadfile" multiple/>
+                                <label for="file-input">사진첨부</label>
+                                <input type="file" id="file-input" name="uploadfile[]"  multiple accept=".jpg, .jpeg, .png, .tiff, .txt, .hwp"/>
                             </div>
 
                             <div id="preview" class="upload-board"></div>

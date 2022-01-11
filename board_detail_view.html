@@ -114,10 +114,13 @@ include 'header.html';
                                       aria-describedby="board_content" name="board_content"
                                       id="board_content"
                                       disabled><?= htmlspecialchars($row['board_content']) ?></textarea>
+<!--                            <div class="form-control" id="editable" contenteditable="false">-->
+<!--                                --><?//=$row['board_content']?>
+<!--                            </div>-->
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="date_to_label">작성일</span>
+                                <span class="input-group-text" id="date_to_label">첨부파일</span>
                             </div>
                             <input type="text" class="form-control" aria-label="다운로드"
                                    aria-describedby="download" name="download" id="download"

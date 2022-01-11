@@ -36,6 +36,11 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['password'])) {
     <!--    jQuery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!--    summnernote-->
+    <script src="./summernote-0.8.18-dist/summernote-lite.js"></script>
+    <script src="./summernote-0.8.18-dist/lang/summernote-ko-KR.js"></script>
+    <link rel="stylesheet" href="./summernote-0.8.18-dist/summernote-lite.css">
+
     <script defer src="js/main.js"></script>
 
     <!-- bootstrap include -->
@@ -107,31 +112,33 @@ include 'header.html';
                                 <span class="input-group-text" id="board_content_label">내용</span>
                             </div>
                             <textarea class="form-control" aria-label="내용" aria-describedby="board_content"
-                                      name="board_content" id="board_content"></textarea>
-<!--                            <div class="form-control" contenteditable="true" id="div_content"></div>-->
+                                      name="board_content" id="board_content" hidden></textarea>
+                            <div class="form-control" contenteditable="true" id="editable"></div>
+                            <textarea id="summernote"></textarea>
                         </div>
                         <?php
                         if ($_SESSION['auth'] == 'super_user') {
-                        ?>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="notice_yn_label">공지사항 여부</span>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input-notice" type="radio" name="notice_yn" id="exampleRadios1"
-                                       value="Y">
-                                <label class="form-check-label-notice" for="exampleRadios1">
-                                    공지사항 등록
-                                </label>
-                                <input class="form-check-input2" type="radio" name="notice_yn" id="exampleRadios2"
-                                       value="N" checked>
-                                <label class="form-check-label2" for="exampleRadios2">
-                                    공지사항 미등록
-                                </label>
-                            </div>
+                            ?>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="notice_yn_label">공지사항 여부</span>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input-notice" type="radio" name="notice_yn"
+                                           id="exampleRadios1"
+                                           value="Y">
+                                    <label class="form-check-label-notice" for="exampleRadios1">
+                                        공지사항 등록
+                                    </label>
+                                    <input class="form-check-input2" type="radio" name="notice_yn" id="exampleRadios2"
+                                           value="N" checked>
+                                    <label class="form-check-label2" for="exampleRadios2">
+                                        공지사항 미등록
+                                    </label>
+                                </div>
 
-                        </div>
-                        <?php
+                            </div>
+                            <?php
                         } else {
 
                         }
@@ -147,7 +154,8 @@ include 'header.html';
                             </div>
                             <div class="upload-board">
                                 <div class="button-group">
-                                    <button type="button" class="uploadfile-del" onclick="deleteBoardFileAll()">삭제</button>
+                                    <button type="button" class="uploadfile-del" onclick="deleteBoardFileAll()">삭제
+                                    </button>
                                 </div>
                                 <div class="board-thumb-box">
 
@@ -155,7 +163,9 @@ include 'header.html';
                             </div>
                         </div>
                         <div class="button-group">
-                            <button type="submit" id="confirm" class="btn btn-secondary btn-lg">등록</button>
+                            <button type="submit" id="confirm" class="btn btn-secondary btn-lg" onclick="copyContent()">
+                                등록
+                            </button>
                             <button type="button" id="cancel" class="btn btn-secondary btn-lg">취소</button>
                         </div>
                     </div>
@@ -169,5 +179,4 @@ include 'header.html';
 include 'footer.html';
 ?>
 </body>
-
 </html>

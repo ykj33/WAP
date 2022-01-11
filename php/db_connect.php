@@ -2,7 +2,8 @@
 // DB 연결 정보
 $db_user = "rikarsong";
 $db_pass = "rikar0217@@";
-//            $db_host = "localhost";
+// 개발하면서 로컬에서 접속 시에는 localhost, 서버에 올릴 땐 rikarsong.caf24.com으로
+//$db_host = "localhost";
 $db_host = "rikarsong.cafe24.com";
 $db_name = "rikarsong";
 

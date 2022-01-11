@@ -75,7 +75,7 @@ function checkFile(f) {
     let file = f.files;
     for (let i = 0; i < file.length; i++) {
         // 정규표현식으로 확장자 체크
-        if (!/\.(jpg|jpeg|png|tiff)$/i.test(file[i].name)) {
+        if (!/\.(jpg|jpeg|png|tiff|txt|hwp)$/i.test(file[i].name)) {
 
             console.log("등록불가")
             alert('이미지 파일만 선택해주세요.\njpg, jpeg, png, tiff 파일만 가능합니다. \n현재파일 : ' + file[i].name);
@@ -90,7 +90,7 @@ function checkFile(f) {
     }
     // 파일 용량 체크
     if (regist == true) {
-        checkFileCount(f)
+        // checkFileCount(f)
         checkFileSize(f)
         fileUpload(f)
     }
@@ -133,7 +133,7 @@ function checkFileSize(f) {
     } else {
         // 파일 이름 출력하기
 
-        document.getElementById("custom-file-label").innerHTML = file[0].name;
+        // document.getElementById("custom-file-label").innerHTML = file[0].name;
 
     }
 }
@@ -208,7 +208,6 @@ function deleteFile(obj) {
     $(obj).parent().parent().remove();
     $(obj).parent().val("");
 }
-
 
 
 function fileUploadSingle(f) {
@@ -293,6 +292,11 @@ function checkBoardFile(f) {
     checkFileSize(f);
     boardFileUpload(f);
 }
+
+function copyContent() {
+    document.getElementById("board_content").value = document.getElementById("editable").innerHTML;
+}
+
 
 $.fn.fileUploader = function (filesToUpload, sectionIdentifier) {
     var fileIdCounter = 0;
@@ -426,27 +430,94 @@ function deletePreview(obj) {
     $("#preview .preview-box[value=" + imgNum + "]").remove();
 }
 
-$(document).ready(function() {
-        $("#preview").on('change', function(){
+$(document).ready(function () {
+    $("#preview").on('change', function () {
         let form = $("#register_form")[0];
         let formData = new FormData(form);
 
-        for (let index = 0; index<Object.keys(files).length; index++){
-            formData.append('files',files[index]);
+        for (let index = 0; index < Object.keys(files).length; index++) {
+            formData.append('files', files[index]);
         }
 
         $.ajax({
-            type : 'POST',
-            url : '../php/record_regist.html.php',
-            data:formData,
-            success : function(result){
+            type: 'POST',
+            url: '../php/record_regist.html.php',
+            data: formData,
+            success: function (result) {
                 console.log("성공");
             }
         })
     })
 })
 
-$("#attach input[type=file]").change(function () {
-    console.log("작동")
-    addPreview($(this));
-});
+// $("#attach input[type=file]").change(function () {
+//     console.log("작동")
+//     addPreview($(this));
+// });
+
+// summernote
+// $(document).ready(function(){
+//     $("#summernote").summernote();
+// });
+
+
+// 20211012 파일 추가 및 삭제 기능 수정
+const handler = {
+    init() {
+        const fileInput = document.querySelector('#file-input');
+        const preview = document.querySelector('#preview');
+        fileInput.addEventListener('change', () => {
+            console.dir(fileInput)
+            const files = Array.from(fileInput.files)
+            console.log(files)
+            files.forEach(file => {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    // $('#img-preview').attr('src', e.target.result);
+
+
+
+
+                preview.innerHTML += `
+                        <p id="${file.lastModified}" style="width: 500px">
+                              <img id = "img-preview" src="`+e.target.result+`" width="200px"><br>
+                            ${file.name}
+                              
+                            <button data-index='${file.lastModified}' class='file-remove'>X</button>
+                        </p>`;
+                }
+                reader.readAsDataURL(file)
+            });
+
+
+        });
+
+    },
+
+    removeFile: () => {
+        document.addEventListener('click', (e) => {
+            if (e.target.className !== 'file-remove') return;
+            const removeTargetId = e.target.dataset.index;
+            const removeTarget = document.getElementById(removeTargetId);
+            const files = document.querySelector('#file-input').files;
+            const dataTranster = new DataTransfer();
+
+            // document.querySelector('#file-input').files =
+            //             Array.from(files).filter(file => file.lastModified !== removeTarget);
+
+
+            Array.from(files)
+                .filter(file => file.lastModified != removeTargetId)
+                .forEach(file => {
+                    dataTranster.items.add(file);
+                });
+
+            document.querySelector('#file-input').files = dataTranster.files;
+
+            removeTarget.remove();
+        })
+    }
+}
+
+handler.init()
+handler.removeFile()

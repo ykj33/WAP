@@ -1,10 +1,10 @@
 .inner {
     width: 1200px;
-    height: 920px;
+    /*height: 920px;*/
     margin: auto;
     flex-grow: 1;
     background-color: rgb(236, 236, 236);
-    padding-top: 180px;
+    /*padding-top: 180px;*/
 }
 
 .inner .row1 {
@@ -186,11 +186,11 @@
     height: 160px;
     background-color: #01114d;
     margin: 0 auto;
-    margin-bottom: 20px;
     left: 0;
     right: 0;
     display: flex;
-    position: fixed;
+    /*position: fixed;*/
+    z-index: 1;
 }
 
 .header .header-col1 {
@@ -333,7 +333,7 @@
 
 /* FOOTER */
 footer {
-    margin: auto;
+    margin: 200px auto;
     width: 1200px;
     background-color: lightgray;
 }
@@ -412,19 +412,20 @@ footer {
 /*기록물 목록 조회*/
 .container {
     width: 1200px;
-    margin: 0 auto;
-    padding-top: 180px;
+    margin:  auto;
 }
 
 .container .inner .list-inner {
-    /*width: 1200px;*/
+    width: 1200px;
     margin: auto;
     background-color: #fff;
 }
 
 .container .inner .list-inner .table {
     font-size: 15px;
+   margin-left: -45px
 }
+
 
 .inner .list-inner .search-group .form-inline {
     display: flex;
@@ -492,4 +493,9 @@ footer {
     border-top: 1px solid black;
 
     overflow: auto;
+}
+
+.login-form-1 {
+    width: 50%;
+    margin: 100px auto;
 }

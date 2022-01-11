@@ -3,11 +3,11 @@
 echo "넘어온 값" . $_GET['file'] . "\n";
 
 $get_filename = $_GET['file'];
-$set_filename = substr($get_filename, 17,-1);
+$set_filename = substr($get_filename, 17, -1);
 echo "파일 이름" . $set_filename . "\n";
 $target_dir = substr($get_filename, 4, 12);
 echo "위치" . $target_dir . "\n";
-$file = $_SERVER['DOCUMENT_ROOT'] . "\\" . $target_dir . "\\" . $set_filename;
+$file = $_SERVER['DOCUMENT_ROOT'] . "\\" . "wap" . "\\" . $target_dir . "\\" . $set_filename;
 echo "파일 주소" . $file . "\n";
 
 
